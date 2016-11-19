@@ -21,6 +21,7 @@
             <%@include file="inclule/slider.jsp" %>
             <div class="clearfix"></div>
         </div>
+
         <!-- banner -->
         <div class="banner_bottom">
             <div class="wthree_banner_bottom_left_grid_sub">

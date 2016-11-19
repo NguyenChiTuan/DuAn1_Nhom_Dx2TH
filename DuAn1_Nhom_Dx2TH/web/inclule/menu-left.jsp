@@ -20,16 +20,16 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
             <ul class="nav navbar-nav nav_1">
-                <li><a href="#">Danh Mục Sản Phẩm</a></li>
-                <li><a href="products.html">Branded Foods</a></li>
-                <li><a href="household.html">Households</a></li>
+                <li><a href="#">Điện Thoại - Máy Tính</a></li>
+                <li><a href="#">Phụ Kiện Công Nghệ</a></li>
+                <li><a href="#">Nhà Cửa - Đồ Gia Dụng</a></li>
                 <li class="dropdown mega-dropdown active">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Veggies & Fruits<span class="caret"></span></a>				
                     <div class="dropdown-menu mega-dropdown-menu w3ls_vegetables_menu">
                         <div class="w3ls_vegetables">
                             <ul>	
-                                <li><a href="vegetables.html">Vegetables</a></li>
-                                <li><a href="vegetables.html">Fruits</a></li>
+                                <li><a href="#">Điện Tử - Điện Lạnh</a></li>
+                                <li><a href="#">Thời Trang - Trang Sức</a></li>
                             </ul>
                         </div>                  
                     </div>				
@@ -47,7 +47,7 @@
                         </div>                  
                     </div>	
                 </li>
-                <li><a href="pet.html">Pet Food</a></li>
+                <li><a href="pet.html">Điện Tử - Điện Lạnh</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Frozen Foods<span class="caret"></span></a>
                     <div class="dropdown-menu mega-dropdown-menu w3ls_vegetables_menu">
@@ -60,6 +60,9 @@
                     </div>	
                 </li>
                 <li><a href="bread.html">Bread & Bakery</a></li>
+                <li><a href="bread.html">Bread & Bakery</a></li>
+                <li><a href="bread.html">Bread & Bakery</a></li>
+
             </ul>
         </div><!-- /.navbar-collapse -->
     </nav>

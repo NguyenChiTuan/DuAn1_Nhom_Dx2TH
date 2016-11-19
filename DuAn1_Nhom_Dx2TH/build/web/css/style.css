@@ -529,6 +529,7 @@ ul.dropdown-menu.drp-mnu li a i {
 }
 .top-brands{
     background: #f5f5f5;
+    margin-top: -130px;
 }
 .agile_top_brand_left_grid1 p{
 	color:#212121;
@@ -4274,4 +4275,8 @@ ul.wmuSliderPagination {
 		background: url(../images/cart.png) no-repeat 105px 5px;
 		font-size: 13px;
 	}
+}
+.block-title-widget{
+    border-bottom: 3px solid #ea3a3c;
+    position: relative;
 }

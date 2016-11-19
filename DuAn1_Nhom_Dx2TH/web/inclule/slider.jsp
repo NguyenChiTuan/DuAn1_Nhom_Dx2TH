@@ -22,7 +22,7 @@
                     <div class="w3l_banner_nav_right_banner1">
                         <h3>Make your <span>food</span> with Spicy.</h3>
                         <div class="more">
-                            <a href="products.html" class="button--saqui button--round-l button--text-thick" data-text="Shop now">Shop now</a>
+                            <a href="#" class="button--saqui button--round-l button--text-thick" data-text="Shop now">Shop now</a>
                         </div>
                     </div>
                 </li>

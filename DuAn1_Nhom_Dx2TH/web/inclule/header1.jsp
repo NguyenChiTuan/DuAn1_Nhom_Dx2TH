@@ -9,12 +9,12 @@
 <!-- header -->
 <div class="agileits_header">
     <div class="w3l_offers">
-        <a href="products.html">Today's special Offers !</a>
+        <a href="#">Welcome to team Dx2TH !</a>
     </div>
     <div class="w3l_search">
         <form action="#" method="post">
-            <input type="text" name="Product" value="Search a product..." onfocus="this.value = '';" onblur="if (this.value == '') {
-                        this.value = 'Search a product...';
+            <input type="text" name="Product" value="Tìm sản phẩm..." onfocus="this.value = '';" onblur="if (this.value == '') {
+                        this.value = 'Tìm sản phẩm...';
                     }" required="">
             <input type="submit" value=" ">
         </form>
@@ -24,7 +24,7 @@
             <fieldset>
                 <input type="hidden" name="cmd" value="_cart" />
                 <input type="hidden" name="display" value="1" />
-                <input type="submit" name="submit" value="View your cart" class="button" />
+                <input type="submit" name="submit" value="Xem Giỏ Hàng" class="button" />
             </fieldset>
         </form>
     </div>
@@ -35,8 +35,8 @@
                 <div class="mega-dropdown-menu">
                     <div class="w3ls_vegetables">
                         <ul class="dropdown-menu drp-mnu">
-                            <li><a href="login.html">Login</a></li> 
-                            <li><a href="login.html">Sign Up</a></li>
+                            <li><a href="login.html">Đăng Nhập</a></li> 
+                            <li><a href="login.html">Đăng Ký</a></li>
                         </ul>
                     </div>                  
                 </div>	
@@ -44,7 +44,7 @@
         </ul>
     </div>
     <div class="w3l_header_right1">
-        <h2><a href="mail.html">Contact Us</a></h2>
+        <h2><a href="#">Liên Hệ</a></h2>
     </div>
     <div class="clearfix"> </div>
 </div>
