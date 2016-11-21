@@ -47,7 +47,7 @@
                         </div>                  
                     </div>	
                 </li>
-                <li><a href="pet.html">Điện Tử - Điện Lạnh</a></li>
+                
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Frozen Foods<span class="caret"></span></a>
                     <div class="dropdown-menu mega-dropdown-menu w3ls_vegetables_menu">
@@ -59,8 +59,7 @@
                         </div>                  
                     </div>	
                 </li>
-                <li><a href="bread.html">Bread & Bakery</a></li>
-                <li><a href="bread.html">Bread & Bakery</a></li>
+               
                 <li><a href="bread.html">Bread & Bakery</a></li>
 
             </ul>
