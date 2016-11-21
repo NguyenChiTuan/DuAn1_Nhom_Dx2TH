@@ -219,7 +219,7 @@
                     <div class="clearfix"> </div>
                 </div>
                 <div class="wthree_footer_copy">
-                    <p>© 2016 Grocery Store. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+                    <p>© 2016 Grocery Store. All rights reserved | Design by Dx2TH</a></p>
                 </div>
             </div>
         </div>
