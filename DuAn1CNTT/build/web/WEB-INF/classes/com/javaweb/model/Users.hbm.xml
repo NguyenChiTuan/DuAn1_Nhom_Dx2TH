@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 26, 2016 3:44:36 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.javaweb.model.Users" table="users" catalog="db_duan01" optimistic-lock="version">
+        <id name="idUser" type="java.lang.Integer">
+            <column name="idUser" />
+            <generator class="identity" />
+        </id>
+        <property name="userName" type="string">
+            <column name="UserName" length="50" not-null="true" />
+        </property>
+        <property name="passWord" type="string">
+            <column name="PassWord" length="45" not-null="true" />
+        </property>
+        <property name="fullName" type="string">
+            <column name="FullName" length="45" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="Email" length="45" not-null="true" />
+        </property>
+        <property name="gioiTinh" type="string">
+            <column name="GioiTinh" length="4" />
+        </property>
+        <property name="diaChi" type="string">
+            <column name="DiaChi" length="250" />
+        </property>
+        <property name="sdt" type="string">
+            <column name="SDT" length="45" />
+        </property>
+        <property name="idquyen" type="int">
+            <column name="IDQuyen" not-null="true" />
+        </property>
+        <property name="avatar" type="string">
+            <column name="Avatar" length="500" />
+        </property>
+    </class>
+</hibernate-mapping>
