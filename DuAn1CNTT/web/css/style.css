@@ -1164,7 +1164,7 @@ p {
 .agile-product-text h5{ 
     font-size: 1em;
     line-height: 1.8em;
-    font-family: 'Offside', cursive;
+/*    font-family: 'Offside', cursive;*/
 	margin-top: 1em;
     text-transform: capitalize;
 }
