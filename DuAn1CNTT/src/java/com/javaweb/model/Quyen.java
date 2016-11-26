@@ -1,5 +1,5 @@
-package com.java.model;
-// Generated Nov 24, 2016 7:32:38 PM by Hibernate Tools 4.3.1
+package com.javaweb.model;
+// Generated Nov 26, 2016 3:44:35 PM by Hibernate Tools 4.3.1
 
 
 
@@ -12,20 +12,13 @@ public class Quyen  implements java.io.Serializable {
      private Integer idQuyen;
      private String tenQuyen;
      private String moTa;
-     private User user;
 
     public Quyen() {
     }
 
-	
     public Quyen(String tenQuyen, String moTa) {
-        this.tenQuyen = tenQuyen;
-        this.moTa = moTa;
-    }
-    public Quyen(String tenQuyen, String moTa, User user) {
        this.tenQuyen = tenQuyen;
        this.moTa = moTa;
-       this.user = user;
     }
    
     public Integer getIdQuyen() {
@@ -48,13 +41,6 @@ public class Quyen  implements java.io.Serializable {
     
     public void setMoTa(String moTa) {
         this.moTa = moTa;
-    }
-    public User getUser() {
-        return this.user;
-    }
-    
-    public void setUser(User user) {
-        this.user = user;
     }
 
 
