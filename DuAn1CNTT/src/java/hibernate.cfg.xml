@@ -45,7 +45,7 @@ Contributor(s):
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/db_duan01</property>
     <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.password">123456</property>
+    <property name="hibernate.connection.password">nhutrang208</property>
     <mapping resource="com/javaweb/model/Sanpham.hbm.xml"/>
     <mapping resource="com/javaweb/model/Loaitin.hbm.xml"/>
     <mapping resource="com/javaweb/model/Donhang.hbm.xml"/>
