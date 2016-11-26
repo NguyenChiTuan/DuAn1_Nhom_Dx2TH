@@ -1,7 +1,7 @@
 <%-- 
-    Document   : xemchitiet
-    Created on : Nov 23, 2016, 9:04:18 PM
-    Author     : Administrator
+    Document   : sanpham-nhacuadogiadung
+    Created on : Nov 26, 2016, 9:59:38 PM
+    Author     : Nguyễn Chí Tuấn
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

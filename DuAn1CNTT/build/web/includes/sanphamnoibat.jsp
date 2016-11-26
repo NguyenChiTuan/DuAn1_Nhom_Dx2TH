@@ -40,9 +40,9 @@
                             <div id="owl-demo" class="owl-carousel"> 
                                 <div class="item">
                                     <div class="glry-w3agile-grids agileits"> 
-                                        <a href="products.html"><img src="images/e1.png" alt="img"></a>
+                                        <a href="sanpham.jsp"><img src="images/e1.png" alt="img"></a>
                                         <div class="view-caption agileits-w3layouts">           
-                                            <h4><a href="products.html">Audio speaker</a></h4>
+                                            <h4><a href="sanpham.jsp">Audio speaker</a></h4>
                                             <p>Lorem ipsum dolor sit amet consectetur</p>
                                             <h5>$100</h5> 
                                             <form action="#" method="post">
@@ -58,9 +58,9 @@
                                 <div class="item">
                                     <div class="glry-w3agile-grids agileits">
                                         <div class="new-tag"><h6>Sale</h6></div>
-                                        <a href="products.html"><img src="images/e2.png" alt="img"></a>
+                                        <a href="sanpham.jsp"><img src="images/e2.png" alt="img"></a>
                                         <div class="view-caption agileits-w3layouts">           
-                                            <h4><a href="products.html">Refrigerator</a></h4>
+                                            <h4><a href="sanpham.jsp">Refrigerator</a></h4>
                                             <p>Lorem ipsum dolor sit amet consectetur</p> 
                                             <h5>$300</h5>
                                             <form action="#" method="post">
@@ -76,9 +76,9 @@
                                 <div class="item">
                                     <div class="glry-w3agile-grids agileits"> 
                                         <div class="new-tag"><h6>New</h6></div>
-                                        <a href="products.html"><img src="images/e3.png" alt="img"></a>
+                                        <a href="sanpham.jsp"><img src="images/e3.png" alt="img"></a>
                                         <div class="view-caption agileits-w3layouts">           
-                                            <h4><a href="products.html">Smart Phone</a></h4>
+                                            <h4><a href="sanpham.jsp">Smart Phone</a></h4>
                                             <p>Lorem ipsum dolor sit amet consectetur</p>
                                             <h5>$70</h5>
                                             <form action="#" method="post">
@@ -93,9 +93,9 @@
                                 </div>
                                 <div class="item">
                                     <div class="glry-w3agile-grids agileits"> 
-                                        <a href="products.html"><img src="images/e4.png" alt="img"></a>
+                                        <a href="sanpham.jsp"><img src="images/e4.png" alt="img"></a>
                                         <div class="view-caption agileits-w3layouts">           
-                                            <h4><a href="products.html">Digital Camera</a></h4>
+                                            <h4><a href="sanpham.jsp">Digital Camera</a></h4>
                                             <p>Lorem ipsum dolor sit amet consectetur</p>
                                             <h5>$80</h5>
                                             <form action="#" method="post">
@@ -110,9 +110,9 @@
                                 </div>
                                 <div class="item">
                                     <div class="glry-w3agile-grids agileits"> 
-                                        <a href="products.html"><img src="images/e1.png" alt="img"></a>
+                                        <a href="sanpham.jsp"><img src="images/e1.png" alt="img"></a>
                                         <div class="view-caption agileits-w3layouts">           
-                                            <h4><a href="products.html">Audio speaker</a></h4>
+                                            <h4><a href="sanpham.jsp">Audio speaker</a></h4>
                                             <p>Lorem ipsum dolor sit amet consectetur</p>
                                             <h5>$100</h5> 
                                             <form action="#" method="post">
@@ -128,9 +128,9 @@
                                 <div class="item">
                                     <div class="glry-w3agile-grids agileits">
                                         <div class="new-tag"><h6>Sale</h6></div>
-                                        <a href="products.html"><img src="images/e2.png" alt="img"></a>
+                                        <a href="sanpham.jsp"><img src="images/e2.png" alt="img"></a>
                                         <div class="view-caption agileits-w3layouts">           
-                                            <h4><a href="products.html">Refrigerator</a></h4>
+                                            <h4><a href="sanpham.jsp">Refrigerator</a></h4>
                                             <p>Lorem ipsum dolor sit amet consectetur</p> 
                                             <h5>$300</h5>
                                             <form action="#" method="post">
@@ -146,9 +146,9 @@
                                 <div class="item">
                                     <div class="glry-w3agile-grids agileits"> 
                                         <div class="new-tag"><h6>New</h6></div>
-                                        <a href="products.html"><img src="images/e3.png" alt="img"></a>
+                                        <a href="sanpham.jsp"><img src="images/e3.png" alt="img"></a>
                                         <div class="view-caption agileits-w3layouts">           
-                                            <h4><a href="products.html">Smart Phone</a></h4>
+                                            <h4><a href="sanpham.jsp">Smart Phone</a></h4>
                                             <p>Lorem ipsum dolor sit amet consectetur</p>
                                             <h5>$70</h5>
                                             <form action="#" method="post">
@@ -163,9 +163,9 @@
                                 </div>
                                 <div class="item">
                                     <div class="glry-w3agile-grids agileits"> 
-                                        <a href="products.html"><img src="images/e4.png" alt="img"></a>
+                                        <a href="sanpham.jsp"><img src="images/e4.png" alt="img"></a>
                                         <div class="view-caption agileits-w3layouts">           
-                                            <h4><a href="products.html">Digital Camera</a></h4>
+                                            <h4><a href="sanpham.jsp">Digital Camera</a></h4>
                                             <p>Lorem ipsum dolor sit amet consectetur</p>
                                             <h5>$80</h5>
                                             <form action="#" method="post">
@@ -201,9 +201,9 @@
                             <div id="owl-demo1" class="owl-carousel"> 
                                 <div class="item">
                                     <div class="glry-w3agile-grids agileits"> 
-                                        <a href="products1.html"><img src="images/f1.png" alt="img"></a>
+                                        <a href="sanpham.jsp"><img src="images/f1.png" alt="img"></a>
                                         <div class="view-caption agileits-w3layouts">           
-                                            <h4><a href="products1.html">T Shirt</a></h4>
+                                            <h4><a href="sanpham.jsp">T Shirt</a></h4>
                                             <p>Lorem ipsum dolor sit amet consectetur</p>
                                             <h5>$10</h5>
                                             <form action="#" method="post">
@@ -219,9 +219,9 @@
                                 <div class="item">
                                     <div class="glry-w3agile-grids agileits">
                                         <div class="new-tag"><h6>20% <br> Off</h6></div>
-                                        <a href="products1.html"><img src="images/f2.png" alt="img"></a>
+                                        <a href="sanpham.jsp"><img src="images/f2.png" alt="img"></a>
                                         <div class="view-caption agileits-w3layouts">           
-                                            <h4><a href="products1.html">Women Sandal</a></h4>
+                                            <h4><a href="sanpham.jsp">Women Sandal</a></h4>
                                             <p>Lorem ipsum dolor sit amet consectetur</p>
                                             <h5>$20</h5>
                                             <form action="#" method="post">
@@ -236,9 +236,9 @@
                                 </div>
                                 <div class="item">
                                     <div class="glry-w3agile-grids agileits"> 
-                                        <a href="products1.html"><img src="images/f3.png" alt="img"></a>
+                                        <a href="sanpham.jsp"><img src="images/f3.png" alt="img"></a>
                                         <div class="view-caption agileits-w3layouts">           
-                                            <h4><a href="products1.html">Jewellery</a></h4>
+                                            <h4><a href="sanpham.jsp">Jewellery</a></h4>
                                             <p>Lorem ipsum dolor sit amet consectetur</p>
                                             <h5>$60</h5>
                                             <form action="#" method="post">

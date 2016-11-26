@@ -554,7 +554,7 @@ h3.w3ls-title {
     font-size: 1.2em;
     color: #f32e20;
     margin: 1.65em 0;
-    font-family: 'Offside', cursive;
+/*    font-family: 'Offside', cursive;*/
 }
 .w3ls-add-grids.w3ls-add-grids-mdl h4 {
     padding-top: 2em;
@@ -761,7 +761,7 @@ p {
 }
 .ftr-top-right h4 {
     font-size: 1.4em;
-    font-family: 'Offside', cursive;
+/*    font-family: 'Offside', cursive;*/
     margin-bottom: 0.5em;
     color: #fff;
 }
@@ -780,13 +780,13 @@ p {
 .soon h3 {
     color: #fff; 
     font-size: 3em;
-    font-family: 'Offside', cursive;
+/*    font-family: 'Offside', cursive;*/
 }
 .soon h4 {
     font-size: 2em;
     margin: 1em 0 2em;
     color: #00b300;
-    font-family: 'Tangerine', cursive;
+/*    font-family: 'Tangerine', cursive;*/
     background: rgba(0, 0, 0, 0.75);
     display: inline-block;
     padding: .5em 1em;
@@ -832,7 +832,7 @@ p {
     font-size: 1.3em;
     color: #000;
     margin-bottom: 1em;
-    font-family: 'Offside', cursive;
+/*    font-family: 'Offside', cursive;*/
 } 
 .subscribe input[type="text"] {
     width: 70%;
@@ -1001,7 +1001,7 @@ p {
 .footer h3 {
     font-size: 1.4em;
     color: #f5f5f5;
-    font-family: 'Offside', cursive;
+/*    font-family: 'Offside', cursive;*/
     margin-bottom: 1em;
     text-transform: uppercase;
 } 
@@ -1133,7 +1133,7 @@ p {
 .product-top h4 {
     font-size: 1.3em;
     color: #fff;
-    font-family: 'Offside', cursive;
+/*    font-family: 'Offside', cursive;*/
     float: left;
 }
 .product-top ul li a.dropdown-toggle {
@@ -1270,7 +1270,7 @@ input.item_quantity:hover{
     color: #f44336;
     text-transform: uppercase;
     margin-bottom: 1em;
-    font-family: 'Offside', cursive;
+/*    font-family: 'Offside', cursive;*/
 }
 .checkbox {
     position: relative;
@@ -2018,7 +2018,7 @@ h5.sitemap-text-title {
     text-transform: capitalize;
     font-size: 2em;
     color: #f44336;
-    font-family: 'Offside', cursive;
+/*    font-family: 'Offside', cursive;*/
 	margin-bottom: .3em;
 } 
 .single-top-right ul li {
@@ -2058,7 +2058,7 @@ h5.sitemap-text-title {
 .single-price ul li span.w3off {
     font-size: 1.5em;
     color: #0280e1;
-    font-family: 'Offside', cursive;
+/*    font-family: 'Offside', cursive;*/
 }
 .single-price.price ul li a {
     color: #f44336;

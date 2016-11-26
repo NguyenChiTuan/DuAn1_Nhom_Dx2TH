@@ -28,21 +28,21 @@
             <div class="container">  
                 <div class="add-products-row">
                     <div class="w3ls-add-grids">
-                        <a href="products1.html"> 
-                            <h4>TOP 10 TRENDS FOR YOU FLAT <span>20%</span> OFF</h4>
-                            <h6>Shop now <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></h6>
+                        <a href="sanpham.jsp"> 
+                            <h4>Top 10 sản phẩm dành cho bạn. Giảm giá <span>20%</span></h4>
+                            <h6>Mua ngay <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></h6>
                         </a>
                     </div>
                     <div class="w3ls-add-grids w3ls-add-grids-mdl">
-                        <a href="products1.html"> 
-                            <h4>SUNDAY SPECIAL DISCOUNT FLAT <span>40%</span> OFF</h4>
-                            <h6>Shop now <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></h6>
+                        <a href="sanpham.jsp"> 
+                            <h4>Chủ nhật đặc biệt giảm giá <span>40%</span></h4>
+                            <h6>Mua ngay <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></h6>
                         </a>
                     </div>
                     <div class="w3ls-add-grids w3ls-add-grids-mdl1">
-                        <a href="products.html"> 
-                            <h4>LATEST DESIGNS FOR YOU <span> Hurry !</span></h4>
-                            <h6>Shop now <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></h6>
+                        <a href="sanpham.jsp"> 
+                            <h4>Thiết kế mới dành cho bạn!</h4>
+                            <h6>Mua ngay <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></h6>
                         </a>
                     </div>
                     <div class="clerfix"> </div>
@@ -53,8 +53,8 @@
         <!-- coming soon -->
         <div class="soon">
             <div class="container">
-                <h3>Mega Deal Of the Week</h3>
-                <h4>Coming Soon Don't Miss Out</h4>  
+                <h3>Khuyễn mãi cực sốc</h3>
+                <h4>Đừng bỏ lỡ</h4>  
                 <div id="countdown1" class="ClassyCountdownDemo"></div>
             </div> 
         </div>
@@ -62,18 +62,18 @@
         <!-- deals -->
         <div class="deals"> 
             <div class="container"> 
-                <h3 class="w3ls-title">DEALS OF THE DAY </h3>
+                <h3 class="w3ls-title">Giao hàng trong ngày </h3>
                 <div class="deals-row">
                     <div class="col-md-3 focus-grid"> 
                         <a href="products.html" class="wthree-btn"> 
                             <div class="focus-image"><i class="fa fa-mobile"></i></div>
-                            <h4 class="clrchg">Mobiles</h4> 
+                            <h4 class="clrchg">Điện Thoại</h4> 
                         </a>
                     </div>
                     <div class="col-md-3 focus-grid"> 
                         <a href="products.html" class="wthree-btn wthree1"> 
                             <div class="focus-image"><i class="fa fa-laptop"></i></div>
-                            <h4 class="clrchg"> Electronics & Appliances</h4> 
+                            <h4 class="clrchg">Laptop</h4> 
                         </a>
                     </div> 
                     <div class="col-md-3 focus-grid"> 
@@ -162,8 +162,8 @@
                             <i class="fa fa-truck" aria-hidden="true"></i>
                         </div> 
                         <div class="ftr-top-right">
-                            <h4>FREE DELIVERY</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tempus justo ac </p>
+                            <h4>Miễn phí vận chuyển</h4>
+                            <p>Miễn phí vận chuyển các đơn hàng dưới 15kg</p>
                         </div> 
                         <div class="clearfix"> </div>
                     </div> 
@@ -172,8 +172,8 @@
                             <i class="fa fa-user" aria-hidden="true"></i>
                         </div> 
                         <div class="ftr-top-right">
-                            <h4>CUSTOMER CARE</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tempus justo ac </p>
+                            <h4>Chăm sóc khách hàng</h4>
+                            <p>Liên hệ: 0976 888 222</p>
                         </div> 
                         <div class="clearfix"> </div>
                     </div>
@@ -182,8 +182,8 @@
                             <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
                         </div> 
                         <div class="ftr-top-right">
-                            <h4>GOOD QUALITY</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tempus justo ac </p>
+                            <h4>Chất lượng tốt</h4>
+                            <p>Cam kết với khách hàng</p>
                         </div>
                         <div class="clearfix"> </div>
                     </div> 

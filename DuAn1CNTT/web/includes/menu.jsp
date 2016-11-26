@@ -32,8 +32,9 @@
                     <a href="#"><%= MenuCha.getTenLoaiSanPham() %></a>
                     <ul class="cd-secondary-dropdown is-hidden">
                         <li class="go-back"><a href="#">Menu</a></li>
-                        <li class="see-all"><a href="products8.html">All Products</a></li>
+                        <li class="see-all"><a href="sanpham.jsp">All Products</a></li>
                         <li class="has-children">
+                            <a href="#"><%= MenuCha.getTenLoaiSanPham() %></a>
                             <ul class="is-hidden">
                                 <li class="go-back"><a href="#"></a></li>
                                 <%
@@ -43,7 +44,7 @@
                                 
                                      
                                 %>
-                                <li><a href="#"><%= Menucon.getTenLoaiSanPham() %></a></li>
+                                <li><a href="sanpham.jsp"><%= Menucon.getTenLoaiSanPham() %></a></li>
                                 <%
                                     }
                                 %>
