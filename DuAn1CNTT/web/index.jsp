@@ -154,74 +154,10 @@
         </div> 
         <!-- //deals --> 
         <!-- footer-top -->
-        <div class="w3agile-ftr-top">
-            <div class="container">
-                <div class="ftr-toprow">
-                    <div class="col-md-4 ftr-top-grids">
-                        <div class="ftr-top-left">
-                            <i class="fa fa-truck" aria-hidden="true"></i>
-                        </div> 
-                        <div class="ftr-top-right">
-                            <h4>Miễn phí vận chuyển</h4>
-                            <p>Miễn phí vận chuyển các đơn hàng dưới 15kg</p>
-                        </div> 
-                        <div class="clearfix"> </div>
-                    </div> 
-                    <div class="col-md-4 ftr-top-grids">
-                        <div class="ftr-top-left">
-                            <i class="fa fa-user" aria-hidden="true"></i>
-                        </div> 
-                        <div class="ftr-top-right">
-                            <h4>Chăm sóc khách hàng</h4>
-                            <p>Liên hệ: 0976 888 222</p>
-                        </div> 
-                        <div class="clearfix"> </div>
-                    </div>
-                    <div class="col-md-4 ftr-top-grids">
-                        <div class="ftr-top-left">
-                            <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
-                        </div> 
-                        <div class="ftr-top-right">
-                            <h4>Chất lượng tốt</h4>
-                            <p>Cam kết với khách hàng</p>
-                        </div>
-                        <div class="clearfix"> </div>
-                    </div> 
-                    <div class="clearfix"> </div>
-                </div>
-            </div>
-        </div>
+        <%@include file="includes/footer-top.jsp" %>
         <!-- //footer-top --> 
         <!-- subscribe -->
-        <div class="subscribe"> 
-            <div class="container">
-                <div class="col-md-6 social-icons w3-agile-icons">
-                    <h4>Liên hệ với chúng tôi</h4>  
-                    <ul>
-                        <li><a href="#" class="fa fa-facebook icon facebook"> </a></li>
-                        <li><a href="#" class="fa fa-twitter icon twitter"> </a></li>
-                        <li><a href="#" class="fa fa-google-plus icon googleplus"> </a></li>
-                        <li><a href="#" class="fa fa-dribbble icon dribbble"> </a></li>
-                        <li><a href="#" class="fa fa-rss icon rss"> </a></li> 
-                    </ul> 
-                    <ul class="apps"> 
-                        <li><h4>Tải ứng dụng : </h4> </li>
-                        <li><a href="#" class="fa fa-apple"></a></li>
-                        <li><a href="#" class="fa fa-windows"></a></li>
-                        <li><a href="#" class="fa fa-android"></a></li>
-                    </ul>
-                </div> 
-                <div class="col-md-6 subscribe-right">
-                    <h4>Đăng ký nhận thông tin khuyến mãi qua Email!</h4>  
-                    <form action="#" method="post"> 
-                        <input type="text" name="email" placeholder="Nhập địa chỉ email..." required="">
-                        <input type="submit" value="Gửi">
-                    </form>
-                    <div class="clearfix"> </div> 
-                </div>
-                <div class="clearfix"> </div>
-            </div>
-        </div>
+        <%@include file="includes/subscribe.jsp" %>
         <!-- //subscribe --> 
         <!-- footer -->
         <%@include file="includes/footer.jsp" %>

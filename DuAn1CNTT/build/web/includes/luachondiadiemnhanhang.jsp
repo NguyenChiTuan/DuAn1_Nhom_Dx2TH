@@ -27,6 +27,6 @@
         </div>
     </div>
 </div>
-<!--<script>
+<script>
     $('#myModal88').modal('show');
-</script>-->
+</script>

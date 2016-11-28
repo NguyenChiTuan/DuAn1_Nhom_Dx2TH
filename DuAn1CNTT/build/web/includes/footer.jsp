@@ -11,7 +11,7 @@
         <div class="footer-info w3-agileits-info">
             <div class="col-md-4 address-left agileinfo">
                 <div class="footer-logo header-logo">
-                    <h2><a href="index.html"><span>F</span>Dx2T <i>FPT</i></a></h2>
+                    <h2><a href="index.jsp"><span>F</span>Dx2T <i>FPT</i></a></h2>
                     <h6>FPT Polytechnic Tây Nguyên</h6>
                 </div>
                 <ul>
@@ -25,18 +25,18 @@
                 <div class="col-md-4 footer-grids">
                     <h3>Công Ty</h3>
                     <ul>
-                        <li><a href="about.html">Về chúng tôi</a></li>
-                        <li><a href="marketplace.html">Tư Vấn</a></li>  
-                        <li><a href="values.html">Tin Tức</a></li>  
-                        <li><a href="privacy.html">Khuyến Mãi</a></li>
+                        <li><a href="#">Về chúng tôi</a></li>
+                        <li><a href="#">Tư Vấn</a></li>  
+                        <li><a href="#">Tin Tức</a></li>  
+                        <li><a href="#">Khuyến Mãi</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4 footer-grids">
                     <h3>Dịch Vụ</h3>
                     <ul>
-                        <li><a href="contact.html">Về chúng tôi</a></li>
-                        <li><a href="login.html">Tình Trạng Đơn Hàng</a></li>
-                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="#">Về chúng tôi</a></li>
+                        <li><a href="#">Tình Trạng Đơn Hàng</a></li>
+                        <li><a href="#">FAQ</a></li>
                     </ul> 
                 </div>
                 <div class="col-md-4 footer-grids">
@@ -56,7 +56,7 @@
     </div>
 </div>
 <div class="copy-right"> 
-    <div class="container">
+    <div class="container-fluid">
         <p>© 2016 DTT . All rights reserved | Design by <a href="#"> Dx2T Team...</a></p>
     </div>
 </div>
