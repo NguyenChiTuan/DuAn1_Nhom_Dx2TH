@@ -19,7 +19,7 @@ import org.hibernate.Transaction;
  */
 public class SanphamService {
 
-    public ArrayList<Sanpham> GetAllSanpham(int IdMunuCha) {
+    public ArrayList<Sanpham> GetAllSanpham(int IdMunuCha,int soluong) {
         Session session = NewHibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
         ArrayList<Sanpham> ListSanPham = new ArrayList<>();
@@ -27,8 +27,9 @@ public class SanphamService {
             tx = session.getTransaction();
             tx.begin();
             String strquery = "from Sanpham where IdLoaiSanPham in (from Loaisanpham where Idparent="+IdMunuCha+") order by IdSanpham Desc";
+            
             Query query = session.createQuery(strquery);
-
+            query.setMaxResults(soluong);
             ListSanPham = (ArrayList<Sanpham>) query.list();
             tx.commit();
         } catch (Exception e) {
