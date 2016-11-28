@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Nov 28, 2016 1:52:21 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Nov 28, 2016 3:38:38 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.javaweb.model.Loaitintuc" table="loaitintuc" catalog="db_duan01" optimistic-lock="version">
         <id name="idLoaiTinTuc" type="java.lang.Integer">

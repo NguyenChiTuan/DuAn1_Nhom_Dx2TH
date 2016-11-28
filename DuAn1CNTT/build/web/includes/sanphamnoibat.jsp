@@ -16,11 +16,11 @@
     ArrayList<Sanpham> ListSanphamLuuNiem = null;
     ArrayList<Sanpham> ListSanphamNhaCua= null;
     ArrayList<Sanpham> ListSanphamTheThao= null;
-    ListSanphamLapTop = sanphamService.GetAllSanpham(1);
-    ListSanphamDienThoai = sanphamService.GetAllSanpham(2);
-    ListSanphamLuuNiem = sanphamService.GetAllSanpham(3);
-    ListSanphamNhaCua = sanphamService.GetAllSanpham(4);
-    ListSanphamTheThao = sanphamService.GetAllSanpham(5);
+    ListSanphamLapTop = sanphamService.GetAllSanpham(1,4);
+    ListSanphamDienThoai = sanphamService.GetAllSanpham(2,5);
+    ListSanphamLuuNiem = sanphamService.GetAllSanpham(3,5);
+    ListSanphamNhaCua = sanphamService.GetAllSanpham(4,5);
+    ListSanphamTheThao = sanphamService.GetAllSanpham(5,5);
 %>
 <div class="welcome"> 
     <div class="container"> 

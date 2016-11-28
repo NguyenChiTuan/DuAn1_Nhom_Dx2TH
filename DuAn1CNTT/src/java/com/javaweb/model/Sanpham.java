@@ -1,5 +1,5 @@
 package com.javaweb.model;
-// Generated Nov 28, 2016 1:52:20 PM by Hibernate Tools 4.3.1
+// Generated Nov 28, 2016 3:38:37 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -19,7 +19,7 @@ public class Sanpham  implements java.io.Serializable {
      private Double giaKm;
      private Integer soLuong;
      private byte[] linkSp;
-     private byte[] image;
+     private String image;
      private Set<Binhluansanpham> binhluansanphams = new HashSet<Binhluansanpham>(0);
      private Set<Chitietdonhang> chitietdonhangs = new HashSet<Chitietdonhang>(0);
 
@@ -32,7 +32,7 @@ public class Sanpham  implements java.io.Serializable {
         this.tenSanPham = tenSanPham;
         this.gia = gia;
     }
-    public Sanpham(Loaisanpham loaisanpham, String tenSanPham, double gia, String moTa, Double giaKm, Integer soLuong, byte[] linkSp, byte[] image, Set<Binhluansanpham> binhluansanphams, Set<Chitietdonhang> chitietdonhangs) {
+    public Sanpham(Loaisanpham loaisanpham, String tenSanPham, double gia, String moTa, Double giaKm, Integer soLuong, byte[] linkSp, String image, Set<Binhluansanpham> binhluansanphams, Set<Chitietdonhang> chitietdonhangs) {
        this.loaisanpham = loaisanpham;
        this.tenSanPham = tenSanPham;
        this.gia = gia;
@@ -101,11 +101,11 @@ public class Sanpham  implements java.io.Serializable {
     public void setLinkSp(byte[] linkSp) {
         this.linkSp = linkSp;
     }
-    public byte[] getImage() {
+    public String getImage() {
         return this.image;
     }
     
-    public void setImage(byte[] image) {
+    public void setImage(String image) {
         this.image = image;
     }
     public Set<Binhluansanpham> getBinhluansanphams() {
