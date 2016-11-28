@@ -42,10 +42,20 @@
                 <li class="dropdown head-dpdn">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i> Tài Khoản<span class="caret"></span></a>
                     <ul class="dropdown-menu">
+                        <%if (session.getAttribute("email") == null) {
+                %>
                         <li><a href="dangnhap.jsp">Đăng Nhập</a></li> 
                         <li><a href="dangky.jsp">Đăng Ký</a></li> 
                         <li><a href="#">Kiểm Tra Đơn Hàng</a></li>  
                         <li><a href="#">Ví Điện Tử</a></li>
+                        <%
+            } else {
+            %>
+            <li><a href="#">Wellcome: <%= session.getAttribute("email")%></a></li>
+            <li><a href="exit.jsp"> Logout</a></li>
+                <%
+                    }
+                %>
                     </ul> 
                 </li> 
                 <li class="dropdown head-dpdn">

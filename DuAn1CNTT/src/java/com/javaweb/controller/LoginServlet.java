@@ -20,7 +20,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author TAO-PC
  */
-public class RegisterServlet extends HttpServlet {
+public class LoginServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,52 +34,36 @@ public class RegisterServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String Password,Email,UserName,FullName,rpw,Sdt,gioitinh,DiaChi,quyen;
+        String Password,email;
         request.setCharacterEncoding("UTF-8");
-        Email= request.getParameter("Email");
-        Password= request.getParameter("password");
-        UserName= request.getParameter("UserName");
-        FullName=request.getParameter("FullName");
-        rpw=request.getParameter("rpw");
-        Sdt=request.getParameter("Sdt");
-        DiaChi=request.getParameter("DiaChi");
-        gioitinh=request.getParameter("gioitinh");
-     
-
-   
-        
-   
-        HttpSession session=request.getSession();
-        if(Password.equals(rpw)){
+       email= request.getParameter("Email");
+        Password= request.getParameter("Password");
+         HttpSession session=request.getSession();
+                       
+            boolean kiemTra;
             UserService us=new UserService();
             String mkmh=md5.md5Encryption(Password);
-            Users user=new Users( UserName, mkmh, FullName, Email, gioitinh, DiaChi, Sdt);
-            us.Insertservice(user);
+            kiemTra = us.CheckLogin(email, mkmh);
+           if(kiemTra){
+               Users user = us.GetUsersByEmailorUsersName(email);
+                session.setAttribute("email",user.getFullName());
+                String url= "/index.jsp";
+                getServletContext().getRequestDispatcher(url).forward(request, response);
             
-            
-            String url= "/dangnhap.jsp";
-                getServletContext().getRequestDispatcher(url).forward(request, response);   
         }else{
-                String url="/dangky.jsp";
+                String url="/dangnhap.jsp";
                 getServletContext().getRequestDispatcher(url).forward(request, response);
             }
-//        
-        
-        
-        
-        
-        
-        
-        
+           
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet RegisterServlet</title>");            
+            out.println("<title>Servlet LoginServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet RegisterServlet at " + request.getContextPath() +"</h1>");//+Password+Email+UserName+FullName+rpw+Sdt+gioitinh+DiaChi// 
+            out.println("<h1>Servlet LoginServlet at " + request.getContextPath()+"</h1>");
             out.println("</body>");
             out.println("</html>");
         }
