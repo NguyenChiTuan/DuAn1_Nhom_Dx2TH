@@ -6,7 +6,7 @@
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/db_duan01</property>
     <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.password">nhutrang208</property>
+    <property name="hibernate.connection.password">123456</property>
     <mapping resource="com/javaweb/model/Chitietdonhang.hbm.xml"/>
     <mapping resource="com/javaweb/model/Binhluantintuc.hbm.xml"/>
     <mapping resource="com/javaweb/model/Loaisanpham.hbm.xml"/>
