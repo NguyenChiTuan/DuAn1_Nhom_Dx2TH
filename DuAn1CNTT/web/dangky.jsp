@@ -18,163 +18,88 @@
         <!-- //header --> 	
         <!-- sign up-page -->
         <div class="login-page">
-            <div class="container"> 
-                <h3 class="w3ls-title w3ls-title1">Create your account</h3>  
-                <div class="login-body">
-                    <form action="RegisterServlet" method="post">
-                        <input type="text" class="user" name="FullName" placeholder="Nhập Đầy đủ tên" required="">
-                        <input type="text" class="user" name="Email" placeholder="Nhập địa chỉ mail" required="">
-                        <input type="text" class="user" name="UserName" placeholder="tên đăng nhập" required="">
-                        <input type="text" class="user" name="Sdt" placeholder="Số điện thoại" required="">
-                        
-                        <input name="gioitinh" type="radio" value="Nam" />Nam
-                        <input name="gioitinh" type="radio" value=”Nữ” />Nữ<br />
-                         <input type="text" class="user" name="DiaChi" placeholder="Địa chỉ" required="">
-                        <input type="password" name="password" class="lock" placeholder="Mật khẩu..." required="">
-                        <input type="password" name="rpw" class="lock" placeholder=" Nhập Lại Mật khẩu" required="">
-                        <input style="display: none;" name="quyen" value="3" />
-                        <input type="submit" value="Đăng Ký">
-                        <div class="forgot-grid">
-                            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Remember me</label>
-                            <div class="forgot">
-                                <a href="#">Quên mật khẩu?</a>
-                            </div>
-                            <div class="clearfix"> </div>
+            <div class="container img-thumbnail signup-img ">
+                <div class="row">
+                    <div class="col-md-12 ">
+                        <div class="login-body pull-right">
+                            <form action="RegisterServlet" method="post" class="formdk-custom">
+                                <h4>Đăng ký tài khoản</h4>
+                                <hr style="border: 1px dashed tomato;">
+                                <div class="input-group">
+                                    <span class="input-group-addon">FullName(*)</span>
+                                    <input type="text" class="user form-control" name="FullName" placeholder="Nhập đầy đủ tên" required="">
+                                </div>
+                                <br>
+                                <div class="input-group">
+                                    <span class="input-group-addon">Email(*)</span>
+                                    <input type="text" class="user form-control" name="Email" placeholder="Nhập địa chỉ email" required="">
+                                </div>
+                                <br>
+                                <div class="input-group">
+                                    <span class="input-group-addon">Tên đăng nhập(*)</span>
+                                    <input type="text" class="user form-control" name="UserName" placeholder="Sử dụng tài khoản hoặc Email để đăng nhập" required="">
+                                </div>
+                                <br>
+                                <div class="input-group">
+                                    <span class="input-group-addon">Mật khẩu(*)</span>
+                                    <input class="form-control" type="password" name="password" class="lock" placeholder="Nhập mật khẩu" required="">
+                                </div>
+                                <br>
+                                <div class="input-group">
+                                    <span class="input-group-addon">Nhập lại mật khẩu(*)</span>
+                                    <input type="password" name="rpw" class="lock form-control" placeholder="Nhập lại mật khẩu" required="">
+                                </div>
+                                <br>
+                                <div class="input-group">
+                                    <span class="input-group-addon">Địa Chỉ</span>
+                                    <input type="text" class="user form-control" name="DiaChi" placeholder="Nhập địa chỉ" required="">
+                                </div>
+                                <br>
+                                <div class="input-group">
+                                    <span class="input-group-addon">SĐT</span>
+                                    <input type="text" class="user form-control" name="Sdt" placeholder="Số điện thoại" required="">
+                                </div>
+                                <br>
+                                <div class="input-group">
+                                    <span class="input-group-addon">Giới Tính</span>
+                                    <label class="radio-inline" style="padding-left: 40px; margin-bottom: -7px;">
+                                        <input type="radio" name="gioitinh">Nam
+                                    </label>
+                                    <label class="radio-inline" style="padding-left: 40px; margin-bottom: -7px;">
+                                        <input type="radio" name="gioitinh">Nữ
+                                    </label>
+                                </div>
+                                <br>
+                                <input style="display: none;" name="quyen" value="3" />
+                                <input type="submit" value="Đăng Ký">
+
+                                <div class="forgot-grid">
+                                    <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>
+                                        Tôi đã đọc và đồng ý theo điều khoản thành viên.</label>
+                                    <div class="forgot">
+                                        <a href="#">Quên mật khẩu?</a>
+                                    </div>
+                                    <div class="clearfix"> </div>
+                                    <hr style="border: 1px dashed tomato;">
+                                    <h6>Bạn đã có tài khoản? <a href="dangnhap.jsp">Đăng nhập ngay!</a> </h6> 
+                                </div>
+                            </form>
                         </div>
-                    </form>
-                </div>  
-                <h6>Bạn đã có tài khoản? <a href="dangnhap.jsp">Đăng nhập ngay!</a> </h6>  
+                    </div>
+                </div>
+                  
+                 
             </div>
         </div>
         <!-- //sign up-page --> 
         <!-- footer-top -->
-        <div class="w3agile-ftr-top">
-            <div class="container">
-                <div class="ftr-toprow">
-                    <div class="col-md-4 ftr-top-grids">
-                        <div class="ftr-top-left">
-                            <i class="fa fa-truck" aria-hidden="true"></i>
-                        </div> 
-                        <div class="ftr-top-right">
-                            <h4>FREE DELIVERY</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tempus justo ac </p>
-                        </div> 
-                        <div class="clearfix"> </div>
-                    </div> 
-                    <div class="col-md-4 ftr-top-grids">
-                        <div class="ftr-top-left">
-                            <i class="fa fa-user" aria-hidden="true"></i>
-                        </div> 
-                        <div class="ftr-top-right">
-                            <h4>CUSTOMER CARE</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tempus justo ac </p>
-                        </div> 
-                        <div class="clearfix"> </div>
-                    </div>
-                    <div class="col-md-4 ftr-top-grids">
-                        <div class="ftr-top-left">
-                            <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
-                        </div> 
-                        <div class="ftr-top-right">
-                            <h4>GOOD QUALITY</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tempus justo ac </p>
-                        </div>
-                        <div class="clearfix"> </div>
-                    </div> 
-                    <div class="clearfix"> </div>
-                </div>
-            </div>
-        </div>
+        <%@include file="includes/footer-top.jsp" %>
         <!-- //footer-top --> 
         <!-- subscribe -->
-        <div class="subscribe"> 
-            <div class="container">
-                <div class="col-md-6 social-icons w3-agile-icons">
-                    <h4>Keep in touch</h4>  
-                    <ul>
-                        <li><a href="#" class="fa fa-facebook icon facebook"> </a></li>
-                        <li><a href="#" class="fa fa-twitter icon twitter"> </a></li>
-                        <li><a href="#" class="fa fa-google-plus icon googleplus"> </a></li>
-                        <li><a href="#" class="fa fa-dribbble icon dribbble"> </a></li>
-                        <li><a href="#" class="fa fa-rss icon rss"> </a></li> 
-                    </ul>
-                    <ul class="apps"> 
-                        <li><h4>Download Our app : </h4> </li>
-                        <li><a href="#" class="fa fa-apple"></a></li>
-                        <li><a href="#" class="fa fa-windows"></a></li>
-                        <li><a href="#" class="fa fa-android"></a></li>
-                    </ul>
-                </div> 
-                <div class="col-md-6 subscribe-right">
-                    <h4>Sign up for email and get 25%off!</h4>  
-                    <form action="#" method="post"> 
-                        <input type="text" name="email" placeholder="Enter your Email..." required="">
-                        <input type="submit" value="Subscribe">
-                    </form>
-                    <div class="clearfix"> </div> 
-                </div>
-                <div class="clearfix"> </div>
-            </div>
-        </div>
+        <%@include file="includes/subscribe.jsp" %>
         <!-- //subscribe --> 
         <!-- footer -->
-        <div class="footer">
-            <div class="container">
-                <div class="footer-info w3-agileits-info">
-                    <div class="col-md-4 address-left agileinfo">
-                        <div class="footer-logo header-logo">
-                            <h2><a href="index.html"><span>S</span>mart <i>Bazaar</i></a></h2>
-                            <h6>Your stores. Your place.</h6>
-                        </div>
-                        <ul>
-                            <li><i class="fa fa-map-marker"></i> 123 San Sebastian, New York City USA.</li>
-                            <li><i class="fa fa-mobile"></i> 333 222 3333 </li>
-                            <li><i class="fa fa-phone"></i> +222 11 4444 </li>
-                            <li><i class="fa fa-envelope-o"></i> <a href="mailto:example@mail.com"> mail@example.com</a></li>
-                        </ul> 
-                    </div>
-                    <div class="col-md-8 address-right">
-                        <div class="col-md-4 footer-grids">
-                            <h3>Company</h3>
-                            <ul>
-                                <li><a href="about.html">About Us</a></li>
-                                <li><a href="marketplace.html">Marketplace</a></li>  
-                                <li><a href="values.html">Core Values</a></li>  
-                                <li><a href="privacy.html">Privacy Policy</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-md-4 footer-grids">
-                            <h3>Services</h3>
-                            <ul>
-                                <li><a href="contact.html">Contact Us</a></li>
-                                <li><a href="login.html">Returns</a></li> 
-                                <li><a href="faq.html">FAQ</a></li>
-                                <li><a href="sitemap.html">Site Map</a></li>
-                                <li><a href="login.html">Order Status</a></li>
-                            </ul> 
-                        </div>
-                        <div class="col-md-4 footer-grids">
-                            <h3>Payment Methods</h3>
-                            <ul>
-                                <li><i class="fa fa-laptop" aria-hidden="true"></i> Net Banking</li>
-                                <li><i class="fa fa-money" aria-hidden="true"></i> Cash On Delivery</li>
-                                <li><i class="fa fa-pie-chart" aria-hidden="true"></i>EMI Conversion</li>
-                                <li><i class="fa fa-gift" aria-hidden="true"></i> E-Gift Voucher</li>
-                                <li><i class="fa fa-credit-card" aria-hidden="true"></i> Debit/Credit Card</li>
-                            </ul>  
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-        </div>
-        <!-- //footer -->		
-        <div class="copy-right"> 
-            <div class="container">
-                <p>© 2016 Smart bazaar . All rights reserved | Design by <a href="http://w3layouts.com"> W3layouts.</a></p>
-            </div>
-        </div> 
+        <%@include file="includes/footer.jsp" %>
         <!-- cart-js -->
         <script src="js/minicart.js"></script>
         <script>

@@ -19,29 +19,40 @@
         <!-- login-page -->
         <div class="login-page">
             <div class="container"> 
-                <h3 class="w3ls-title w3ls-title1">Login to your account</h3>  
+                  
                 <div class="login-body">
                     <form action="LoginServlet" method="post">
-                        <input type="text"  name="Email" placeholder="Nhập địa chỉ mail..." required="">
-                        <input type="password" name="Password"  placeholder="Mật khẩu..." required="">
+                        <h4>Đăng Nhập</h4>
+                        <hr style="border: 1px dashed tomato;">
+                        <div class="input-group">
+                            <span class="input-group-addon">Tài khoản</span>
+                            <input type="text" class="user form-control"  name="Email" placeholder="Sử dụng tài khoản hoặc Email để đăng nhập" required="">
+                        </div>
+                        <br>
+                        <div class="input-group">
+                            <span class="input-group-addon">Mật khẩu</span>
+                            <input type="password" class="user form-control" name="Password" required="">
+                        </div>
+                        <br>
                         <input type="submit" value="Đăng Nhập">
                         <div class="forgot-grid">
-                            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Remember me</label>
+                            <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Nhớ thông tin đăng nhập</label>
                             <div class="forgot">
-                                <a href="#">Quên Mật Khẩu</a>
+                                <a href="#">Quên mật khẩu?</a>
                             </div>
                             <div class="clearfix"> </div>
+                            <h6> Chưa có tài khoản? <a href="dangky.jsp">Đăng ký ngay!</a> </h6> 
+                            <div class="login-page-bottom social-icons">
+                                <h6>Hoặc, Đăng nhập bằng </h6>
+                                <ul>
+                                    <li><a href="#" class="fa fa-facebook icon facebook"> </a></li>
+                                    <li><a href="#" class="fa fa-google-plus icon googleplus"> </a></li>
+                                </ul> 
+                            </div>
                         </div>
                     </form>
                 </div>  
-                <h6> Chưa có tài khoản? <a href="dangky.jsp">Đăng ký ngay!</a> </h6> 
-                <div class="login-page-bottom social-icons">
-                    <h6>Hoặc, Đăng nhập bằng </h6>
-                    <ul>
-                        <li><a href="#" class="fa fa-facebook icon facebook"> </a></li>
-                        <li><a href="#" class="fa fa-google-plus icon googleplus"> </a></li>
-                    </ul> 
-                </div>
+                
             </div>
         </div>
         <!-- //login-page --> 

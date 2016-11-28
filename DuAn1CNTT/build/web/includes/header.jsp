@@ -17,20 +17,28 @@
                 <li class="dropdown head-dpdn">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i> Tài Khoản<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="dangnhap.jsp">Đăng Nhập</a></li> 
-                        <li><a href="dangky.jsp">Đăng Ký</a></li> 
-                        <li><a href="#">Kiểm Tra Đơn Hàng</a></li>  
+                        <li><a href="dangnhap.jsp">Đăng Nhập</a></li>
+                        <li class="divider"></li>
+                        <li><a href="dangky.jsp">Đăng Ký</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Kiểm Tra Đơn Hàng</a></li>
+                        <li class="divider"></li>
                         <li><a href="#">Ví Điện Tử</a></li>
                     </ul> 
                 </li>
                 <li class="dropdown head-dpdn">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-gift" aria-hidden="true"></i> Tin Tức<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Công Nghệ</a></li> 
+                        <li><a href="#">Công Nghệ</a></li>
+                        <li class="divider"></li>
                         <li><a href="#">Giáo Dục</a></li>
-                        <li><a href="#">Kinh Doanh</a></li> 
-                        <li><a href="#">Khoa Học</a></li> 
-                        <li><a href="#">Thời Sự</a></li> 
+                        <li class="divider"></li>
+                        <li><a href="#">Kinh Doanh</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Khoa Học</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Thời Sự</a></li>
+                        <li class="divider"></li>
                         <li><a href="#">Thế Giới</a></li> 
                     </ul> 
                 </li>
