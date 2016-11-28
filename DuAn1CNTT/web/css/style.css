@@ -384,7 +384,7 @@ h3.w3ls-title {
     font-weight: normal;
     margin-bottom: 10px;
     padding-bottom: 10px;
-    font-family: 'Offside', cursive;
+/*    font-family: 'Offside', cursive;*/
     font-weight: 600;
     text-transform: capitalize;
 }
@@ -2244,7 +2244,7 @@ p.sbmincart-empty-text {
 }
 .agileits-modal h4 {
     color: #F44336;
-    font-family: 'Offside', cursive; 
+/*    font-family: 'Offside', cursive; */
     font-size: 1.8em;
 } 
 .agileits-modal h5 {

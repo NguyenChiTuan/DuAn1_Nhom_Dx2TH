@@ -44,7 +44,7 @@
                             <h5>Nhà Cửa & Đồ Gia Dụng</h5>
                         </a></li>
                     <li role="presentation"><a href="#sports" role="tab" id="sports-tab" data-toggle="tab"> 
-                            <i class="fa fa-asterisk" aria-hidden="true"></i>
+                            <i class="fa fa-futbol-o" aria-hidden="true"></i>
                             <h5>Dụng Cụ Thể Thao</h5>
                         </a></li> 
                 </ul>
