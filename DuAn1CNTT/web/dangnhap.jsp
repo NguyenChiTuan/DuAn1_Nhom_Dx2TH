@@ -21,9 +21,9 @@
             <div class="container"> 
                 <h3 class="w3ls-title w3ls-title1">Login to your account</h3>  
                 <div class="login-body">
-                    <form action="#" method="post">
-                        <input type="text" class="user" name="email" placeholder="Nhập địa chỉ mail..." required="">
-                        <input type="password" name="password" class="lock" placeholder="Mật khẩu..." required="">
+                    <form action="LoginServlet" method="post">
+                        <input type="text"  name="Email" placeholder="Nhập địa chỉ mail..." required="">
+                        <input type="password" name="Password"  placeholder="Mật khẩu..." required="">
                         <input type="submit" value="Đăng Nhập">
                         <div class="forgot-grid">
                             <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Remember me</label>

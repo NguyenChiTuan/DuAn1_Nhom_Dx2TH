@@ -21,7 +21,7 @@
             <div class="container"> 
                 <h3 class="w3ls-title w3ls-title1">Create your account</h3>  
                 <div class="login-body">
-                    <form action="#" method="post">
+                    <form action="RegisterServlet" method="post">
                         <input type="text" class="user" name="FullName" placeholder="Nhập Đầy đủ tên" required="">
                         <input type="text" class="user" name="Email" placeholder="Nhập địa chỉ mail" required="">
                         <input type="text" class="user" name="UserName" placeholder="tên đăng nhập" required="">
@@ -29,11 +29,10 @@
                         
                         <input name="gioitinh" type="radio" value="Nam" />Nam
                         <input name="gioitinh" type="radio" value=”Nữ” />Nữ<br />
-                        <label class="control-label col-sm-3" for="pwd">Ngày Sinh</label>
-                        <input type="date" class="control-label col-sm-8" name="date" placeholder="Ngày Sinh" required="">
                          <input type="text" class="user" name="DiaChi" placeholder="Địa chỉ" required="">
                         <input type="password" name="password" class="lock" placeholder="Mật khẩu..." required="">
                         <input type="password" name="rpw" class="lock" placeholder=" Nhập Lại Mật khẩu" required="">
+                        <input style="display: none;" name="quyen" value="3" />
                         <input type="submit" value="Đăng Ký">
                         <div class="forgot-grid">
                             <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Remember me</label>
