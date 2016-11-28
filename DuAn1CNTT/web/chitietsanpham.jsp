@@ -17,9 +17,9 @@
         <%@include file="includes/header.jsp" %>
         <!-- //header --> 
         <!-- breadcrumbs --> 
-        <div class="container"> 
+        <div class="container-fluid"> 
             <ol class="breadcrumb breadcrumb1">
-                <li><a href="index.html">Trang Chủ</a></li>
+                <li><a href="index.jsp">Trang Chủ</a></li>
                 <li class="active">Chi Tiết Sản Phẩm</li>
             </ol> 
             <div class="clearfix"> </div>
@@ -31,24 +31,13 @@
                 <div class="single-page">
                     <div class="single-page-row" id="detail-21">
                         <div class="col-md-6 single-top-left">	
-                            <div class="flexslider">
-                                <ul class="slides">
-                                    <li data-thumb="images/s1.jpg">
-                                        <div class="thumb-image detail_images"> <img src="images/s1.jpg" data-imagezoom="true" class="img-responsive" alt=""> </div>
-                                    </li>
-                                    <li data-thumb="images/s2.jpg">
-                                        <div class="thumb-image"> <img src="images/s2.jpg" data-imagezoom="true" class="img-responsive" alt=""> </div>
-                                    </li>
-                                    <li data-thumb="images/s3.jpg">
-                                        <div class="thumb-image"> <img src="images/s3.jpg" data-imagezoom="true" class="img-responsive" alt=""> </div>
-                                    </li> 
-                                </ul>
+                            <div class="thumb-image detail_images"> 
+                                <img src="images/chitietsanpham1.jpg" data-imagezoom="true" class="img-responsive" alt=""> 
                             </div>
                         </div>
                         <div class="col-md-6 single-top-right">
                             <h3 class="item_name">Tên sản phẩm</h3>
-                            <p>
-Thời gian xử lý: Hàng sẽ được vận chuyển trong vòng 2-3 ngày. </p>
+                            <p>Thời gian xử lý: Hàng sẽ được vận chuyển trong vòng 2-3 ngày.</p>
                             <div class="single-rating">
                                 <ul>
                                     <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
@@ -58,26 +47,44 @@ Thời gian xử lý: Hàng sẽ được vận chuyển trong vòng 2-3 ngày. 
                                     <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
                                     <li class="rating">20 lượt xem</li>
                                     <li><a href="#">Đánh giá sản phẩm này</a></li>
-                                </ul> 
+                                </ul>                        
+                            </div>
+                            <div class="single-rating2">
+                                <ul class="form-inline li-ten">
+                                    <li><span class="glyphicon glyphicon-info-sign"></span> Nhà Sản Xuất:</li>
+                                    <li><a href="#">DELL</a></li>
+                                </ul>
+                                <ul class="form-inline li-ten">
+                                    <li><span class="glyphicon glyphicon-info-sign"></span> Mã Sản Phẩm:</li>
+                                    <li style="color: #999">LTHP-R137WM</li>
+                                </ul>
+                                <ul class="form-inline li-ten">
+                                    <li><span class="glyphicon glyphicon-info-sign"></span> Sản Phẩm Đã Bán:</li>
+                                    <li style="color: #999">10</li>
+                                </ul>
                             </div>
                             <div class="single-price">
                                 <ul>
-                                    <li>$540</li>  
-                                    <li><del>$600</del></li> 
-                                    <li><span class="w3off">Giảm giá 10%</span></li> 
+                                    <li style="color:#0280e1">450.000 VNĐ</li>
+                                    <li style="font-size: 25px"><del>500.000 VNĐ</del></li>
+<!--                                    <li>Giảm giá 10%</li>
                                     <li>Kết thúc khuyến mãi: 30/11/2016</li>
-                                    <li><a href="#"><i class="fa fa-gift" aria-hidden="true"></i> Phiếu mua hàng</a></li>
+                                    <li><a href="#"><i class="fa fa-gift" aria-hidden="true"></i> Phiếu mua hàng</a></li>-->
                                 </ul>	
                             </div> 
-                            <p class="single-price-text">Mô tả chi tiết sản phẩm</p>
+                            <p class="single-price-text">Mô tả chi tiết sản phẩm
+                                Mô tả chi tiết sản phẩm Mô tả chi tiết sản phẩm Mô tả chi tiết sản phẩmMô tả chi tiết sản phẩmMô tả chi tiết sản phẩm Mô tả chi tiết sản phẩm Mô tả chi tiết sản phẩm Mô tả chi tiết sản phẩm Mô tả chi tiết sản phẩm Mô tả chi tiết sản phẩm 
+                                Mô tả chi tiết sản phẩm Mô tả chi tiết sản phẩm Mô tả chi tiết sản phẩm Mô tả chi tiết sản phẩm Mô tả chi tiết sản phẩm</p>
                             <form action="#" method="post">
                                 <input type="hidden" name="cmd" value="_cart" />
                                 <input type="hidden" name="add" value="1" /> 
                                 <input type="hidden" name="w3ls_item" value="Snow Blower" /> 
                                 <input type="hidden" name="amount" value="540.00" /> 
-                                <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+                                <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Thêm Vào Giỏ</button>
                             </form>
-
+                            <a href="#">
+                                <button type="submit" class="w3ls-cart" ><i class="glyphicon glyphicon-ok" aria-hidden="true"></i> Thanh Toán</button>
+                            </a>
                         </div>
                         <div class="clearfix"> </div>  
                     </div>
@@ -335,74 +342,10 @@ Thời gian xử lý: Hàng sẽ được vận chuyển trong vòng 2-3 ngày. 
         </div>
         <!--//products-->  
         <!-- footer-top -->
-        <div class="w3agile-ftr-top">
-            <div class="container">
-                <div class="ftr-toprow">
-                    <div class="col-md-4 ftr-top-grids">
-                        <div class="ftr-top-left">
-                            <i class="fa fa-truck" aria-hidden="true"></i>
-                        </div> 
-                        <div class="ftr-top-right">
-                            <h4>Miễn phí vận chuyển</h4>
-                            <p>Miễn phí vận chuyển các đơn hàng dưới 15kg</p>
-                        </div> 
-                        <div class="clearfix"> </div>
-                    </div> 
-                    <div class="col-md-4 ftr-top-grids">
-                        <div class="ftr-top-left">
-                            <i class="fa fa-user" aria-hidden="true"></i>
-                        </div> 
-                        <div class="ftr-top-right">
-                            <h4>Chăm sóc khách hàng</h4>
-                            <p>Liên hệ: 0976 888 222</p>
-                        </div> 
-                        <div class="clearfix"> </div>
-                    </div>
-                    <div class="col-md-4 ftr-top-grids">
-                        <div class="ftr-top-left">
-                            <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
-                        </div> 
-                        <div class="ftr-top-right">
-                            <h4>Chất lượng tốt</h4>
-                            <p>Cam kết với khách hàng</p>
-                        </div>
-                        <div class="clearfix"> </div>
-                    </div> 
-                    <div class="clearfix"> </div>
-                </div>
-            </div>
-        </div>
+        <%@include file="includes/footer-top.jsp" %>
         <!-- //footer-top -->  
         <!-- subscribe -->
-        <div class="subscribe"> 
-            <div class="container">
-                <div class="col-md-6 social-icons w3-agile-icons">
-                    <h4>Liên hệ với chúng tôi</h4>  
-                    <ul>
-                        <li><a href="#" class="fa fa-facebook icon facebook"> </a></li>
-                        <li><a href="#" class="fa fa-twitter icon twitter"> </a></li>
-                        <li><a href="#" class="fa fa-google-plus icon googleplus"> </a></li>
-                        <li><a href="#" class="fa fa-dribbble icon dribbble"> </a></li>
-                        <li><a href="#" class="fa fa-rss icon rss"> </a></li> 
-                    </ul> 
-                    <ul class="apps"> 
-                        <li><h4>Tải ứng dụng : </h4> </li>
-                        <li><a href="#" class="fa fa-apple"></a></li>
-                        <li><a href="#" class="fa fa-windows"></a></li>
-                        <li><a href="#" class="fa fa-android"></a></li>
-                    </ul>
-                </div> 
-                <div class="col-md-6 subscribe-right">
-                    <h4>Đăng ký nhận thông tin khuyến mãi qua Email!</h4>  
-                    <form action="#" method="post"> 
-                        <input type="text" name="email" placeholder="Nhập địa chỉ email..." required="">
-                        <input type="submit" value="Gửi">
-                    </form>
-                    <div class="clearfix"> </div> 
-                </div>
-                <div class="clearfix"> </div>
-            </div>
-        </div>
+        <%@include file="includes/subscribe.jsp" %>
         <!-- //subscribe --> 
         <!-- footer -->
         <%@include file="includes/footer.jsp" %>

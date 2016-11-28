@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Sản Phẩm</title>
+        <title>Sản Phẩm Máy Tính</title>
         <%@include file="includes/headtag-sanpham.jsp" %>
     </head>
     <body>
@@ -28,7 +28,7 @@
                     <div class="clearfix"> </div>
                     <!-- //breadcrumbs -->
                     <div class="product-top">
-                        <h4>DELL</h4>
+                        <h4>Sản Phẩm Máy Tính</h4>
                         <ul> 
                             <li class="dropdown head-dpdn">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Lọc theo<span class="caret"></span></a>
@@ -471,22 +471,21 @@
                     </script>
                     <div id="owl-demo5" class="owl-carousel">
                         <div class="item">
-                            <div class="glry-w3agile-grids agileits">
-                                <div class="new-tag"><h6>20% <br> Off</h6></div>
-                                <a href="products1.html"><img src="images/f2.png" alt="img"></a>
+                            <div class="glry-w3agile-grids agileits"> 
+                                <a href="sanpham.jsp"><img src="images/e1.png" alt="img"></a>
                                 <div class="view-caption agileits-w3layouts">           
-                                    <h4><a href="products1.html">Women Sandal</a></h4>
+                                    <h4><a href="sanpham.jsp">Audio speaker</a></h4>
                                     <p>Lorem ipsum dolor sit amet consectetur</p>
-                                    <h5>$20</h5>
+                                    <h5>$100</h5> 
                                     <form action="#" method="post">
                                         <input type="hidden" name="cmd" value="_cart" />
                                         <input type="hidden" name="add" value="1" /> 
-                                        <input type="hidden" name="w3ls_item" value="Women Sandal" /> 
-                                        <input type="hidden" name="amount" value="20.00" /> 
+                                        <input type="hidden" name="w3ls_item" value="Audio speaker" /> 
+                                        <input type="hidden" name="amount" value="100.00" /> 
                                         <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                    </form>
-                                </div>        
-                            </div> 
+                                    </form>  
+                                </div>   
+                            </div>   
                         </div>
                         <div class="item">
                             <div class="glry-w3agile-grids agileits"> 
@@ -618,74 +617,10 @@
         </div>
         <!--//products-->  
         <!-- footer-top -->
-        <div class="w3agile-ftr-top">
-            <div class="container">
-                <div class="ftr-toprow">
-                    <div class="col-md-4 ftr-top-grids">
-                        <div class="ftr-top-left">
-                            <i class="fa fa-truck" aria-hidden="true"></i>
-                        </div> 
-                        <div class="ftr-top-right">
-                            <h4>Miễn phí vận chuyển</h4>
-                            <p>Miễn phí vận chuyển các đơn hàng dưới 15kg</p>
-                        </div> 
-                        <div class="clearfix"> </div>
-                    </div> 
-                    <div class="col-md-4 ftr-top-grids">
-                        <div class="ftr-top-left">
-                            <i class="fa fa-user" aria-hidden="true"></i>
-                        </div> 
-                        <div class="ftr-top-right">
-                            <h4>Chăm sóc khách hàng</h4>
-                            <p>Liên hệ: 0976 888 222</p>
-                        </div> 
-                        <div class="clearfix"> </div>
-                    </div>
-                    <div class="col-md-4 ftr-top-grids">
-                        <div class="ftr-top-left">
-                            <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
-                        </div> 
-                        <div class="ftr-top-right">
-                            <h4>Chất lượng tốt</h4>
-                            <p>Cam kết với khách hàng</p>
-                        </div>
-                        <div class="clearfix"> </div>
-                    </div> 
-                    <div class="clearfix"> </div>
-                </div>
-            </div>
-        </div>
+        <%@include file="includes/footer-top.jsp" %>
         <!-- //footer-top -->  
         <!-- subscribe -->
-        <div class="subscribe"> 
-            <div class="container">
-                <div class="col-md-6 social-icons w3-agile-icons">
-                    <h4>Liên hệ với chúng tôi</h4>  
-                    <ul>
-                        <li><a href="#" class="fa fa-facebook icon facebook"> </a></li>
-                        <li><a href="#" class="fa fa-twitter icon twitter"> </a></li>
-                        <li><a href="#" class="fa fa-google-plus icon googleplus"> </a></li>
-                        <li><a href="#" class="fa fa-dribbble icon dribbble"> </a></li>
-                        <li><a href="#" class="fa fa-rss icon rss"> </a></li> 
-                    </ul> 
-                    <ul class="apps"> 
-                        <li><h4>Tải ứng dụng : </h4> </li>
-                        <li><a href="#" class="fa fa-apple"></a></li>
-                        <li><a href="#" class="fa fa-windows"></a></li>
-                        <li><a href="#" class="fa fa-android"></a></li>
-                    </ul>
-                </div> 
-                <div class="col-md-6 subscribe-right">
-                    <h4>Đăng ký nhận thông tin khuyến mãi qua Email!</h4>  
-                    <form action="#" method="post"> 
-                        <input type="text" name="email" placeholder="Nhập địa chỉ email..." required="">
-                        <input type="submit" value="Gửi">
-                    </form>
-                    <div class="clearfix"> </div> 
-                </div>
-                <div class="clearfix"> </div>
-            </div>
-        </div>
+        <%@include file="includes/subscribe.jsp" %>
         <!-- //subscribe --> 
         <!-- footer -->
         <%@include file="includes/footer.jsp" %>

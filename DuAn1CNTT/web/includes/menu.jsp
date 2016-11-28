@@ -18,9 +18,9 @@
 %>
 <div class="menu">
     <div class="cd-dropdown-wrapper">
-        <a class="cd-dropdown-trigger" href="#0"><i class="fa fa-bars" style="font-size:18px;"></i> Danh Mục Sản Phẩm</a>
+        <a style="color: #fff; text-transform: uppercase" class="cd-dropdown-trigger" href="#"><i class="fa fa-bars" ></i> Danh Mục Sản Phẩm</a>
         <nav class="cd-dropdown"> 
-            <a href="#0" class="cd-close">Close</a>
+            <a href="#" class="cd-close">Close</a>
             <ul class="cd-dropdown-content">
                 <%
                     //Bắt đầu vòng lặp
@@ -32,11 +32,10 @@
                     <a href="#"><%= MenuCha.getTenLoaiSanPham() %></a>
                     <ul class="cd-secondary-dropdown is-hidden">
                         <li class="go-back"><a href="#">Menu</a></li>
-                        <li class="see-all"><a href="sanpham.jsp">All Products</a></li>
                         <li class="has-children">
                             <a href="#"><%= MenuCha.getTenLoaiSanPham() %></a>
                             <ul class="is-hidden">
-                                <li class="go-back"><a href="#"></a></li>
+                                
                                 <%
                                     //Bắt đầu vòng lặp
                                      for(int a=0;a<LisMenucon.size();a++){
@@ -44,7 +43,7 @@
                                 
                                      
                                 %>
-                                <li><a href="sanpham.jsp"><%= Menucon.getTenLoaiSanPham() %></a></li>
+                                <li><a href="sanpham.jsp"> <span style="color: #F57170; padding-right: 5px" class="glyphicon glyphicon-arrow-right"></span> <%= Menucon.getTenLoaiSanPham() %></a></li>
                                 <%
                                     }
                                 %>
