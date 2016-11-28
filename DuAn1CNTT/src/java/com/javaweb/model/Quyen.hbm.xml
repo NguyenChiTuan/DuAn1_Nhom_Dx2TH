@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Nov 26, 2016 3:44:36 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Nov 28, 2016 1:52:21 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.javaweb.model.Quyen" table="quyen" catalog="db_duan01" optimistic-lock="version">
         <id name="idQuyen" type="java.lang.Integer">
-            <column name="idQuyen" />
+            <column name="IdQuyen" />
             <generator class="identity" />
         </id>
         <property name="tenQuyen" type="string">
@@ -14,5 +14,11 @@
         <property name="moTa" type="string">
             <column name="MoTa" length="45" not-null="true" />
         </property>
+        <set name="userses" table="users" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IdQuyen" />
+            </key>
+            <one-to-many class="com.javaweb.model.Users" />
+        </set>
     </class>
 </hibernate-mapping>

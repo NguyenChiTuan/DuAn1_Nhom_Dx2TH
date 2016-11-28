@@ -1,5 +1,5 @@
 package com.javaweb.model;
-// Generated Nov 26, 2016 3:44:35 PM by Hibernate Tools 4.3.1
+// Generated Nov 28, 2016 1:52:20 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -11,25 +11,19 @@ public class Binhluansanpham  implements java.io.Serializable {
 
 
      private Integer idBinhLuanSanPham;
-     private int iduser;
-     private int idsanPham;
+     private Sanpham sanpham;
+     private Users users;
      private String noiDung;
-     private Date dateBinhLuan;
+     private Date ngayBinhLuan;
 
     public Binhluansanpham() {
     }
 
-	
-    public Binhluansanpham(int iduser, int idsanPham, String noiDung) {
-        this.iduser = iduser;
-        this.idsanPham = idsanPham;
-        this.noiDung = noiDung;
-    }
-    public Binhluansanpham(int iduser, int idsanPham, String noiDung, Date dateBinhLuan) {
-       this.iduser = iduser;
-       this.idsanPham = idsanPham;
+    public Binhluansanpham(Sanpham sanpham, Users users, String noiDung, Date ngayBinhLuan) {
+       this.sanpham = sanpham;
+       this.users = users;
        this.noiDung = noiDung;
-       this.dateBinhLuan = dateBinhLuan;
+       this.ngayBinhLuan = ngayBinhLuan;
     }
    
     public Integer getIdBinhLuanSanPham() {
@@ -39,19 +33,19 @@ public class Binhluansanpham  implements java.io.Serializable {
     public void setIdBinhLuanSanPham(Integer idBinhLuanSanPham) {
         this.idBinhLuanSanPham = idBinhLuanSanPham;
     }
-    public int getIduser() {
-        return this.iduser;
+    public Sanpham getSanpham() {
+        return this.sanpham;
     }
     
-    public void setIduser(int iduser) {
-        this.iduser = iduser;
+    public void setSanpham(Sanpham sanpham) {
+        this.sanpham = sanpham;
     }
-    public int getIdsanPham() {
-        return this.idsanPham;
+    public Users getUsers() {
+        return this.users;
     }
     
-    public void setIdsanPham(int idsanPham) {
-        this.idsanPham = idsanPham;
+    public void setUsers(Users users) {
+        this.users = users;
     }
     public String getNoiDung() {
         return this.noiDung;
@@ -60,12 +54,12 @@ public class Binhluansanpham  implements java.io.Serializable {
     public void setNoiDung(String noiDung) {
         this.noiDung = noiDung;
     }
-    public Date getDateBinhLuan() {
-        return this.dateBinhLuan;
+    public Date getNgayBinhLuan() {
+        return this.ngayBinhLuan;
     }
     
-    public void setDateBinhLuan(Date dateBinhLuan) {
-        this.dateBinhLuan = dateBinhLuan;
+    public void setNgayBinhLuan(Date ngayBinhLuan) {
+        this.ngayBinhLuan = ngayBinhLuan;
     }
 
 

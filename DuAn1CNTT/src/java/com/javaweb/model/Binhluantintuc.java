@@ -1,5 +1,5 @@
 package com.javaweb.model;
-// Generated Nov 26, 2016 3:44:35 PM by Hibernate Tools 4.3.1
+// Generated Nov 28, 2016 1:52:20 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -10,48 +10,43 @@ import java.util.Date;
 public class Binhluantintuc  implements java.io.Serializable {
 
 
-     private Integer idBinhLuanTinTuc;
-     private int idUser;
-     private int idTin;
+     private int idBinhLuanTinTuc;
+     private Tintuc tintuc;
+     private Users users;
      private String noiDung;
      private Date ngayBinhLuan;
 
     public Binhluantintuc() {
     }
 
-	
-    public Binhluantintuc(int idUser, int idTin, String noiDung) {
-        this.idUser = idUser;
-        this.idTin = idTin;
-        this.noiDung = noiDung;
-    }
-    public Binhluantintuc(int idUser, int idTin, String noiDung, Date ngayBinhLuan) {
-       this.idUser = idUser;
-       this.idTin = idTin;
+    public Binhluantintuc(int idBinhLuanTinTuc, Tintuc tintuc, Users users, String noiDung, Date ngayBinhLuan) {
+       this.idBinhLuanTinTuc = idBinhLuanTinTuc;
+       this.tintuc = tintuc;
+       this.users = users;
        this.noiDung = noiDung;
        this.ngayBinhLuan = ngayBinhLuan;
     }
    
-    public Integer getIdBinhLuanTinTuc() {
+    public int getIdBinhLuanTinTuc() {
         return this.idBinhLuanTinTuc;
     }
     
-    public void setIdBinhLuanTinTuc(Integer idBinhLuanTinTuc) {
+    public void setIdBinhLuanTinTuc(int idBinhLuanTinTuc) {
         this.idBinhLuanTinTuc = idBinhLuanTinTuc;
     }
-    public int getIdUser() {
-        return this.idUser;
+    public Tintuc getTintuc() {
+        return this.tintuc;
     }
     
-    public void setIdUser(int idUser) {
-        this.idUser = idUser;
+    public void setTintuc(Tintuc tintuc) {
+        this.tintuc = tintuc;
     }
-    public int getIdTin() {
-        return this.idTin;
+    public Users getUsers() {
+        return this.users;
     }
     
-    public void setIdTin(int idTin) {
-        this.idTin = idTin;
+    public void setUsers(Users users) {
+        this.users = users;
     }
     public String getNoiDung() {
         return this.noiDung;

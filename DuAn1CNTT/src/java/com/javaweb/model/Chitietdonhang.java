@@ -1,5 +1,5 @@
 package com.javaweb.model;
-// Generated Nov 26, 2016 3:44:35 PM by Hibernate Tools 4.3.1
+// Generated Nov 28, 2016 1:52:20 PM by Hibernate Tools 4.3.1
 
 
 
@@ -9,44 +9,51 @@ package com.javaweb.model;
 public class Chitietdonhang  implements java.io.Serializable {
 
 
-     private Integer idchitietdonhang;
-     private int iddonhang;
+     private Integer idChiTietDonHang;
+     private Donhang donhang;
+     private Sanpham sanpham;
+     private int soLuong;
      private double thanhTien;
      private String ghiChu;
-     private Integer soLuong;
-     private String idSanPham;
 
     public Chitietdonhang() {
     }
 
-	
-    public Chitietdonhang(int iddonhang, double thanhTien, String ghiChu, String idSanPham) {
-        this.iddonhang = iddonhang;
-        this.thanhTien = thanhTien;
-        this.ghiChu = ghiChu;
-        this.idSanPham = idSanPham;
-    }
-    public Chitietdonhang(int iddonhang, double thanhTien, String ghiChu, Integer soLuong, String idSanPham) {
-       this.iddonhang = iddonhang;
+    public Chitietdonhang(Donhang donhang, Sanpham sanpham, int soLuong, double thanhTien, String ghiChu) {
+       this.donhang = donhang;
+       this.sanpham = sanpham;
+       this.soLuong = soLuong;
        this.thanhTien = thanhTien;
        this.ghiChu = ghiChu;
-       this.soLuong = soLuong;
-       this.idSanPham = idSanPham;
     }
    
-    public Integer getIdchitietdonhang() {
-        return this.idchitietdonhang;
+    public Integer getIdChiTietDonHang() {
+        return this.idChiTietDonHang;
     }
     
-    public void setIdchitietdonhang(Integer idchitietdonhang) {
-        this.idchitietdonhang = idchitietdonhang;
+    public void setIdChiTietDonHang(Integer idChiTietDonHang) {
+        this.idChiTietDonHang = idChiTietDonHang;
     }
-    public int getIddonhang() {
-        return this.iddonhang;
+    public Donhang getDonhang() {
+        return this.donhang;
     }
     
-    public void setIddonhang(int iddonhang) {
-        this.iddonhang = iddonhang;
+    public void setDonhang(Donhang donhang) {
+        this.donhang = donhang;
+    }
+    public Sanpham getSanpham() {
+        return this.sanpham;
+    }
+    
+    public void setSanpham(Sanpham sanpham) {
+        this.sanpham = sanpham;
+    }
+    public int getSoLuong() {
+        return this.soLuong;
+    }
+    
+    public void setSoLuong(int soLuong) {
+        this.soLuong = soLuong;
     }
     public double getThanhTien() {
         return this.thanhTien;
@@ -61,20 +68,6 @@ public class Chitietdonhang  implements java.io.Serializable {
     
     public void setGhiChu(String ghiChu) {
         this.ghiChu = ghiChu;
-    }
-    public Integer getSoLuong() {
-        return this.soLuong;
-    }
-    
-    public void setSoLuong(Integer soLuong) {
-        this.soLuong = soLuong;
-    }
-    public String getIdSanPham() {
-        return this.idSanPham;
-    }
-    
-    public void setIdSanPham(String idSanPham) {
-        this.idSanPham = idSanPham;
     }
 
 
