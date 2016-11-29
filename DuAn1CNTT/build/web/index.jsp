@@ -162,6 +162,7 @@
         <!-- footer -->
         <%@include file="includes/footer.jsp" %>
         <!-- //footer -->
+        
         <!-- cart-js -->
         <script src="js/minicart.js"></script>
         <script>

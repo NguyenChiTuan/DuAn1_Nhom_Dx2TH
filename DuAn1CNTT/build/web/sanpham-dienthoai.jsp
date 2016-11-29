@@ -329,12 +329,12 @@
                         <div class="clearfix"> </div>
                     </div>
                     <!-- add-products --> 
-                    <div class="w3ls-add-grids w3agile-add-products">
+<!--                    <div class="w3ls-add-grids w3agile-add-products">
                         <a href="#"> 
                             <h4>Top 10 sản phẩm xu hướng dành cho bạn. Giảm giá <span>20%</span></h4>
                             <h6>Mua ngay <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></h6>
                         </a>
-                    </div> 
+                    </div> -->
                     <!-- //add-products -->
                 </div>
                 <div class="col-md-3 rsidebar">

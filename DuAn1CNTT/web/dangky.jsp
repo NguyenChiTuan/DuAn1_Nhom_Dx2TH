@@ -25,6 +25,7 @@
                             <form action="RegisterServlet" method="post" class="formdk-custom">
                                 <h4>Đăng ký tài khoản</h4>
                                 <hr style="border: 1px dashed tomato;">
+                                <p style="color: red; text-align: left;padding: 0px; margin: 0px;">(*) là thông tin bắt buộc nhập...</p>
                                 <div class="input-group">
                                     <span class="input-group-addon">FullName(*)</span>
                                     <input type="text" class="user form-control" name="FullName" placeholder="Nhập đầy đủ tên" required="">
@@ -56,7 +57,7 @@
                                 </div>
                                 <br>
                                 <div class="input-group">
-                                    <span class="input-group-addon">SĐT</span>
+                                    <span class="input-group-addon">Số điện thoại</span>
                                     <input type="text" class="user form-control" name="Sdt" placeholder="Số điện thoại" required="">
                                 </div>
                                 <br>
@@ -75,7 +76,7 @@
 
                                 <div class="forgot-grid">
                                     <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>
-                                        Tôi đã đọc và đồng ý theo điều khoản thành viên.</label>
+                                        Tôi đã đọc và đồng ý theo <a href="#">điều khoản sử dụng.</a></label>
                                     <div class="forgot">
                                         <a href="#">Quên mật khẩu?</a>
                                     </div>

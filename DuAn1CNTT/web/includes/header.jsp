@@ -7,7 +7,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<div class="header" style="background-color: #F9FCFD">
+<div class="header">
     <div class="w3ls-header"><!--header-one--> 
         <div class="w3ls-header-left">
             <p><a href="#">Giảm giá 10% cho tất cả các dòng LAPTOP. Sử dụng mã: Dx2T </a></p>
@@ -18,27 +18,18 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i> Tài Khoản<span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="dangnhap.jsp">Đăng Nhập</a></li>
-                        <li class="divider"></li>
                         <li><a href="dangky.jsp">Đăng Ký</a></li>
-                        <li class="divider"></li>
                         <li><a href="#">Kiểm Tra Đơn Hàng</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Ví Điện Tử</a></li>
                     </ul> 
                 </li>
                 <li class="dropdown head-dpdn">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-gift" aria-hidden="true"></i> Tin Tức<span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Công Nghệ</a></li>
-                        <li class="divider"></li>
                         <li><a href="#">Giáo Dục</a></li>
-                        <li class="divider"></li>
                         <li><a href="#">Kinh Doanh</a></li>
-                        <li class="divider"></li>
                         <li><a href="#">Khoa Học</a></li>
-                        <li class="divider"></li>
                         <li><a href="#">Thời Sự</a></li>
-                        <li class="divider"></li>
                         <li><a href="#">Thế Giới</a></li> 
                     </ul> 
                 </li>
@@ -49,7 +40,7 @@
                     <a href="#" class="dropdown-toggle"><i class="fa fa-map-marker" aria-hidden="true"></i> Liên Hệ</a>
                 </li>
                 <li class="dropdown head-dpdn">
-                    <a href="help.jsp" class="dropdown-toggle"><i class="fa fa-question-circle" aria-hidden="true"></i> Trợ Giúp</a>
+                    <a href="#" class="dropdown-toggle"><i class="fa fa-question-circle" aria-hidden="true"></i> Trợ Giúp</a>
                 </li>
             </ul>
         </div>
@@ -63,9 +54,8 @@
                         <h6>FPT Polytechnic Tây Nguyên</h6> 
                     </div>
                 </div>
-                
+                <br>
                 <div class="col-md-5">
-                    <br>
                     <form class="form-custom">
                         <div class="input-group">
                             <input id="msg" type="text" class="form-control" placeholder="Tìm sản phẩm...">
@@ -75,17 +65,13 @@
                                         Tất Cả Danh Mục <b class="caret"></b>
                                     </a>
                                     <ul class="dropdown-menu" style="top: 29px; left: -14px; width: 175px;">
+                                        <li><a href="#">Tất Cả Danh Mục</a></li>
                                         <li><a href="#">Máy Tính</a></li>
-                                        <li class="divider"></li>
                                         <li><a href="#">Điện Thoại</a></li>
-                                        <li class="divider"></li>
                                         <li><a href="#">Quà Lưu Niệm</a></li>
-                                        <li class="divider"></li>
                                         <li><a href="#">Nhà Cửa Đồ Gia Dụng</a></li>
-                                        <li class="divider"></li>
                                         <li><a href="#">Dụng Cụ Thể Thao</a></li>
                                     </ul>
-                                    
                                 </li>
                             </span>
                             <div class="input-group-btn">
@@ -95,20 +81,22 @@
                             </div>
                         </div>
                     </form>
-                </div>
-                <br>
-                <div class="col-md-3 text-right">
+                </div>  
+                          
+                <div class="col-md-4 text-right">
                      <div class="header-cart">
                         <div class="cart"> 
-                            <form action="#" method="post" class="last"> 
+                            <form action="#" method="post">
                                 <input type="hidden" name="cmd" value="_cart" />
                                 <input type="hidden" name="display" value="1" />
-                                <button class="w3view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
+                                <button type="submit" name="submit" value="" style="border: none; background-color: transparent;outline: none;">  
+                                    GIỎ HÀNG<img src="images/80-shopping-cart-icon.png" alt=""/>
+                                    <span class="badge">0</span>
+                                </button>
                             </form>  
                         </div>
                     </div> 
-                </div>
-                
+                </div>   
             </div>
             <div class="clearfix"> </div>		
     </div><!-- //header-two -->
@@ -118,7 +106,10 @@
                 <div class="col-md-12">
                     <%@include file="menu.jsp"%>
                     <div class="move-text">
-                        <div class="marquee"><a href="#"> Bộ sưu tập mới có sẵn ở đây...... <span>Nhận thêm 10% trên tất cả mọi thứ..... </span> <span> Hãy thử vận ​​chuyển miễn phí trong 15 ngày không giới hạn.....</span></a></div>
+                        <div class="marquee"><a href="#"> Leader óc chó...... 
+                                <span>Nguyễn Chí Tuấn..... </span> 
+                                <span> Lê Hữu Tạo.....</span>
+                            </a></div>
                         <script type="text/javascript" src="js/jquery.marquee.min.js"></script>
                         <script>
                             $('.marquee').marquee({pauseOnHover: true});
