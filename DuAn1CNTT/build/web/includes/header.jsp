@@ -107,6 +107,7 @@
                     <%@include file="menu.jsp"%>
                     <div class="move-text">
                         <div class="marquee"><a href="#"> Leader óc chó...... 
+                                <img src="images/Animals-Dog-icon.png" width="20px" height="20px" alt=""/>
                                 <span>Nguyễn Chí Tuấn..... </span> 
                                 <span> Lê Hữu Tạo.....</span>
                             </a></div>

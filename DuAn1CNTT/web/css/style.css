@@ -4,6 +4,7 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
+#success_message{ display: none;}
 body{
     margin:0; 
     font-family: 'Roboto Condensed', sans-serif;
@@ -184,7 +185,8 @@ ul.cd-dropdown-content li {
 .menu {
     float: left;
     width: 20%;
-    
+    position: relative;
+    z-index: 99999999;
 }
 .move-text {
     float: right;
