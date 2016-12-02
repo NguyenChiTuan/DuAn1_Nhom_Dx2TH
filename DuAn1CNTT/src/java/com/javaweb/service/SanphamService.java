@@ -19,15 +19,15 @@ import org.hibernate.Transaction;
  */
 public class SanphamService {
 
-    public ArrayList<Sanpham> GetAllSanpham(int IdMunuCha,int soluong) {
+    public ArrayList<Sanpham> GetAllSanpham(int IdMunuCha, int soluong) {
         Session session = NewHibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
         ArrayList<Sanpham> ListSanPham = new ArrayList<>();
         try {
             tx = session.getTransaction();
             tx.begin();
-            String strquery = "from Sanpham where IdLoaiSanPham in (from Loaisanpham where Idparent="+IdMunuCha+") order by IdSanpham Desc";
-            
+            String strquery = "from Sanpham where IdLoaiSanPham in (from Loaisanpham where Idparent=" + IdMunuCha + ") order by IdSanpham Desc";
+
             Query query = session.createQuery(strquery);
             query.setMaxResults(soluong);
             ListSanPham = (ArrayList<Sanpham>) query.list();
@@ -41,5 +41,49 @@ public class SanphamService {
             session.close();
         }
         return ListSanPham;
+    }
+
+    public ArrayList<Sanpham> GetAllSanphamTheoLoai(int id) {
+        Session session = NewHibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        ArrayList<Sanpham> ListSanPham = new ArrayList<>();
+        try {
+            tx = session.getTransaction();
+            tx.begin();
+            String strquery = "from Sanpham where IdLoaiSanPham=" + id;
+            Query query = session.createQuery(strquery);
+            ListSanPham = (ArrayList<Sanpham>) query.list();
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            System.out.println(e.toString());
+        } finally {
+            session.close();
+        }
+        return ListSanPham;
+    }
+
+    public Sanpham GetSanPhamTheoId(int IdSanpham) {
+        Session session = NewHibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        try {
+            tx = session.getTransaction();
+            tx.begin();
+            tx.commit();
+            String strquery = "from Sanpham where IdSanPham="+IdSanpham;
+            Query query = session.createQuery(strquery);
+            Sanpham sp = (Sanpham) query.uniqueResult();
+            return sp;
+        } catch (Exception e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            System.out.println(e.toString());
+        } finally {
+            session.close();
+        }
+        return null;
     }
 }

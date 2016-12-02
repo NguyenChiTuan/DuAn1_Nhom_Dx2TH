@@ -41,4 +41,25 @@ public class LoaisanphamService {
         }
         return ListLoaSanPham;
     }
+    public Loaisanpham GetLoaiSanPhamTheoId(int idloaisanpham) {
+        Session session = NewHibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        try {
+            tx = session.getTransaction();
+            tx.begin();
+            tx.commit();
+            String strquery = "from Loaisanpham where IdLoaiSanPham="+idloaisanpham;
+            Query query = session.createQuery(strquery);
+            Loaisanpham LSP = (Loaisanpham) query.uniqueResult();
+            return LSP;
+        } catch (Exception e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            System.out.println(e.toString());
+        } finally {
+            session.close();
+        }
+        return null;
+    }
 }

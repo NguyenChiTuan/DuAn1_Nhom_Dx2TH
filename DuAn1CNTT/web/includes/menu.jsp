@@ -43,7 +43,7 @@
                                 
                                      
                                 %>
-                                <li><a href="sanpham.jsp"> <span style="color: #F57170; padding-right: 5px" class="glyphicon glyphicon-arrow-right"></span> <%= Menucon.getTenLoaiSanPham() %></a></li>
+                                <li><a href="sanpham.jsp?id=<%= Menucon.getIdLoaiSanPham() %>"> <span style="color: #F57170; padding-right: 5px" class="glyphicon glyphicon-arrow-right"></span> <%= Menucon.getTenLoaiSanPham() %></a></li>
                                 <%
                                     }
                                 %>

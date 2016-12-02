@@ -4,6 +4,8 @@
     Author     : Administrator
 --%>
 
+<%@page import="com.javaweb.model.Sanpham"%>
+<%@page import="com.javaweb.service.SanphamService"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -15,6 +17,11 @@
     <body>
         <!-- header -->
         <%@include file="includes/header.jsp" %>
+        <%
+            int idsanpham = Integer.parseInt(request.getParameter("idsanpham"));
+            SanphamService SPService = new SanphamService();
+            Sanpham sp = SPService.GetSanPhamTheoId(idsanpham);
+        %>
         <!-- //header --> 
         <!-- breadcrumbs --> 
         <div class="container-fluid"> 
@@ -31,11 +38,11 @@
                 <div class="single-page">
                     <div class="row" style="padding-top: 15px;">
                         <div class="col-md-6" style="max-width: 300px; max-height: 300px;">
-                            <img src="images/mu1.jpg" data-imagezoom="true" class="img-responsive" alt=""> 
+                            <img src="<%= sp.getImage() %>" data-imagezoom="true" class="img-responsive" alt=""> 
                         </div>
                         
                         <div class="col-md-6 single-top-right">
-                            <h3 class="item_name">Tên sản phẩm</h3>
+                            <h3 class="item_name"><%= sp.getTenSanPham() %></h3>
                             <p>Thời gian xử lý: Hàng sẽ được vận chuyển trong vòng 2-3 ngày.</p>
                             <div class="single-rating">
                                 <ul>
@@ -58,27 +65,28 @@
                                     <li style="color: #999">LTHP-R137WM</li>
                                 </ul>
                                 <ul class="form-inline li-ten">
-                                    <li><span class="glyphicon glyphicon-info-sign"></span> Sản Phẩm Đã Bán:</li>
-                                    <li style="color: #999">10</li>
+                                    <li><span class="glyphicon glyphicon-info-sign"></span> Số Lượng:</li>
+                                    <li style="color: #999"><%=sp.getSoLuong()%></li>
                                 </ul>
                             </div>
                             <div class="single-price">
                                 <ul>
-                                    <li style="color:#0280e1">450.000 VNĐ</li>
+                                    <li style="color:#0280e1"><%= sp.getGia() %> $</li>
                                     <li style="font-size: 25px"><del>500.000 VNĐ</del></li>
 <!--                                    <li>Giảm giá 10%</li>
                                     <li>Kết thúc khuyến mãi: 30/11/2016</li>
                                     <li><a href="#"><i class="fa fa-gift" aria-hidden="true"></i> Phiếu mua hàng</a></li>-->
                                 </ul>	
-                            </div> 
+                            </div>
+                            
                             <p class="single-price-text">
-                                Mô tả chi tiết sản phẩm.......
+                                
                             </p>
                             <form action="#" method="post">
                                 <input type="hidden" name="cmd" value="_cart" />
                                 <input type="hidden" name="add" value="1" /> 
-                                <input type="hidden" name="w3ls_item" value="Snow Blower" /> 
-                                <input type="hidden" name="amount" value="540.00" /> 
+                                <input type="hidden" name="w3ls_item" value="<%= sp.getTenSanPham() %>" /> 
+                                <input type="hidden" name="amount" value="<%= sp.getGia() %>" /> 
                                 <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Thêm Vào Giỏ</button>
                                 <button type="submit" class="w3ls-cart" ><i class="glyphicon glyphicon-ok" aria-hidden="true"></i> Thanh Toán</button>
                             </form>
@@ -109,7 +117,7 @@
                         </h4>
                     </div>
                     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body">Mô tả về mục này</div>
+                        <div class="panel-body"><%= sp.getMoTa() %></div>
                     </div>
                 </div>
                 <div class="panel panel-default">

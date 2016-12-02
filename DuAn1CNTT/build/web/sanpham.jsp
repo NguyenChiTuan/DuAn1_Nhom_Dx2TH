@@ -4,6 +4,8 @@
     Author     : Nguyễn Chí Tuấn
 --%>
 
+<%@page import="com.javaweb.model.Sanpham"%>
+<%@page import="com.javaweb.service.SanphamService"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -15,6 +17,14 @@
     <body>
         <!-- header -->
         <%@include file="includes/header.jsp" %>
+        <%
+            String id = request.getParameter("id");
+            SanphamService SPService = new SanphamService();
+            ArrayList<Sanpham> ListSanPham = null;
+            ListSanPham=SPService.GetAllSanphamTheoLoai(Integer.parseInt(id));
+            LoaisanphamService LSPService = new LoaisanphamService();
+            Loaisanpham LSP = LSPService.GetLoaiSanPhamTheoId(Integer.parseInt(id));
+        %>
         <!-- //header --> 	
         <!-- products -->
         <div class="products">	 
@@ -28,304 +38,62 @@
                     <div class="clearfix"> </div>
                     <!-- //breadcrumbs -->
                     <div class="product-top">
-                        <h4>Sản Phẩm Máy Tính</h4>
-                        <ul> 
-                            <li class="dropdown head-dpdn">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Lọc theo<span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Giá thấp</a></li> 
-                                    <li><a href="#">Giá cao</a></li>
-                                    <li><a href="#">Phổ biến</a></li> 
-                                </ul> 
-                            </li>
-                            <li class="dropdown head-dpdn">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Nhãn hiệu<span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Dell</a></li> 
-                                    <li><a href="#">Apple</a></li>
-                                    <li><a href="#">Asus</a></li> 
-                                    <li><a href="#">Toshiba</a></li> 
-                                    <li><a href="#">Sony</a></li> 
-                                    <li><a href="#">lenovo</a></li> 
-                                </ul> 
-                            </li>
-                        </ul> 
+                        <h4>Các Sản Phẩm <%= LSP.getTenLoaiSanPham() %></h4>
                         <div class="clearfix"> </div>
                     </div>
                     <!--ô load sản phẩm-->
                     <div class="products-row">
-                        <div class="col-md-3 product-grids"> 
-                            <div class="agile-products">
-                                <div class="new-tag"><h6>20%<br>Off</h6></div>
-                                <a href="chitietsanpham.jsp"><img src="images/e1.png" class="img-responsive" alt="img"></a>
-                                <div class="agile-product-text">              
-                                    <h5><a href="chitietsanpham.jsp">Audio speaker</a></h5> 
-                                    <h6><del>$200</del> $100</h6> 
-                                    <form action="#" method="post">
-                                        <input type="hidden" name="cmd" value="_cart" />
-                                        <input type="hidden" name="add" value="1" /> 
-                                        <input type="hidden" name="w3ls_item" value="Audio speaker" /> 
-                                        <input type="hidden" name="amount" value="100.00" /> 
-                                        <button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                    </form> 
-                                </div>
-                            </div> 
-                        </div>
-                        <div class="col-md-3 product-grids">
-                            <div class="agile-products">
-                                <div class="new-tag"><h6>New</h6></div>
-                                <a href="chitietsanpham.jsp"><img src="images/e2.png" class="img-responsive" alt="img"></a>
-                                <div class="agile-product-text">              
-                                    <h5><a href="chitietsanpham.jsp">Refrigerator</a></h5> 
-                                    <h6><del>$700</del> $300</h6> 
-                                    <form action="#" method="post">
-                                        <input type="hidden" name="cmd" value="_cart" />
-                                        <input type="hidden" name="add" value="1" /> 
-                                        <input type="hidden" name="w3ls_item" value="Refrigerator" /> 
-                                        <input type="hidden" name="amount" value="300.00" /> 
-                                        <button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 product-grids"> 
-                            <div class="agile-products">
-                                <div class="new-tag"><h6>5% <br> Off</h6></div>
-                                <a href="chitietsanpham.jsp"><img src="images/e3.png" class="img-responsive" alt="img"></a>
-                                <div class="agile-product-text">              
-                                    <h5><a href="chitietsanpham.jsp">Smart Phone</a></h5> 
-                                    <h6><del>$100</del> $70</h6> 
-                                    <form action="#" method="post">
-                                        <input type="hidden" name="cmd" value="_cart"/>
-                                        <input type="hidden" name="add" value="1"/> 
-                                        <input type="hidden" name="w3ls_item" value="Smart Phone"/> 
-                                        <input type="hidden" name="amount" value="70.00"/> 
-                                        <button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                    </form>
-                                </div>
-                            </div>  
-                        </div>
-                        <div class="col-md-3 product-grids">
-                            <div class="agile-products">
-                                <div class="new-tag"><h6>New</h6></div>
-                                <a href="chitietsanpham.jsp"><img src="images/e4.png" class="img-responsive" alt="img"></a>
-                                <div class="agile-product-text">              
-                                    <h5><a href="chitietsanpham.jsp">Digital Camera</a></h5> 
-                                    <h6><del>$100</del> $80</h6> 
-                                    <form action="#" method="post">
-                                        <input type="hidden" name="cmd" value="_cart"/>
-                                        <input type="hidden" name="add" value="1"/> 
-                                        <input type="hidden" name="w3ls_item" value="Digital Camera"/> 
-                                        <input type="hidden" name="amount" value="80.00"/> 
-                                        <button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div> 
-                        <div class="col-md-3 product-grids">
-                            <div class="agile-products">
-                                <div class="new-tag"><h6>New</h6></div>
-                                <a href="chitietsanpham.jsp"><img src="images/e4.png" class="img-responsive" alt="img"></a>
-                                <div class="agile-product-text">              
-                                    <h5><a href="chitietsanpham.jsp">Digital Camera</a></h5> 
-                                    <h6><del>$100</del> $80</h6> 
-                                    <form action="#" method="post">
-                                        <input type="hidden" name="cmd" value="_cart"/>
-                                        <input type="hidden" name="add" value="1"/> 
-                                        <input type="hidden" name="w3ls_item" value="Digital Camera"/> 
-                                        <input type="hidden" name="amount" value="80.00"/> 
-                                        <button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 product-grids"> 
-                            <div class="agile-products">
-                                <div class="new-tag"><h6>5% <br> Off</h6></div>
-                                <a href="chitietsanpham.jsp"><img src="images/e3.png" class="img-responsive" alt="img"></a>
-                                <div class="agile-product-text">              
-                                    <h5><a href="chitietsanpham.jsp">Smart Phone</a></h5> 
-                                    <h6><del>$100</del> $70</h6> 
-                                    <form action="#" method="post">
-                                        <input type="hidden" name="cmd" value="_cart"/>
-                                        <input type="hidden" name="add" value="1"/> 
-                                        <input type="hidden" name="w3ls_item" value="Smart Phone"/> 
-                                        <input type="hidden" name="amount" value="70.00"/> 
-                                        <button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                    </form>
-                                </div>
-                            </div>  
-                        </div> 
-                        <div class="col-md-3 product-grids"> 
-                            <div class="agile-products">
-                                <div class="new-tag"><h6>20%<br>Off</h6></div>
-                                <a href="chitietsanpham.jsp"><img src="images/e1.png" class="img-responsive" alt="img"></a>
-                                <div class="agile-product-text">              
-                                    <h5><a href="chitietsanpham.jsp">Audio speaker</a></h5> 
-                                    <h6><del>$200</del> $100</h6> 
-                                    <form action="#" method="post">
-                                        <input type="hidden" name="cmd" value="_cart" />
-                                        <input type="hidden" name="add" value="1" /> 
-                                        <input type="hidden" name="w3ls_item" value="Audio speaker" /> 
-                                        <input type="hidden" name="amount" value="100.00" /> 
-                                        <button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                    </form> 
-                                </div>
-                            </div> 
-                        </div> 
-                        <div class="col-md-3 product-grids">
-                            <div class="agile-products">
-                                <div class="new-tag"><h6>New</h6></div>
-                                <a href="chitietsanpham.jsp"><img src="images/e2.png" class="img-responsive" alt="img"></a>
-                                <div class="agile-product-text">              
-                                    <h5><a href="chitietsanpham.jsp">Refrigerator</a></h5> 
-                                    <h6><del>$700</del> $300</h6> 
-                                    <form action="#" method="post">
-                                        <input type="hidden" name="cmd" value="_cart" />
-                                        <input type="hidden" name="add" value="1" /> 
-                                        <input type="hidden" name="w3ls_item" value="Refrigerator" /> 
-                                        <input type="hidden" name="amount" value="300.00" /> 
-                                        <button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div> 
-                        <div class="col-md-3 product-grids"> 
-                            <div class="agile-products">
-                                <div class="new-tag"><h6>20%<br>Off</h6></div>
-                                <a href="chitietsanpham.jsp"><img src="images/e1.png" class="img-responsive" alt="img"></a>
-                                <div class="agile-product-text">              
-                                    <h5><a href="chitietsanpham.jsp">Audio speaker</a></h5> 
-                                    <h6><del>$200</del> $100</h6> 
-                                    <form action="#" method="post">
-                                        <input type="hidden" name="cmd" value="_cart" />
-                                        <input type="hidden" name="add" value="1" /> 
-                                        <input type="hidden" name="w3ls_item" value="Audio speaker" /> 
-                                        <input type="hidden" name="amount" value="100.00" /> 
-                                        <button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                    </form> 
-                                </div>
-                            </div> 
-                        </div>
-                        <div class="col-md-3 product-grids">
-                            <div class="agile-products">
-                                <div class="new-tag"><h6>New</h6></div>
-                                <a href="chitietsanpham.jsp"><img src="images/e2.png" class="img-responsive" alt="img"></a>
-                                <div class="agile-product-text">              
-                                    <h5><a href="chitietsanpham.jsp">Refrigerator</a></h5> 
-                                    <h6><del>$700</del> $300</h6> 
-                                    <form action="#" method="post">
-                                        <input type="hidden" name="cmd" value="_cart" />
-                                        <input type="hidden" name="add" value="1" /> 
-                                        <input type="hidden" name="w3ls_item" value="Refrigerator" /> 
-                                        <input type="hidden" name="amount" value="300.00" /> 
-                                        <button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 product-grids"> 
-                            <div class="agile-products">
-                                <div class="new-tag"><h6>5% <br> Off</h6></div>
-                                <a href="chitietsanpham.jsp"><img src="images/e3.png" class="img-responsive" alt="img"></a>
-                                <div class="agile-product-text">              
-                                    <h5><a href="chitietsanpham.jsp">Smart Phone</a></h5> 
-                                    <h6><del>$100</del> $70</h6> 
-                                    <form action="#" method="post">
-                                        <input type="hidden" name="cmd" value="_cart"/>
-                                        <input type="hidden" name="add" value="1"/> 
-                                        <input type="hidden" name="w3ls_item" value="Smart Phone"/> 
-                                        <input type="hidden" name="amount" value="70.00"/> 
-                                        <button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                    </form>
-                                </div>
-                            </div>  
-                        </div>
-                        <div class="col-md-3 product-grids">
-                            <div class="agile-products">
-                                <div class="new-tag"><h6>New</h6></div>
-                                <a href="chitietsanpham.jsp"><img src="images/e4.png" class="img-responsive" alt="img"></a>
-                                <div class="agile-product-text">              
-                                    <h5><a href="chitietsanpham.jsp">Digital Camera</a></h5> 
-                                    <h6><del>$100</del> $80</h6> 
-                                    <form action="#" method="post">
-                                        <input type="hidden" name="cmd" value="_cart"/>
-                                        <input type="hidden" name="add" value="1"/> 
-                                        <input type="hidden" name="w3ls_item" value="Digital Camera"/> 
-                                        <input type="hidden" name="amount" value="80.00"/> 
-                                        <button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div> 
-                        <div class="col-md-3 product-grids">
-                            <div class="agile-products">
-                                <div class="new-tag"><h6>New</h6></div>
-                                <a href="chitietsanpham.jsp"><img src="images/e4.png" class="img-responsive" alt="img"></a>
-                                <div class="agile-product-text">              
-                                    <h5><a href="chitietsanpham.jsp">Digital Camera</a></h5> 
-                                    <h6><del>$100</del> $80</h6> 
-                                    <form action="#" method="post">
-                                        <input type="hidden" name="cmd" value="_cart"/>
-                                        <input type="hidden" name="add" value="1"/> 
-                                        <input type="hidden" name="w3ls_item" value="Digital Camera"/> 
-                                        <input type="hidden" name="amount" value="80.00"/> 
-                                        <button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 product-grids"> 
-                            <div class="agile-products">
-                                <div class="new-tag"><h6>5% <br> Off</h6></div>
-                                <a href="chitietsanpham.jsp"><img src="images/e3.png" class="img-responsive" alt="img"></a>
-                                <div class="agile-product-text">              
-                                    <h5><a href="chitietsanpham.jsp">Smart Phone</a></h5> 
-                                    <h6><del>$100</del> $70</h6> 
-                                    <form action="#" method="post">
-                                        <input type="hidden" name="cmd" value="_cart"/>
-                                        <input type="hidden" name="add" value="1"/> 
-                                        <input type="hidden" name="w3ls_item" value="Smart Phone"/> 
-                                        <input type="hidden" name="amount" value="70.00"/> 
-                                        <button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                    </form>
-                                </div>
-                            </div>  
-                        </div> 
-                        <div class="col-md-3 product-grids"> 
-                            <div class="agile-products">
-                                <div class="new-tag"><h6>20%<br>Off</h6></div>
-                                <a href="chitietsanpham.jsp"><img src="images/e1.png" class="img-responsive" alt="img"></a>
-                                <div class="agile-product-text">              
-                                    <h5><a href="chitietsanpham.jsp">Audio speaker</a></h5> 
-                                    <h6><del>$200</del> $100</h6> 
-                                    <form action="#" method="post">
-                                        <input type="hidden" name="cmd" value="_cart" />
-                                        <input type="hidden" name="add" value="1" /> 
-                                        <input type="hidden" name="w3ls_item" value="Audio speaker" /> 
-                                        <input type="hidden" name="amount" value="100.00" /> 
-                                        <button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                    </form> 
-                                </div>
-                            </div> 
-                        </div> 
-                        <div class="col-md-3 product-grids">
-                            <div class="agile-products">
-                                <div class="new-tag"><h6>New</h6></div>
-                                <a href="chitietsanpham.jsp"><img src="images/e2.png" class="img-responsive" alt="img"></a>
-                                <div class="agile-product-text">              
-                                    <h5><a href="chitietsanpham.jsp">Refrigerator</a></h5> 
-                                    <h6><del>$700</del> $300</h6> 
-                                    <form action="#" method="post">
-                                        <input type="hidden" name="cmd" value="_cart" />
-                                        <input type="hidden" name="add" value="1" /> 
-                                        <input type="hidden" name="w3ls_item" value="Refrigerator" /> 
-                                        <input type="hidden" name="amount" value="300.00" /> 
-                                        <button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div> 
+                        <%
+                            for(int i=0;i<ListSanPham.size();i++){
+                                Sanpham sp = ListSanPham.get(i);
+                                if(sp.getGiaKm()!=null){
+                                    %>
+                                    <div class="col-md-4 product-grids">
+                                        <div class="agile-products">
+                                            <div class="new-tag"><h6>Sale</h6></div>
+                                            <a href="chitietsanpham.jsp?idsanpham=<%= sp.getIdSanPham() %>"><img src="<%= sp.getImage()%>" class="img-responsive" alt="img"></a>
+                                            <div class="agile-product-text">              
+                                                <h5 class="text-center"><a href="chitietsanpham.jsp?idsanpham=<%= sp.getIdSanPham() %>"><%= sp.getTenSanPham()%></a></h5>  
+                                                <h6><del><%= sp.getGia()%></del> <%= sp.getGiaKm()%></h6> 
+                                                <form action="#" method="post">
+                                                    <input type="hidden" name="cmd" value="_cart" />
+                                                    <input type="hidden" name="add" value="1" /> 
+                                                    <input type="hidden" name="w3ls_item" value="<%= sp.getTenSanPham()%>" /> 
+                                                    <input type="hidden" name="amount" value="<%= sp.getGia()%>" /> 
+                                                    <button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <%
+                                }
+                                else{
+                                    %>
+                                    <div class="col-md-4 product-grids">
+                                        <div class="agile-products">
+                                            
+                                            <a href="chitietsanpham.jsp?idsanpham=<%= sp.getIdSanPham() %>"><img src="<%= sp.getImage()%>" class="img-responsive" alt="img"></a>
+                                            <div class="agile-product-text">              
+                                                <h5 class="text-center"><a href="chitietsanpham.jsp?idsanpham=<%= sp.getIdSanPham() %>"><%= sp.getTenSanPham()%></a></h5> 
+                                                <h6><del></del> <%= sp.getGia()%></h6> 
+                                                <form action="#" method="post">
+                                                    <input type="hidden" name="cmd" value="_cart" />
+                                                    <input type="hidden" name="add" value="1" /> 
+                                                    <input type="hidden" name="w3ls_item" value="<%= sp.getTenSanPham()%>" /> 
+                                                    <input type="hidden" name="amount" value="<%= sp.getGia()%>" /> 
+                                                    <button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <%
+                                }
+                        %>
+                        
+                        
+                        <%
+                            }
+                        %>
                         <div class="clearfix"> </div>
                     </div>
 <!--                     add-products  
@@ -453,7 +221,7 @@
                 <div class="clearfix"> </div>
                 <!-- recommendations -->
                 <div class="recommend">
-                    <h3 class="w3ls-title">Sản phẩm nổi bật</h3> 
+                    <h3 class="w3ls-title">Các Sản Phẩm Liên Quan</h3> 
                     <script>
                         $(document).ready(function () {
                             $("#owl-demo5").owlCarousel({
