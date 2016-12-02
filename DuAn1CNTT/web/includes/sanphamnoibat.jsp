@@ -61,7 +61,7 @@
                                 %>
                                 <div class="item">
                                     <div class="glry-w3agile-grids agileits"> 
-                                        <a href="sanpham.jsp"><img src="<%= laptop.getImage()%>" height="215px" alt="img"></a>
+                                        <a href="chitietsanpham.jsp?idsanpham=<%= laptop.getIdSanPham()%>"><img src="<%= laptop.getImage()%>" height="215px" alt="img"></a>
                                         <div class="view-caption agileits-w3layouts">           
                                             <h4><a href="sanpham.jsp"><%= laptop.getTenSanPham()%></a></h4>
                                             <p>Lorem ipsum dolor sit amet consectetur</p>
@@ -106,7 +106,7 @@
                                 %>
                                 <div class="item">
                                     <div class="glry-w3agile-grids agileits"> 
-                                        <a href="sanpham.jsp"><img src="<%= dienthoai.getImage()%>" height="215px" alt="img"></a>
+                                        <<a href="chitietsanpham.jsp?idsanpham=<%= dienthoai.getIdSanPham()%>"><img src="<%= dienthoai.getImage()%>" height="215px" alt="img"></a>
                                         <div class="view-caption agileits-w3layouts">           
                                             <h4><a href="sanpham.jsp"><%= dienthoai.getTenSanPham()%></a></h4>
                                             <p>Lorem ipsum dolor sit amet consectetur</p>
@@ -151,7 +151,7 @@
                                 %>
                                 <div class="item">
                                     <div class="glry-w3agile-grids agileits"> 
-                                        <a href="sanpham.jsp"><img src="<%= LuuNiem.getImage()%>" height="215px" alt="img"></a>
+                                        <a href="chitietsanpham.jsp?idsanpham=<%= LuuNiem.getIdSanPham()%>"><img src="<%= LuuNiem.getImage()%>" height="215px" alt="img"></a>
                                         <div class="view-caption agileits-w3layouts">           
                                             <h4><a href="sanpham.jsp"><%= LuuNiem.getTenSanPham()%></a></h4>
                                             <p>Lorem ipsum dolor sit amet consectetur</p>
@@ -196,7 +196,7 @@
                                     %>
                                     <div class="item">
                                         <div class="glry-w3agile-grids agileits"> 
-                                            <a href="sanpham.jsp"><img src="<%= NhaCua.getImage()%>" height="215px" alt="img"></a>
+                                            <a href="chitietsanpham.jsp?idsanpham=<%= NhaCua.getIdSanPham()%>"><img src="<%= NhaCua.getImage()%>" height="215px" alt="img"></a>
                                             <div class="view-caption agileits-w3layouts">           
                                                 <h4><a href="sanpham.jsp"><%= NhaCua.getTenSanPham()%></a></h4>
                                                 <p>Lorem ipsum dolor sit amet consectetur</p>
@@ -237,11 +237,10 @@
                                 <%
                                         for (int i = 0; i < ListSanphamTheThao.size(); i++) {
                                             Sanpham TheThao = ListSanphamTheThao.get(i);
-
                                     %>
                                     <div class="item">
                                         <div class="glry-w3agile-grids agileits"> 
-                                            <a href="sanpham.jsp"><img src="<%= TheThao.getImage()%>" height="215px" alt="img"></a>
+                                            <a href="chitietsanpham.jsp?idsanpham=<%= TheThao.getIdSanPham()%>"><img src="<%= TheThao.getImage()%>" height="215px" alt="img"></a>
                                             <div class="view-caption agileits-w3layouts">           
                                                 <h4><a href="sanpham.jsp"><%= TheThao.getTenSanPham()%></a></h4>
                                                 <p>Lorem ipsum dolor sit amet consectetur</p>
