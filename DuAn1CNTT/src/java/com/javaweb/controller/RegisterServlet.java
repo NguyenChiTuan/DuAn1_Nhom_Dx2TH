@@ -37,11 +37,11 @@ public class RegisterServlet extends HttpServlet {
         String Password,Email,UserName,FullName,rpw,Sdt,gioitinh,DiaChi,quyen;
         request.setCharacterEncoding("UTF-8");
         Email= request.getParameter("Email");
-        Password= request.getParameter("password");
+        Password= request.getParameter("Password");
         UserName= request.getParameter("UserName");
         FullName=request.getParameter("FullName");
-        rpw=request.getParameter("rpw");
-        Sdt=request.getParameter("Sdt");
+        rpw=request.getParameter("Re_Password");
+        Sdt=request.getParameter("phone");
         DiaChi=request.getParameter("DiaChi");
         gioitinh=request.getParameter("gioitinh");
      
