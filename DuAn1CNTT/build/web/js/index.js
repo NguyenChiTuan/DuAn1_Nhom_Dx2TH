@@ -52,26 +52,25 @@
             },
             Re_Password: {
                 validators: {
-                        stringLength: {
-                        min: 6,
-                        equalTo: '#repassword',
-                        message: 'Nhập lại mật khẩu chưa đúng'
-                    },
                         notEmpty: {
                         message: 'Nhập lại mật khẩu không được bỏ trống'
+                    },
+                    identical: {
+                        field: 'Password',
+                        message: 'Nhập lại mật khẩu không khớp'
                     }
                 }
             },
             phone: {
                 validators: {
-                        stringLength: {
-                            min: 10,
-                            max: 11,
-                            message: 'Số điện thoại từ 10 --> 11 số'
-                    },
+
                         notEmpty: {
                             message: 'Số điện thoại không được bỏ trống'
-                    }           
+                    },
+                    regexp: {
+                        regexp: /^[0-9\s\-()+\.]+$/,
+                        message: 'Số điện thoại không chứa chữ'
+                    }
                 }
             },
             DiaChi: {

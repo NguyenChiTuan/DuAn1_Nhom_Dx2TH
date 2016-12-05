@@ -49,7 +49,7 @@
                         <div class="col-md-8 inputGroupContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                <input name="UserName" placeholder="Sử dụng tài khoản hoặc Email để đăng nhập" class="form-control"  type="text">
+                                <input name="UserName" placeholder="Nhập tên đăng nhập" class="form-control"  type="text">
                             </div>
                         </div>
                     </div>
@@ -89,7 +89,7 @@
                         <div class="col-md-8 inputGroupContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                                <input name="phone" placeholder="" class="form-control" type="number">
+                                <input name="phone" class="form-control" type="text">
                             </div>
                         </div>
                     </div>
