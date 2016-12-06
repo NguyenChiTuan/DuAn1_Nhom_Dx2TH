@@ -5,8 +5,14 @@
  */
 package com.javaweb.controller;
 
+import com.javaweb.model.Binhluansanpham;
+import com.javaweb.model.Sanpham;
+import com.javaweb.model.Users;
+import com.javaweb.service.BinhLuanSanPhamService;
+import com.javaweb.service.SanphamService;
+import com.javaweb.service.UserService;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Administrator
+ * @author Nguyễn Chí Tuấn
  */
 public class BinhLuanSanPhamServlet extends HttpServlet {
 
@@ -32,8 +38,27 @@ public class BinhLuanSanPhamServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         
-
+        BinhLuanSanPhamService blsps = new BinhLuanSanPhamService();
         
+        String noiDung,idUser;
+        noiDung = request.getParameter("noidung");
+        idUser = request.getParameter("iduser");
+        
+        int idsanpham = Integer.parseInt(request.getParameter("idsanpham"));
+        
+        Date date = new Date();
+        
+        UserService us = new UserService();
+        Users user = us.GetUsersByID(idUser);
+        SanphamService sps = new SanphamService();
+        Sanpham sp = sps.GetSanPhamTheoId(idsanpham);
+
+        Binhluansanpham binhluan = new Binhluansanpham(sp, user, noiDung, date);
+        boolean rs = blsps.ThemBinhLuanSanPham(binhluan);
+        if(rs){
+            response.sendRedirect("chitietsanpham.jsp?idsanpham="+idsanpham);
+        }
+
         
         
         

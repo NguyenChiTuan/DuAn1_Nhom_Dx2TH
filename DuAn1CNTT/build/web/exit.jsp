@@ -9,12 +9,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>thoát</title>
+        <title>Đăng Xuất</title>
     </head>
     <body>
         <section>
             <%
-                if(session!=null){
+                if (session != null) {
                     session.removeAttribute("IdUser");
                     response.sendRedirect("index.jsp");
                 }

@@ -4,6 +4,8 @@
     Author     : Administrator
 --%>
 
+<%@page import="com.javaweb.model.Sanpham"%>
+<%@page import="com.javaweb.service.SanphamService"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.javaweb.model.Binhluansanpham"%>
 <%@page import="com.javaweb.service.BinhLuanSanPhamService"%>
@@ -20,11 +22,12 @@
         <div class="col-md-6">
             <div class="jumbotron">
                 <div class="media">
-                    <%
+                    <%  
+                        
+                        
                         if(session.getAttribute("IdUser")!=null){
                             UserService us = new UserService();
                             Users user = us.GetUsersByID(session.getAttribute("IdUser").toString());
-                            
                             %>
                             <form action="BinhLuanSanPhamServlet" method="post">
                                 <div class="media-left">
@@ -33,7 +36,9 @@
                                 <div class="media-body">
                                     <p><b><%= user.getFullName() %></b></p>
                                 </div>
-                                <textarea placeholder="Bạn nghĩ gì về sản phẩm này?" class="form-control" rows="4" id="comment"></textarea>
+                                    <input type="hidden" name="iduser" value="<%= user.getIdUser() %>">
+                                    <input type="hidden" name="idsanpham" value="<%= request.getParameter("idsanpham") %>">
+                                <textarea name="noidung" placeholder="Bạn nghĩ gì về sản phẩm này?" class="form-control" rows="4" id="comment"></textarea>
                                 <br>
                                 <button type="submit" class="btn btn-primary">Gửi Bình Luận</button>
                             </form>
@@ -42,8 +47,37 @@
                         else
                         {
                            %>
-                                <div class="media-body">
-                                    <p><b>Vui lòng Đăng Nhâp để Bình Luận Về Sàn Phẩm</b></p>
+                                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Đăng nhập để nhận xét</button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="myModal" role="dialog">
+                                    <div class="modal-dialog modal-sm">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title">Đăng nhập</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form>
+                                                    <div class="input-group" style="padding-bottom: 5px;">
+                                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                                        <input id="email" type="text" class="form-control" name="email" placeholder="Username or Email">
+                                                    </div>
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                                        <input id="password" type="password" class="form-control" name="password" placeholder="Password">
+                                                    </div>
+                                                    <br>
+                                                    <div class="text-center">
+                                                    <button type="button" class="btn btn-success">Đăng nhập</button>
+                                                    </div>
+                                                </form>
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                            <% 
                         }
@@ -75,7 +109,7 @@
                                     <img src="images/user_T.jpg" class="media-object" style="width:60px;height: 60px;">
                                 </div>
                                 <div class="media-body">
-                                    <h4 class="media-heading"><b></b> <small><i>Đã bình luận vào <%= binhluan.getNgayBinhLuan() %></i></small></h4>
+                                    <h4 class="media-heading"><b></b> <small><i>Đã bình luận vào: <%= binhluan.getNgayBinhLuan() %></i></small></h4>
                                     <p><%= binhluan.getNoiDung()%></p>
                                 </div>
                             </div>

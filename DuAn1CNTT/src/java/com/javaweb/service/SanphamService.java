@@ -72,7 +72,7 @@ public class SanphamService {
             tx = session.getTransaction();
             tx.begin();
             tx.commit();
-            String strquery = "from Sanpham where IdSanPham="+IdSanpham;
+            String strquery = "from Sanpham where IdSanPham=" + IdSanpham;
             Query query = session.createQuery(strquery);
             Sanpham sp = (Sanpham) query.uniqueResult();
             return sp;
