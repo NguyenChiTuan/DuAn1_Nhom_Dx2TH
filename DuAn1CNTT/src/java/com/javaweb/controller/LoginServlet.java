@@ -35,14 +35,14 @@ public class LoginServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
-         
-        String Password,email;
+        
+        String Password, email;
         
         email = request.getParameter("Email");
         Password = request.getParameter("Password");
         
         HttpSession session = request.getSession();
-
+        
         boolean kiemTra;
         UserService us = new UserService();
         String mkmh = md5.md5Encryption(Password);
@@ -51,14 +51,18 @@ public class LoginServlet extends HttpServlet {
         if (kiemTra) {
             Users user = us.GetUsersByEmailorUsersName(email);
             session.setAttribute("IdUser", user.getIdUser());
-            String url = "/index.jsp";
-            getServletContext().getRequestDispatcher(url).forward(request, response);
-
+            if (request.getParameter("idsanpham") != null) {
+                response.sendRedirect("chitietsanpham.jsp?idsanpham=" + Integer.parseInt(request.getParameter("idsanpham")));
+            } else {
+                String url = "/index.jsp";
+                getServletContext().getRequestDispatcher(url).forward(request, response);
+            }
+            
         } else {
             String url = "/dangnhap.jsp";
             getServletContext().getRequestDispatcher(url).forward(request, response);
         }
-           
+
 //        try (PrintWriter out = response.getWriter()) {
 //            /* TODO output your page here. You may use following sample code. */
 //            out.println("<!DOCTYPE html>");

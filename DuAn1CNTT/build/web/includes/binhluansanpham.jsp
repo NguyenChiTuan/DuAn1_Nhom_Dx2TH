@@ -24,9 +24,9 @@
                 <div class="media">
                     <%  
                         
-                        
-                        if(session.getAttribute("IdUser")!=null){
                             UserService us = new UserService();
+                        if(session.getAttribute("IdUser")!=null){
+                            
                             Users user = us.GetUsersByID(session.getAttribute("IdUser").toString());
                             %>
                             <form action="BinhLuanSanPhamServlet" method="post">
@@ -57,24 +57,25 @@
                                                 <h4 class="modal-title">Đăng nhập</h4>
                                             </div>
                                             <div class="modal-body">
-                                                <form>
+                                                <form action="LoginServlet" method="post">
                                                     <div class="input-group" style="padding-bottom: 5px;">
                                                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                                        <input id="email" type="text" class="form-control" name="email" placeholder="Username or Email">
+                                                        <input id="email" type="text" class="form-control" name="Email" placeholder="Username or Email">
                                                     </div>
                                                     <div class="input-group">
                                                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                                        <input id="password" type="password" class="form-control" name="password" placeholder="Password">
+                                                        <input id="password" type="password" class="form-control" name="Password" placeholder="Password">
+                                                        <input type="hidden" name="idsanpham" value="<%= request.getParameter("idsanpham") %>">
                                                     </div>
                                                     <br>
                                                     <div class="text-center">
-                                                    <button type="button" class="btn btn-success">Đăng nhập</button>
+                                                        <button type="submit" class="btn btn-success">Đăng nhập</button>
                                                     </div>
                                                 </form>
 
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -97,19 +98,19 @@
                         BinhLuanSanPhamService binhluanservice = new BinhLuanSanPhamService();
                         ArrayList<Binhluansanpham> Listbinhluan = null;
                         Listbinhluan = binhluanservice.GetAllBinhLuanTheoIdSanPham(request.getParameter("idsanpham"));
+                       
                     %>
                     <%
                         for(int i = 0; i < Listbinhluan.size(); i++){
                             Binhluansanpham binhluan = Listbinhluan.get(i);
-                            Users usbinhluan = binhluan.getUsers();
-                            
+                                Users userbinhluan=us.GetUsersByID(binhluan.getUsers().getIdUser().toString());
                             %>
                             <div class="media">
                                 <div class="media-left">
                                     <img src="images/user_T.jpg" class="media-object" style="width:60px;height: 60px;">
                                 </div>
                                 <div class="media-body">
-                                    <h4 class="media-heading"><b></b> <small><i>Đã bình luận vào: <%= binhluan.getNgayBinhLuan() %></i></small></h4>
+                                    <h4 class="media-heading"><b><%= userbinhluan.getFullName() %></b><small><i>Đã bình luận vào: <%= binhluan.getNgayBinhLuan() %></i></small></h4>
                                     <p><%= binhluan.getNoiDung()%></p>
                                 </div>
                             </div>
