@@ -1,4 +1,6 @@
 
+<%@page import="com.javaweb.model.Users"%>
+<%@page import="com.javaweb.service.UserService"%>
 <%-- 
     Document   : header
     Created on : Nov 23, 2016, 4:35:40 PM
@@ -8,6 +10,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <div class="header">
+    
     <div class="w3ls-header"><!--header-one--> 
         <div class="w3ls-header-left">
             <p><a href="#">Giảm giá 10% cho tất cả các dòng LAPTOP. Sử dụng mã: Dx2T </a></p>
@@ -17,16 +20,20 @@
                 <li class="dropdown head-dpdn">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i> Tài Khoản<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <%if (session.getAttribute("email") == null) {
+                        <%if (session.getAttribute("IdUser") == null) {
                 %>
                         <li><a href="dangnhap.jsp">Đăng Nhập</a></li>
                         <li><a href="dangky.jsp">Đăng Ký</a></li>
                         <li><a href="#">Kiểm Tra Đơn Hàng</a></li>
                         <%
             } else {
-            %>
-                        <li><a href="#">Wellcome: <%= session.getAttribute("email")%></a></li>
-            <li><a href="exit.jsp"> Logout</a></li>
+                        UserService us = new UserService();
+                        Users user = us.GetUsersByID(session.getAttribute("IdUser").toString());
+            %>          
+                        
+                        
+                        <li><a href="#">Wellcome: <%= user.getFullName() %></a></li>
+                        <li><a href="exit.jsp"> Logout</a></li>
                 <%
                     }
                 %>

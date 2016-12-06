@@ -15,7 +15,7 @@
         <section>
             <%
                 if(session!=null){
-                    session.removeAttribute("email");
+                    session.removeAttribute("IdUser");
                     response.sendRedirect("index.jsp");
                 }
             %>

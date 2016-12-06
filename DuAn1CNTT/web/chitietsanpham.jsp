@@ -75,15 +75,15 @@
                                     if(sp.getGiaKm()==null){
                                         %>
                                             <ul>
-                                                <li style="color:#0280e1"><%= sp.getGia() %> $</li>
+                                                <li style="color:#0280e1"><%= sp.getGia() %> VNĐ</li>
                                             </ul>
                                         <%
                                     }
                                     else{
                                         %>
                                             <ul>
-                                                <li style="color:#0280e1"><%= sp.getGiaKm()%> $</li>
-                                                <li style="font-size: 25px"><del><%= sp.getGia()%> $</del></li>
+                                                <li style="color:#0280e1"><%= sp.getGiaKm()%> VNĐ</li>
+                                                <li style="font-size: 25px"><del><%= sp.getGia()%> VNĐ</del></li>
                                             </ul>
                                         <%
                                     }

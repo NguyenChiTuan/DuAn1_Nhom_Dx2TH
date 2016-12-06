@@ -5,22 +5,18 @@
  */
 package com.javaweb.controller;
 
-import com.javaweb.model.Users;
-import com.javaweb.service.UserService;
-import com.javaweb.service.md5;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author TAO-PC
+ * @author Administrator
  */
-public class RegisterServlet extends HttpServlet {
+public class BinhLuanSanPhamServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,53 +32,25 @@ public class RegisterServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         
-        
-        String Password,Email,UserName,FullName,rpw,Sdt,gioitinh,DiaChi,quyen;
 
-        Email = request.getParameter("Email");
-        Password = request.getParameter("Password");
-        UserName = request.getParameter("UserName");
-        FullName = request.getParameter("FullName");
-        rpw = request.getParameter("Re_Password");
-        Sdt = request.getParameter("phone");
-        DiaChi = request.getParameter("DiaChi");
-        gioitinh = request.getParameter("gioitinh");
-     
-        HttpSession session = request.getSession();
-        
-        if (Password.equals(rpw)) {
-            UserService us = new UserService();
-            String mkmh = md5.md5Encryption(Password);
-            Users user = new Users(UserName, mkmh, FullName, Email, gioitinh, DiaChi, Sdt);
-            us.Insertservice(user);
-            session.setAttribute("IdUser", user.getIdUser());
-            String url = "/"
-                    + "index.jsp";
-            getServletContext().getRequestDispatcher(url).forward(request, response);
-        } else {
-            String url = "/dangky.jsp";
-            getServletContext().getRequestDispatcher(url).forward(request, response);
-        }
-//        
         
         
         
         
         
         
-        
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet RegisterServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet RegisterServlet at " + request.getContextPath() +"</h1>");//+Password+Email+UserName+FullName+rpw+Sdt+gioitinh+DiaChi// 
-            out.println("</body>");
-            out.println("</html>");
-        }
+//        try (PrintWriter out = response.getWriter()) {
+//            /* TODO output your page here. You may use following sample code. */
+//            out.println("<!DOCTYPE html>");
+//            out.println("<html>");
+//            out.println("<head>");
+//            out.println("<title>Servlet BinhLuanSanPhamServlet</title>");            
+//            out.println("</head>");
+//            out.println("<body>");
+//            out.println("<h1>Servlet BinhLuanSanPhamServlet at " + request.getContextPath() + "</h1>");
+//            out.println("</body>");
+//            out.println("</html>");
+//        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

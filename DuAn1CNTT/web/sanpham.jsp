@@ -50,13 +50,18 @@
                                 Sanpham sp = ListSanPham.get(i);
                                 if (sp.getGiaKm() != null) {
                         %>
-                        <div class="col-md-4 product-grids">
+                        <div class="col-md-3 product-grids">
                             <div class="agile-products">
                                 <div class="new-tag"><h6>Sale</h6></div>
-                                <a href="chitietsanpham.jsp?idsanpham=<%= sp.getIdSanPham()%>"><img src="<%= sp.getImage()%>" class="img-responsive" alt="img"></a>
+                                <a href="chitietsanpham.jsp?idsanpham=<%= sp.getIdSanPham()%>">
+                                    <img src="<%= sp.getImage()%>" class="img-thumbnail" alt="img">
+                                </a>
+                                
                                 <div class="agile-product-text">              
-                                    <h5 class="text-center"><a href="chitietsanpham.jsp?idsanpham=<%= sp.getIdSanPham()%>"><%= sp.getTenSanPham()%></a></h5>  
-                                    <h6><del><%= sp.getGia()%></del> <%= sp.getGiaKm()%></h6>
+                                    <h5 class="text-center" style="font-weight: bold; font-size: 16px">
+                                        <a href="chitietsanpham.jsp?idsanpham=<%= sp.getIdSanPham()%>"><%= sp.getTenSanPham()%></a>
+                                    </h5>  
+                                        <h6 style="font-weight: bold"><del><%= sp.getGia()%> VNĐ<br></del> <%= sp.getGiaKm()%> VNĐ</h6>
                                     
                                     <form action="#" method="post">
                                         <input type="hidden" name="cmd" value="_cart" />
@@ -71,13 +76,15 @@
                         <%
                         } else {
                         %>
-                        <div class="col-md-4 product-grids">
+                        <div class="col-md-3 product-grids">
                             <div class="agile-products">
                                 
-                                <a href="chitietsanpham.jsp?idsanpham=<%= sp.getIdSanPham()%>"><img src="<%= sp.getImage()%>" class="img-responsive" alt="img"></a>
+                                <a href="chitietsanpham.jsp?idsanpham=<%= sp.getIdSanPham()%>"><img src="<%= sp.getImage()%>" class="img-thumbnail" alt="img"></a>
                                 <div class="agile-product-text">              
-                                    <h5 class="text-center"><a href="chitietsanpham.jsp?idsanpham=<%= sp.getIdSanPham()%>"><%= sp.getTenSanPham()%></a></h5> 
-                                    <h6><del></del> <%= sp.getGia()%></h6> 
+                                    <h5 class="text-center" style="font-weight: bold; font-size: 16px">
+                                        <a href="chitietsanpham.jsp?idsanpham=<%= sp.getIdSanPham()%>"><%= sp.getTenSanPham()%></a>
+                                    </h5> 
+                                    <h6 style="font-weight: bold"><del></del> <%= sp.getGia()%> VNĐ</h6> 
                                     <form action="#" method="post">
                                         <input type="hidden" name="cmd" value="_cart" />
                                         <input type="hidden" name="add" value="1" /> 
