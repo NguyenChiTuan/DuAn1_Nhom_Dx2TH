@@ -73,9 +73,9 @@
                 </div>
                 <br>
                 <div class="col-md-5">
-                    <form class="form-custom">
+                    <form class="form-custom" action="timkiemsanpham.jsp" method="get">
                         <div class="input-group">
-                            <input id="msg" type="text" class="form-control" placeholder="Tìm sản phẩm...">
+                            <input name="timkiemsp"id="msg" type="text" class="form-control" placeholder="Tìm sản phẩm...">
                             <span class="input-group-addon" style="border: 1px solid #F57170;">
                                 <li class="dropdown">
                                     <a style="color: black;" href="#" class="dropdown-toggle" data-toggle="dropdown">

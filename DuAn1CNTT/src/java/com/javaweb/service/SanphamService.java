@@ -86,4 +86,25 @@ public class SanphamService {
         }
         return null;
     }
+    public ArrayList<Sanpham> TimKiemSanPham(String timkiem) {
+        Session session = NewHibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        ArrayList<Sanpham> ListSanPham = new ArrayList<>();
+        try {
+            tx = session.getTransaction();
+            tx.begin();
+            String strquery = "from Sanpham where TenSanPham like '%"+timkiem+"%'";
+            Query query = session.createQuery(strquery);
+            ListSanPham = (ArrayList<Sanpham>) query.list();
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            System.out.println(e.toString());
+        } finally {
+            session.close();
+        }
+        return ListSanPham;
+    }
 }
