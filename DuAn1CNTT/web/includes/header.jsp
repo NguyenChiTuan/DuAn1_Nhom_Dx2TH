@@ -1,4 +1,5 @@
 
+<%@page import="com.javaweb.service.GioHang"%>
 <%@page import="com.javaweb.model.Users"%>
 <%@page import="com.javaweb.service.UserService"%>
 <%-- 
@@ -20,16 +21,17 @@
                 <li class="dropdown head-dpdn">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i> Tài Khoản<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <%if (session.getAttribute("IdUser") == null) {
-                %>
-                        <li><a href="dangnhap.jsp">Đăng Nhập</a></li>
-                        <li><a href="dangky.jsp">Đăng Ký</a></li>
-                        <li><a href="#">Kiểm Tra Đơn Hàng</a></li>
+                        <%
+                            if (session.getAttribute("IdUser") == null) {
+                        %>
+                            <li><a href="dangnhap.jsp">Đăng Nhập</a></li>
+                            <li><a href="dangky.jsp">Đăng Ký</a></li>
+                            <li><a href="#">Kiểm Tra Đơn Hàng</a></li>
                         <%
             } else {
-                        UserService us = new UserService();
-                        Users user = us.GetUsersByID(session.getAttribute("IdUser").toString());
-            %>          
+                            UserService us = new UserService();
+                            Users user = us.GetUsersByID(session.getAttribute("IdUser").toString());
+                        %>          
                         
                         
                         <li><a href="#">Wellcome: <%= user.getFullName() %></a></li>
@@ -95,14 +97,23 @@
                 <div class="col-md-4 text-right">
                      <div class="header-cart">
                         <div class="cart"> 
-                            <form action="#" method="post">
-                                <input type="hidden" name="cmd" value="_cart" />
-                                <input type="hidden" name="display" value="1" />
+                            
                                 <button type="submit" name="submit" value="" style="border: none; background-color: transparent;outline: none;">  
-                                    GIỎ HÀNG<img src="images/80-shopping-cart-icon.png" alt=""/>
-                                    <span class="badge">0</span>
+                                    <a href="showcart.jsp">
+                                        GIỎ HÀNG<img src="images/80-shopping-cart-icon.png" alt=""/>
+                                        <%
+                                            if (session.getAttribute("dshang") != null) {
+                                                 ArrayList<GioHang> listGioHang = (ArrayList) session.getAttribute("dshang");
+                                            
+                                        %>
+                                        
+                                        <span class="badge"><%= listGioHang.size() %></span>
+                                        <%
+                                            }
+                                        %>
+                                    <a/>
                                 </button>
-                            </form>  
+                                </a>
                         </div>
                     </div> 
                 </div>   

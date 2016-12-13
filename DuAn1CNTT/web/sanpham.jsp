@@ -17,15 +17,14 @@
     <body>
         <!-- header -->
         <%@include file="includes/header.jsp" %>
-        <%
-            String id = request.getParameter("id");
+        <%            String id = request.getParameter("id");
             SanphamService SPService = new SanphamService();
             ArrayList<Sanpham> ListSanPham = null;
             ListSanPham = SPService.GetAllSanphamTheoLoai(Integer.parseInt(id));
             LoaisanphamService LSPService = new LoaisanphamService();
             Loaisanpham LSP = LSPService.GetLoaiSanPhamTheoId(Integer.parseInt(id));
             ArrayList<Sanpham> ListSanphamLapTop = null;
-            ListSanphamLapTop = SPService.GetAllSanpham(LSP.getIdParent(),5);
+            ListSanphamLapTop = SPService.GetAllSanpham(LSP.getIdParent(), 5);
         %>
         <!-- //header --> 	
         <!-- products -->
@@ -56,19 +55,21 @@
                                 <a href="chitietsanpham.jsp?idsanpham=<%= sp.getIdSanPham()%>">
                                     <img src="<%= sp.getImage()%>" class="img-responsive" style="width: 300px; height: 300px" alt="img">
                                 </a>
-                                
+
                                 <div class="agile-product-text">              
                                     <h5 class="text-center" style="font-weight: bold; font-size: 16px">
                                         <a href="chitietsanpham.jsp?idsanpham=<%= sp.getIdSanPham()%>"><%= sp.getTenSanPham()%></a>
                                     </h5>  
-                                        <h6 style="font-weight: bold"><del><%= sp.getGia()%> VNĐ<br></del> <%= sp.getGiaKm()%> VNĐ</h6>
-                                    
-                                    <form action="#" method="post">
+                                    <h6 style="font-weight: bold"><del><%= sp.getGia()%> VNĐ<br></del> <%= sp.getGiaKm()%> VNĐ</h6>
+
+                                    <form action="addtocart.jsp?idsanpham=<%= sp.getIdSanPham()%>" method="post">
                                         <input type="hidden" name="cmd" value="_cart" />
                                         <input type="hidden" name="add" value="1" /> 
-                                        <input type="hidden" name="w3ls_item" value="<%= sp.getTenSanPham()%>" /> 
-                                        <input type="hidden" name="amount" value="<%= sp.getGia()%>" /> 
-                                        <button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+                                        <input type="hidden" name="w3ls_item" value="<%= sp.getTenSanPham()%>"/> 
+                                        <input type="hidden" name="amount" value="<%= sp.getGia()%>"/> 
+                                        <a class="w3ls-cart pw3ls-cart" href="addtocart.jsp?idsanpham=<%= sp.getIdSanPham()%>"
+                                           <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart
+                                        </a>
                                     </form>
                                 </div>
                             </div>
@@ -78,19 +79,21 @@
                         %>
                         <div class="col-md-3 product-grids">
                             <div class="agile-products">
-                                
+
                                 <a href="chitietsanpham.jsp?idsanpham=<%= sp.getIdSanPham()%>"><img src="<%= sp.getImage()%>" class="img-thumbnail" alt="img"></a>
                                 <div class="agile-product-text">              
                                     <h5 class="text-center" style="font-weight: bold; font-size: 16px">
                                         <a href="chitietsanpham.jsp?idsanpham=<%= sp.getIdSanPham()%>"><%= sp.getTenSanPham()%></a>
                                     </h5> 
                                     <h6 style="font-weight: bold"><del></del> <%= sp.getGia()%> VNĐ</h6> 
-                                    <form action="#" method="post">
+                                    <form action="addtocart.jsp?idsanpham=<%= sp.getIdSanPham()%>" method="post">
                                         <input type="hidden" name="cmd" value="_cart" />
                                         <input type="hidden" name="add" value="1" /> 
-                                        <input type="hidden" name="w3ls_item" value="<%= sp.getTenSanPham()%>" /> 
-                                        <input type="hidden" name="amount" value="<%= sp.getGia()%>" /> 
-                                        <button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+                                        <input type="hidden" name="w3ls_item" value="<%= sp.getTenSanPham()%>"/> 
+                                        <input type="hidden" name="amount" value="<%= sp.getGia()%>"/> 
+                                        <a class="w3ls-cart pw3ls-cart" href="addtocart.jsp?idsanpham=<%= sp.getIdSanPham()%>"
+                                           <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart
+                                        </a>
                                     </form>
                                 </div>
                             </div>
@@ -247,30 +250,32 @@
                     </script>
                     <div id="owl-demo5" class="owl-carousel">
                         <%
-                                    for (int i = 0; i < ListSanphamLapTop.size(); i++) {
-                                        Sanpham laptop = ListSanphamLapTop.get(i);
+                            for (int i = 0; i < ListSanphamLapTop.size(); i++) {
+                                Sanpham laptop = ListSanphamLapTop.get(i);
 
-                                %>
-                                <div class="item">
-                                    <div class="glry-w3agile-grids agileits"> 
-                                        <a href="chitietsanpham.jsp?idsanpham=<%= laptop.getIdSanPham()%>"><img src="<%= laptop.getImage()%>" height="215px" alt="img"></a>
-                                        <div class="view-caption agileits-w3layouts">           
-                                            <h4><a href="chitietsanpham.jsp?idsanpham=<%= laptop.getIdSanPham()%>"><%= laptop.getTenSanPham()%></a></h4>
-                                            <p>Lorem ipsum dolor sit amet consectetur</p>
-                                            <h5><%= laptop.getGia()%></h5>
-                                            <form action="#" method="post">
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="1" /> 
-                                                <input type="hidden" name="w3ls_item" value="<%= laptop.getTenSanPham()%>"/> 
-                                                <input type="hidden" name="amount" value="<%= laptop.getGia()%>"/> 
-                                                <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                            </form>
-                                        </div>         
-                                    </div>  
-                                </div>
-                                <%
-                                    }
-                                %>
+                        %>
+                        <div class="item">
+                            <div class="glry-w3agile-grids agileits"> 
+                                <a href="chitietsanpham.jsp?idsanpham=<%= laptop.getIdSanPham()%>"><img src="<%= laptop.getImage()%>" height="215px" alt="img"></a>
+                                <div class="view-caption agileits-w3layouts">           
+                                    <h4><a href="chitietsanpham.jsp?idsanpham=<%= laptop.getIdSanPham()%>"><%= laptop.getTenSanPham()%></a></h4>
+                                    <p>Lorem ipsum dolor sit amet consectetur</p>
+                                    <h5><%= laptop.getGia()%></h5>
+                                    <form action="addtocart.jsp?idsanpham=<%= laptop.getIdSanPham()%>" method="post">
+                                        <input type="hidden" name="cmd" value="_cart" />
+                                        <input type="hidden" name="add" value="1" /> 
+                                        <input type="hidden" name="w3ls_item" value="<%= laptop.getTenSanPham()%>"/> 
+                                        <input type="hidden" name="amount" value="<%= laptop.getGia()%>"/> 
+                                        <a class="w3ls-cart" href="addtocart.jsp?idsanpham=<%= laptop.getIdSanPham()%>"
+                                           <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart
+                                        </a>
+                                    </form>
+                                </div>         
+                            </div>  
+                        </div>
+                        <%
+                            }
+                        %>
                     </div>    
                 </div>
                 <!-- //recommendations -->

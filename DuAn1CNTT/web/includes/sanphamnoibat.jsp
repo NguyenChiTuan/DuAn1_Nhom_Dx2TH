@@ -66,12 +66,14 @@
                                             <h4><a href="sanpham.jsp"><%= laptop.getTenSanPham()%></a></h4>
                                             <p>Lorem ipsum dolor sit amet consectetur</p>
                                             <h5><%= laptop.getGia()%></h5>
-                                            <form action="#" method="post">
+                                            <form action="addtocart.jsp?idsanpham=<%= laptop.getIdSanPham()%>" method="post">
                                                 <input type="hidden" name="cmd" value="_cart" />
                                                 <input type="hidden" name="add" value="1" /> 
                                                 <input type="hidden" name="w3ls_item" value="<%= laptop.getTenSanPham()%>"/> 
                                                 <input type="hidden" name="amount" value="<%= laptop.getGia()%>"/> 
-                                                <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+                                                <a class="w3ls-cart" href="addtocart.jsp?idsanpham=<%= laptop.getIdSanPham()%>"
+                                                   <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart
+                                                </a>
                                             </form>
                                         </div>         
                                     </div>  
@@ -111,12 +113,14 @@
                                             <h4><a href="sanpham.jsp"><%= dienthoai.getTenSanPham()%></a></h4>
                                             <p>Lorem ipsum dolor sit amet consectetur</p>
                                             <h5><%= dienthoai.getGia()%></h5>
-                                            <form action="#" method="post">
+                                            <form action="addtocart.jsp?idsanpham=<%= dienthoai.getIdSanPham()%>" method="post">
                                                 <input type="hidden" name="cmd" value="_cart" />
                                                 <input type="hidden" name="add" value="1" /> 
                                                 <input type="hidden" name="w3ls_item" value="<%= dienthoai.getTenSanPham()%>"/> 
                                                 <input type="hidden" name="amount" value="<%= dienthoai.getGia()%>"/> 
-                                                <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+                                                <a class="w3ls-cart" href="addtocart.jsp?idsanpham=<%= dienthoai.getIdSanPham()%>"
+                                                   <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart
+                                                </a>
                                             </form>
                                         </div>         
                                     </div>  
@@ -156,12 +160,14 @@
                                             <h4><a href="sanpham.jsp"><%= LuuNiem.getTenSanPham()%></a></h4>
                                             <p>Lorem ipsum dolor sit amet consectetur</p>
                                             <h5><%= LuuNiem.getGia()%></h5>
-                                            <form action="#" method="post">
+                                            <form action="addtocart.jsp?idsanpham=<%= LuuNiem.getIdSanPham()%>" method="post">
                                                 <input type="hidden" name="cmd" value="_cart" />
                                                 <input type="hidden" name="add" value="1" /> 
                                                 <input type="hidden" name="w3ls_item" value="<%= LuuNiem.getTenSanPham()%>"/> 
                                                 <input type="hidden" name="amount" value="<%= LuuNiem.getGia()%>"/> 
-                                                <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+                                                <a class="w3ls-cart" href="addtocart.jsp?idsanpham=<%= LuuNiem.getIdSanPham()%>"
+                                                   <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart
+                                                </a>
                                             </form>
                                         </div>         
                                     </div>  
@@ -201,12 +207,14 @@
                                                 <h4><a href="sanpham.jsp"><%= NhaCua.getTenSanPham()%></a></h4>
                                                 <p>Lorem ipsum dolor sit amet consectetur</p>
                                                 <h5><%= NhaCua.getGia()%></h5>
-                                                <form action="#" method="post">
+                                                <form action="addtocart.jsp?idsanpham=<%= NhaCua.getIdSanPham()%>" method="post">
                                                     <input type="hidden" name="cmd" value="_cart" />
                                                     <input type="hidden" name="add" value="1" /> 
                                                     <input type="hidden" name="w3ls_item" value="<%= NhaCua.getTenSanPham()%>"/> 
                                                     <input type="hidden" name="amount" value="<%= NhaCua.getGia()%>"/> 
-                                                    <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+                                                    <a class="w3ls-cart" href="addtocart.jsp?idsanpham=<%= NhaCua.getIdSanPham()%>"
+                                                       <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart
+                                                    </a>
                                                 </form>
                                             </div>         
                                         </div>  
@@ -245,12 +253,14 @@
                                                 <h4><a href="sanpham.jsp"><%= TheThao.getTenSanPham()%></a></h4>
                                                 <p>Lorem ipsum dolor sit amet consectetur</p>
                                                 <h5><%= TheThao.getGia()%></h5>
-                                                <form action="#" method="post">
+                                                <form action="addtocart.jsp?idsanpham=<%= TheThao.getIdSanPham()%>" method="post">
                                                     <input type="hidden" name="cmd" value="_cart" />
                                                     <input type="hidden" name="add" value="1" /> 
                                                     <input type="hidden" name="w3ls_item" value="<%= TheThao.getTenSanPham()%>"/> 
                                                     <input type="hidden" name="amount" value="<%= TheThao.getGia()%>"/> 
-                                                    <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+                                                    <a class="w3ls-cart" href="addtocart.jsp?idsanpham=<%= TheThao.getIdSanPham()%>"
+                                                       <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart
+                                                    </a>
                                                 </form>
                                             </div>         
                                         </div>  

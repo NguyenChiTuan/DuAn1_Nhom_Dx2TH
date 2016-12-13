@@ -65,7 +65,9 @@
                                         <input type="hidden" name="add" value="1" /> 
                                         <input type="hidden" name="w3ls_item" value="<%= sp.getTenSanPham()%>" /> 
                                         <input type="hidden" name="amount" value="<%= sp.getGia()%>" /> 
-                                        <button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+                                        <a class="w3ls-cart pw3ls-cart" href="addtocart.jsp?idsanpham=<%= sp.getIdSanPham()%>"
+                                           <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart
+                                        </a>
                                     </form>
                                 </div>
                             </div>
