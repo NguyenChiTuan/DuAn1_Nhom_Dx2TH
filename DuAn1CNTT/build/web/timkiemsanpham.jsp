@@ -1,7 +1,7 @@
 <%-- 
-    Document   : sanpham
-    Created on : Nov 26, 2016, 7:42:38 PM
-    Author     : Nguyễn Chí Tuấn
+    Document   : timkiemsanpham
+    Created on : Dec 8, 2016, 9:50:46 AM
+    Author     : PhuocDanh
 --%>
 
 <%@page import="com.javaweb.model.Sanpham"%>
@@ -18,14 +18,11 @@
         <!-- header -->
         <%@include file="includes/header.jsp" %>
         <%
-            String id = request.getParameter("id");
+            String timkiem = request.getParameter("timkiemsp");
             SanphamService SPService = new SanphamService();
             ArrayList<Sanpham> ListSanPham = null;
-            ListSanPham = SPService.GetAllSanphamTheoLoai(Integer.parseInt(id));
-            LoaisanphamService LSPService = new LoaisanphamService();
-            Loaisanpham LSP = LSPService.GetLoaiSanPhamTheoId(Integer.parseInt(id));
-            ArrayList<Sanpham> ListSanphamLapTop = null;
-            ListSanphamLapTop = SPService.GetAllSanpham(LSP.getIdParent(),5);
+            ListSanPham = SPService.TimKiemSanPham(timkiem);
+            
         %>
         <!-- //header --> 	
         <!-- products -->
@@ -40,7 +37,7 @@
                     <div class="clearfix"> </div>
                     <!-- //breadcrumbs -->
                     <div class="product-top">
-                        <h4>Các Sản Phẩm <%= LSP.getTenLoaiSanPham()%></h4>
+                        <h4></h4>
                         <div class="clearfix"> </div>
                     </div>
                     <!--ô load sản phẩm-->
@@ -54,7 +51,7 @@
                             <div class="agile-products">
                                 <div class="new-tag"><h6>Sale</h6></div>
                                 <a href="chitietsanpham.jsp?idsanpham=<%= sp.getIdSanPham()%>">
-                                    <img src="<%= sp.getImage()%>" class="img-responsive" style="width: 300px; height: 300px" alt="img">
+                                    <img src="<%= sp.getImage()%>" class="img-thumbnail" alt="img">
                                 </a>
                                 
                                 <div class="agile-product-text">              
@@ -229,50 +226,7 @@
                 </div>
                 <div class="clearfix"> </div>
                 <!-- recommendations -->
-                <div class="recommend">
-                    <h3 class="w3ls-title">Các Sản Phẩm Liên Quan</h3> 
-                    <script>
-                        $(document).ready(function () {
-                            $("#owl-demo5").owlCarousel({
-                                autoPlay: 3000, //Set AutoPlay to 3 seconds
-
-                                items: 4,
-                                itemsDesktop: [640, 5],
-                                itemsDesktopSmall: [414, 4],
-                                navigation: true
-
-                            });
-
-                        });
-                    </script>
-                    <div id="owl-demo5" class="owl-carousel">
-                        <%
-                                    for (int i = 0; i < ListSanphamLapTop.size(); i++) {
-                                        Sanpham laptop = ListSanphamLapTop.get(i);
-
-                                %>
-                                <div class="item">
-                                    <div class="glry-w3agile-grids agileits"> 
-                                        <a href="chitietsanpham.jsp?idsanpham=<%= laptop.getIdSanPham()%>"><img src="<%= laptop.getImage()%>" height="215px" alt="img"></a>
-                                        <div class="view-caption agileits-w3layouts">           
-                                            <h4><a href="chitietsanpham.jsp?idsanpham=<%= laptop.getIdSanPham()%>"><%= laptop.getTenSanPham()%></a></h4>
-                                            <p>Lorem ipsum dolor sit amet consectetur</p>
-                                            <h5><%= laptop.getGia()%></h5>
-                                            <form action="#" method="post">
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="1" /> 
-                                                <input type="hidden" name="w3ls_item" value="<%= laptop.getTenSanPham()%>"/> 
-                                                <input type="hidden" name="amount" value="<%= laptop.getGia()%>"/> 
-                                                <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                            </form>
-                                        </div>         
-                                    </div>  
-                                </div>
-                                <%
-                                    }
-                                %>
-                    </div>    
-                </div>
+                
                 <!-- //recommendations -->
             </div>
         </div>

@@ -54,7 +54,7 @@
                             <div class="agile-products">
                                 <div class="new-tag"><h6>Sale</h6></div>
                                 <a href="chitietsanpham.jsp?idsanpham=<%= sp.getIdSanPham()%>">
-                                    <img src="<%= sp.getImage()%>" class="img-thumbnail" alt="img">
+                                    <img src="<%= sp.getImage()%>" class="img-responsive" style="width: 300px; height: 300px" alt="img">
                                 </a>
                                 
                                 <div class="agile-product-text">              

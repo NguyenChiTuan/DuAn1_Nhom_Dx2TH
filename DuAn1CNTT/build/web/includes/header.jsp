@@ -40,15 +40,7 @@
                     </ul> 
                 </li>
                 <li class="dropdown head-dpdn">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-gift" aria-hidden="true"></i> Tin Tức<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Công Nghệ</a></li>
-                        <li><a href="#">Giáo Dục</a></li>
-                        <li><a href="#">Kinh Doanh</a></li>
-                        <li><a href="#">Khoa Học</a></li>
-                        <li><a href="#">Thời Sự</a></li>
-                        <li><a href="#">Thế Giới</a></li> 
-                    </ul> 
+                    <a href="tintuc.jsp" class="dropdown-toggle"><i class="fa fa-gift" aria-hidden="true"></i> Tin Tức</a> 
                 </li>
                 <li class="dropdown head-dpdn">
                     <a href="#" class="dropdown-toggle"><i class="fa fa-info-circle" aria-hidden="true"></i> Giới Thiệu</a>
