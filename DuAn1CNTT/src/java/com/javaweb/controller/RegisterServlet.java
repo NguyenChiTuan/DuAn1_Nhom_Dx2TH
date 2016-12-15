@@ -5,6 +5,7 @@
  */
 package com.javaweb.controller;
 
+
 import com.javaweb.model.Users;
 import com.javaweb.service.UserService;
 import com.javaweb.service.md5;
@@ -53,8 +54,17 @@ public class RegisterServlet extends HttpServlet {
         if (Password.equals(rpw)) {
             UserService us = new UserService();
             String mkmh = md5.md5Encryption(Password);
-            Users user = new Users(UserName, mkmh, FullName, Email, gioitinh, DiaChi, Sdt);
-            us.Insertservice(user);
+            
+            Users user = new Users();
+            user.setUserName(UserName);
+            user.setPassWord(mkmh);
+            user.setFullName(FullName);
+            user.setEmail(Email);
+            user.setGioiTinh(gioitinh);
+            user.setDiaChi(DiaChi);
+            user.setSdt(Sdt);         
+            user.setIdQuyen(4);
+            us.Insertservice(user);           
             session.setAttribute("IdUser", user.getIdUser());
             String url = "/"
                     + "index.jsp";

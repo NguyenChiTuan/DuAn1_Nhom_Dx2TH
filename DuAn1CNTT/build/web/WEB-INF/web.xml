@@ -25,6 +25,14 @@
         <servlet-name>ThanhtoanSeverlet</servlet-name>
         <servlet-class>com.javaweb.controller.ThanhtoanSeverlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DanhMucQuanLySanPham</servlet-name>
+        <servlet-class>com.javaweb.controller.DanhMucQuanLySanPham</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>loaddmqlsp</servlet-name>
+        <servlet-class>com.javaweb.controller.loaddmqlsp</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
@@ -44,6 +52,14 @@
     <servlet-mapping>
         <servlet-name>ThanhtoanSeverlet</servlet-name>
         <url-pattern>/ThanhtoanSeverlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DanhMucQuanLySanPham</servlet-name>
+        <url-pattern>/DanhMucQuanLySanPham</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>loaddmqlsp</servlet-name>
+        <url-pattern>/loaddmqlsp</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

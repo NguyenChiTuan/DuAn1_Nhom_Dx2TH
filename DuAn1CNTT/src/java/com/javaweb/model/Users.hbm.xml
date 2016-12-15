@@ -1,16 +1,13 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Nov 28, 2016 3:38:38 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Dec 15, 2016 1:23:25 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.javaweb.model.Users" table="users" catalog="db_duan01" optimistic-lock="version">
         <id name="idUser" type="java.lang.Integer">
             <column name="IdUser" />
             <generator class="identity" />
         </id>
-        <many-to-one name="quyen" class="com.javaweb.model.Quyen" fetch="select">
-            <column name="IdQuyen" />
-        </many-to-one>
         <property name="userName" type="string">
             <column name="UserName" length="50" not-null="true" unique="true" />
         </property>
@@ -31,6 +28,9 @@
         </property>
         <property name="sdt" type="string">
             <column name="SDT" length="45" not-null="true" />
+        </property>
+        <property name="idQuyen" type="java.lang.Integer">
+            <column name="IdQuyen" />
         </property>
         <property name="avatar" type="binary">
             <column name="Avatar" />

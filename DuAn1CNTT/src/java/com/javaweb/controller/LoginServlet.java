@@ -35,29 +35,33 @@ public class LoginServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
-        
+
         String Password, email;
-        
+
         email = request.getParameter("Email");
         Password = request.getParameter("Password");
-        
+
         HttpSession session = request.getSession();
-        
+
         boolean kiemTra;
         UserService us = new UserService();
         String mkmh = md5.md5Encryption(Password);
         kiemTra = us.CheckLogin(email, mkmh);
-        
+
         if (kiemTra) {
             Users user = us.GetUsersByEmailorUsersName(email);
             session.setAttribute("IdUser", user.getIdUser());
-            if (request.getParameter("idsanpham") != null) {
+            if (user.getIdQuyen()!=4) {
+                response.sendRedirect("admin/pageadmin.jsp");
+            } 
+            else 
+                if (request.getParameter("idsanpham") != null) {
                 response.sendRedirect("chitietsanpham.jsp?idsanpham=" + Integer.parseInt(request.getParameter("idsanpham")));
             } else {
                 String url = "/index.jsp";
                 getServletContext().getRequestDispatcher(url).forward(request, response);
             }
-            
+
         } else {
             String url = "/dangnhap.jsp";
             getServletContext().getRequestDispatcher(url).forward(request, response);

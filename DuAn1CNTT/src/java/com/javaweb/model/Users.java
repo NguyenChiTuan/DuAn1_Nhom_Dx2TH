@@ -1,5 +1,5 @@
 package com.javaweb.model;
-// Generated Nov 28, 2016 3:38:37 PM by Hibernate Tools 4.3.1
+// Generated Dec 15, 2016 1:23:25 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -12,7 +12,6 @@ public class Users  implements java.io.Serializable {
 
 
      private Integer idUser;
-     private Quyen quyen;
      private String userName;
      private String passWord;
      private String fullName;
@@ -20,6 +19,7 @@ public class Users  implements java.io.Serializable {
      private String gioiTinh;
      private String diaChi;
      private String sdt;
+     private Integer idQuyen;
      private byte[] avatar;
      private Set<Binhluantintuc> binhluantintucs = new HashSet<Binhluantintuc>(0);
      private Set<Binhluansanpham> binhluansanphams = new HashSet<Binhluansanpham>(0);
@@ -39,8 +39,7 @@ public class Users  implements java.io.Serializable {
         this.diaChi = diaChi;
         this.sdt = sdt;
     }
-    public Users(Quyen quyen, String userName, String passWord, String fullName, String email, String gioiTinh, String diaChi, String sdt, byte[] avatar, Set<Binhluantintuc> binhluantintucs, Set<Binhluansanpham> binhluansanphams, Set<Tintuc> tintucs, Set<Donhang> donhangs) {
-       this.quyen = quyen;
+    public Users(String userName, String passWord, String fullName, String email, String gioiTinh, String diaChi, String sdt, Integer idQuyen, byte[] avatar, Set<Binhluantintuc> binhluantintucs, Set<Binhluansanpham> binhluansanphams, Set<Tintuc> tintucs, Set<Donhang> donhangs) {
        this.userName = userName;
        this.passWord = passWord;
        this.fullName = fullName;
@@ -48,6 +47,7 @@ public class Users  implements java.io.Serializable {
        this.gioiTinh = gioiTinh;
        this.diaChi = diaChi;
        this.sdt = sdt;
+       this.idQuyen = idQuyen;
        this.avatar = avatar;
        this.binhluantintucs = binhluantintucs;
        this.binhluansanphams = binhluansanphams;
@@ -61,13 +61,6 @@ public class Users  implements java.io.Serializable {
     
     public void setIdUser(Integer idUser) {
         this.idUser = idUser;
-    }
-    public Quyen getQuyen() {
-        return this.quyen;
-    }
-    
-    public void setQuyen(Quyen quyen) {
-        this.quyen = quyen;
     }
     public String getUserName() {
         return this.userName;
@@ -117,6 +110,13 @@ public class Users  implements java.io.Serializable {
     
     public void setSdt(String sdt) {
         this.sdt = sdt;
+    }
+    public Integer getIdQuyen() {
+        return this.idQuyen;
+    }
+    
+    public void setIdQuyen(Integer idQuyen) {
+        this.idQuyen = idQuyen;
     }
     public byte[] getAvatar() {
         return this.avatar;
