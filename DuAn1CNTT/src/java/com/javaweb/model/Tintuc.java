@@ -1,5 +1,5 @@
 package com.javaweb.model;
-// Generated Dec 15, 2016 1:23:25 PM by Hibernate Tools 4.3.1
+// Generated Dec 17, 2016 5:50:55 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -20,22 +20,21 @@ public class Tintuc  implements java.io.Serializable {
      private String noiDung;
      private String tomTatTin;
      private byte[] linkTin;
-     private byte[] image;
+     private String image;
      private Set<Binhluantintuc> binhluantintucs = new HashSet<Binhluantintuc>(0);
 
     public Tintuc() {
     }
 
 	
-    public Tintuc(Loaitintuc loaitintuc, Users users, String tieuDe, Date ngayDang, String noiDung, String tomTatTin) {
+    public Tintuc(Loaitintuc loaitintuc, String tieuDe, Date ngayDang, String noiDung, String tomTatTin) {
         this.loaitintuc = loaitintuc;
-        this.users = users;
         this.tieuDe = tieuDe;
         this.ngayDang = ngayDang;
         this.noiDung = noiDung;
         this.tomTatTin = tomTatTin;
     }
-    public Tintuc(Loaitintuc loaitintuc, Users users, String tieuDe, Date ngayDang, String noiDung, String tomTatTin, byte[] linkTin, byte[] image, Set<Binhluantintuc> binhluantintucs) {
+    public Tintuc(Loaitintuc loaitintuc, Users users, String tieuDe, Date ngayDang, String noiDung, String tomTatTin, byte[] linkTin, String image, Set<Binhluantintuc> binhluantintucs) {
        this.loaitintuc = loaitintuc;
        this.users = users;
        this.tieuDe = tieuDe;
@@ -103,11 +102,11 @@ public class Tintuc  implements java.io.Serializable {
     public void setLinkTin(byte[] linkTin) {
         this.linkTin = linkTin;
     }
-    public byte[] getImage() {
+    public String getImage() {
         return this.image;
     }
     
-    public void setImage(byte[] image) {
+    public void setImage(String image) {
         this.image = image;
     }
     public Set<Binhluantintuc> getBinhluantintucs() {
