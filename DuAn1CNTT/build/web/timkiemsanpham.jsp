@@ -17,12 +17,11 @@
     <body>
         <!-- header -->
         <%@include file="includes/header.jsp" %>
-        <%
-            String timkiem = request.getParameter("timkiemsp");
+        <%            String timkiem = request.getParameter("timkiemsp");
             SanphamService SPService = new SanphamService();
             ArrayList<Sanpham> ListSanPham = null;
             ListSanPham = SPService.TimKiemSanPham(timkiem);
-            
+
         %>
         <!-- //header --> 	
         <!-- products -->
@@ -42,33 +41,27 @@
                     </div>
                     <!--ô load sản phẩm-->
                     <div class="products-row">
-                        <%
-                            for (int i = 0; i < ListSanPham.size(); i++) {
+                        <%                            for (int i = 0; i < ListSanPham.size(); i++) {
                                 Sanpham sp = ListSanPham.get(i);
                                 if (sp.getGiaKm() != null) {
                         %>
                         <div class="col-md-3 product-grids">
-                            <div class="agile-products">
+                            <div class="agile-products"style="height: 260px">
                                 <div class="new-tag"><h6>Sale</h6></div>
                                 <a href="chitietsanpham.jsp?idsanpham=<%= sp.getIdSanPham()%>">
-                                    <img src="<%= sp.getImage()%>" class="img-thumbnail" alt="img">
+                                    <img src="<%= sp.getImage()%>" class="img-thumbnail" alt="img" style="height: 138px">
                                 </a>
-                                
                                 <div class="agile-product-text">              
                                     <h5 class="text-center" style="font-weight: bold; font-size: 16px">
                                         <a href="chitietsanpham.jsp?idsanpham=<%= sp.getIdSanPham()%>"><%= sp.getTenSanPham()%></a>
                                     </h5>  
-                                        <h6 style="font-weight: bold"><del><%= sp.getGia()%> VNĐ<br></del> <%= sp.getGiaKm()%> VNĐ</h6>
-                                    
-                                    <form action="#" method="post">
-                                        <input type="hidden" name="cmd" value="_cart" />
-                                        <input type="hidden" name="add" value="1" /> 
-                                        <input type="hidden" name="w3ls_item" value="<%= sp.getTenSanPham()%>" /> 
-                                        <input type="hidden" name="amount" value="<%= sp.getGia()%>" /> 
-                                        <a class="w3ls-cart pw3ls-cart" href="addtocart.jsp?idsanpham=<%= sp.getIdSanPham()%>"
-                                           <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart
-                                        </a>
-                                    </form>
+                                    <h6 style="font-weight: bold"><del><%= sp.getGia()%> VNĐ<br></del> <%= sp.getGiaKm()%> VNĐ</h6>
+
+
+                                    <a class="w3ls-cart pw3ls-cart" href="addtocart.jsp?idsanpham=<%= sp.getIdSanPham()%>"
+                                       <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart
+                                    </a>
+
                                 </div>
                             </div>
                         </div>
@@ -76,21 +69,16 @@
                         } else {
                         %>
                         <div class="col-md-3 product-grids">
-                            <div class="agile-products">
-                                
-                                <a href="chitietsanpham.jsp?idsanpham=<%= sp.getIdSanPham()%>"><img src="<%= sp.getImage()%>" class="img-thumbnail" alt="img"></a>
+                            <div class="agile-products" style="height: 260px">
+                                <a href="chitietsanpham.jsp?idsanpham=<%= sp.getIdSanPham()%>"><img src="<%= sp.getImage()%>" class="img-thumbnail" style="height: 138px"alt="img"></a>
                                 <div class="agile-product-text">              
                                     <h5 class="text-center" style="font-weight: bold; font-size: 16px">
                                         <a href="chitietsanpham.jsp?idsanpham=<%= sp.getIdSanPham()%>"><%= sp.getTenSanPham()%></a>
                                     </h5> 
                                     <h6 style="font-weight: bold"><del></del> <%= sp.getGia()%> VNĐ</h6> 
-                                    <form action="#" method="post">
-                                        <input type="hidden" name="cmd" value="_cart" />
-                                        <input type="hidden" name="add" value="1" /> 
-                                        <input type="hidden" name="w3ls_item" value="<%= sp.getTenSanPham()%>" /> 
-                                        <input type="hidden" name="amount" value="<%= sp.getGia()%>" /> 
-                                        <button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                    </form>
+                                    <a class="w3ls-cart pw3ls-cart" href="addtocart.jsp?idsanpham=<%= sp.getIdSanPham()%>"
+                                       <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -228,7 +216,7 @@
                 </div>
                 <div class="clearfix"> </div>
                 <!-- recommendations -->
-                
+
                 <!-- //recommendations -->
             </div>
         </div>
@@ -244,20 +232,20 @@
         <!-- cart-js -->
         <script src="js/minicart.js"></script>
         <script>
-                        w3ls.render();
+                                w3ls.render();
 
-                        w3ls.cart.on('w3sb_checkout', function (evt) {
-                            var items, len, i;
+                                w3ls.cart.on('w3sb_checkout', function (evt) {
+                                    var items, len, i;
 
-                            if (this.subtotal() > 0) {
-                                items = this.items();
+                                    if (this.subtotal() > 0) {
+                                        items = this.items();
 
-                                for (i = 0, len = items.length; i < len; i++) {
-                                    items[i].set('shipping', 0);
-                                    items[i].set('shipping2', 0);
-                                }
-                            }
-                        });
+                                        for (i = 0, len = items.length; i < len; i++) {
+                                            items[i].set('shipping', 0);
+                                            items[i].set('shipping2', 0);
+                                        }
+                                    }
+                                });
         </script>  
         <!-- //cart-js -->  
         <!-- menu js aim -->

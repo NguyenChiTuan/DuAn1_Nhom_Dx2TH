@@ -50,10 +50,10 @@
                                 if (sp.getGiaKm() != null) {
                         %>
                         <div class="col-md-3 product-grids">
-                            <div class="agile-products">
+                            <div class="agile-products"style="height: 260px">
                                 <div class="new-tag"><h6>Sale</h6></div>
                                 <a href="chitietsanpham.jsp?idsanpham=<%= sp.getIdSanPham()%>">
-                                    <img src="<%= sp.getImage()%>" class="img-responsive" style="width: 300px; height: 300px" alt="img">
+                                    <img src="<%= sp.getImage()%>" class="img-responsive" style="height: 138px" alt="img">
                                 </a>
 
                                 <div class="agile-product-text">              
@@ -62,15 +62,9 @@
                                     </h5>  
                                     <h6 style="font-weight: bold"><del><%= sp.getGia()%> VNĐ<br></del> <%= sp.getGiaKm()%> VNĐ</h6>
 
-                                    <form action="addtocart.jsp?idsanpham=<%= sp.getIdSanPham()%>" method="post">
-                                        <input type="hidden" name="cmd" value="_cart" />
-                                        <input type="hidden" name="add" value="1" /> 
-                                        <input type="hidden" name="w3ls_item" value="<%= sp.getTenSanPham()%>"/> 
-                                        <input type="hidden" name="amount" value="<%= sp.getGia()%>"/> 
-                                        <a class="w3ls-cart pw3ls-cart" href="addtocart.jsp?idsanpham=<%= sp.getIdSanPham()%>"
-                                           <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart
-                                        </a>
-                                    </form>
+                                    <a class="w3ls-cart pw3ls-cart" href="addtocart.jsp?idsanpham=<%= sp.getIdSanPham()%>"
+                                       <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -78,23 +72,19 @@
                         } else {
                         %>
                         <div class="col-md-3 product-grids">
-                            <div class="agile-products">
+                            <div class="agile-products"style="height: 260px">
 
-                                <a href="chitietsanpham.jsp?idsanpham=<%= sp.getIdSanPham()%>"><img src="<%= sp.getImage()%>" class="img-thumbnail" alt="img"></a>
+                                <a href="chitietsanpham.jsp?idsanpham=<%= sp.getIdSanPham()%>"><img src="<%= sp.getImage()%>" class="img-thumbnail"style="height: 138px" alt="img"></a>
                                 <div class="agile-product-text">              
                                     <h5 class="text-center" style="font-weight: bold; font-size: 16px">
                                         <a href="chitietsanpham.jsp?idsanpham=<%= sp.getIdSanPham()%>"><%= sp.getTenSanPham()%></a>
                                     </h5> 
                                     <h6 style="font-weight: bold"><del></del> <%= sp.getGia()%> VNĐ</h6> 
-                                    <form action="addtocart.jsp?idsanpham=<%= sp.getIdSanPham()%>" method="post">
-                                        <input type="hidden" name="cmd" value="_cart" />
-                                        <input type="hidden" name="add" value="1" /> 
-                                        <input type="hidden" name="w3ls_item" value="<%= sp.getTenSanPham()%>"/> 
-                                        <input type="hidden" name="amount" value="<%= sp.getGia()%>"/> 
+                                    
                                         <a class="w3ls-cart pw3ls-cart" href="addtocart.jsp?idsanpham=<%= sp.getIdSanPham()%>"
                                            <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart
                                         </a>
-                                    </form>
+                                    
                                 </div>
                             </div>
                         </div>

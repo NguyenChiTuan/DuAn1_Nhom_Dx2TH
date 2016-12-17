@@ -51,20 +51,40 @@ public class LoginServlet extends HttpServlet {
         if (kiemTra) {
             Users user = us.GetUsersByEmailorUsersName(email);
             session.setAttribute("IdUser", user.getIdUser());
-            if (user.getIdQuyen()!=4) {
+            if (user.getIdQuyen() != 4) {
                 response.sendRedirect("admin/pageadmin.jsp");
-            } 
-            else 
-                if (request.getParameter("idsanpham") != null) {
+            } else if (request.getParameter("idsanpham") != null) {
                 response.sendRedirect("chitietsanpham.jsp?idsanpham=" + Integer.parseInt(request.getParameter("idsanpham")));
+            } else if (request.getParameter("dangnhapmuahang") != null) {
+                response.sendRedirect("showcart.jsp");
             } else {
                 String url = "/index.jsp";
                 getServletContext().getRequestDispatcher(url).forward(request, response);
             }
-
         } else {
-            String url = "/dangnhap.jsp";
-            getServletContext().getRequestDispatcher(url).forward(request, response);
+            String url="";
+            if(request.getParameter("idsanpham") != null){
+                url="/chitietsanpham.jsp?idsanpham="+request.getParameter("idsanpham");       
+                
+            }
+            else{
+                if(request.getParameter("dangnhapmuahang") != null){
+                    url="/showcart.jsp";
+                }
+                else{
+                    url = "/dangnhap.jsp";
+                    
+                }
+            }
+            getServletContext().getRequestDispatcher(url).include(request, response);
+                    try (PrintWriter out = response.getWriter()) {
+                        /* TODO output your page here. You may use following sample code. */
+
+                        out.println("<script>$(document).ready(function() {\n"
+                                + "    alert(\"Đăng Nhập Không Thành Công, Vui Lòng Kiểm Tra Tài Khoản Hoặc Mật Khầu\");"
+                                + "});</script>");
+
+                    }
         }
 
 //        try (PrintWriter out = response.getWriter()) {

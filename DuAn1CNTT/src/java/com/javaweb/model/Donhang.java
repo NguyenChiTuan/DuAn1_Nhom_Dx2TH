@@ -17,7 +17,7 @@ public class Donhang  implements java.io.Serializable {
      private Date ngayTao;
      private double tongTien;
      private Set<Chitietdonhang> chitietdonhangs = new HashSet<Chitietdonhang>(0);
-
+   
     public Donhang() {
     }
 

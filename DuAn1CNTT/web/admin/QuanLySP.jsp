@@ -124,16 +124,22 @@
                             <label for="sel1">Danh Mục Sản Phẩm</label>
                             <select name="QLDMM" class="form-control " id="sel1">
                                 <%
+                                    String selst="";
                                     for (int i = 0; i < Listdanhmuc.size(); i++) {
                                         Loaisanpham loaidanhmuc = Listdanhmuc.get(i);
+                                        if(idparent.equals(loaidanhmuc.getIdLoaiSanPham().toString())){
+                                        selst="selected";
+                                    }
+                                    else
+                                         selst="";
                                 %>
-                                <option  value="<%= loaidanhmuc.getIdLoaiSanPham()%>"><%= loaidanhmuc.getTenLoaiSanPham()%></option>
+                                <option <%= selst %> value="<%= loaidanhmuc.getIdLoaiSanPham()%>"><%= loaidanhmuc.getTenLoaiSanPham()%></option>
                                 <%
                                     }
                                 %>
 
                             </select>
-                            <button type="submit" class="btn btn-primary">Chọn</button>
+                                <button type="submit" class="btn btn-primary" style="margin: 10px">Chọn</button>
                         </div>
                     </form>
                     <!-- Table -->
@@ -173,7 +179,7 @@
                                     <td><%= sps.getGiaKm()%></td>
                                     <td><%= sps.getSoLuong()%></td>
                                     <td>
-                                        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Sữa</button>
+                                        <button type="button" class="btn btn-info btn-sm" >Sữa</button>
                                     </td>
 
                                 </tr>
@@ -200,29 +206,7 @@
 
                 </div>
 
-            </section>
-            <section>
-                <div class="modal fade" id="myModal" role="dialog">
-                    <div class="modal-dialog">
-
-                        <!-- Modal content-->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h4 class="modal-title">Modal Header</h4>
-                            </div>
-                            <div class="modal-body">
-                                <p>Some text in the modal.</p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
+            </section>         
         </div>
-    </section>
-
 </body>
 </html>

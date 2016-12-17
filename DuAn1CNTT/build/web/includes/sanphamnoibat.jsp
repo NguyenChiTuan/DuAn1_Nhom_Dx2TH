@@ -14,13 +14,13 @@
     ArrayList<Sanpham> ListSanphamLapTop = null;
     ArrayList<Sanpham> ListSanphamDienThoai = null;
     ArrayList<Sanpham> ListSanphamLuuNiem = null;
-    ArrayList<Sanpham> ListSanphamNhaCua= null;
-    ArrayList<Sanpham> ListSanphamTheThao= null;
-    ListSanphamLapTop = sanphamService.GetAllSanpham(1,5);
-    ListSanphamDienThoai = sanphamService.GetAllSanpham(2,4);
-    ListSanphamLuuNiem = sanphamService.GetAllSanpham(3,4);
-    ListSanphamNhaCua = sanphamService.GetAllSanpham(4,4);
-    ListSanphamTheThao = sanphamService.GetAllSanpham(5,4);
+    ArrayList<Sanpham> ListSanphamNhaCua = null;
+    ArrayList<Sanpham> ListSanphamTheThao = null;
+    ListSanphamLapTop = sanphamService.GetAllSanpham(1, 5);
+    ListSanphamDienThoai = sanphamService.GetAllSanpham(2, 4);
+    ListSanphamLuuNiem = sanphamService.GetAllSanpham(3, 4);
+    ListSanphamNhaCua = sanphamService.GetAllSanpham(4, 4);
+    ListSanphamTheThao = sanphamService.GetAllSanpham(5, 4);
 %>
 <div class="welcome"> 
     <div class="container"> 
@@ -66,15 +66,11 @@
                                             <h4><a href="sanpham.jsp"><%= laptop.getTenSanPham()%></a></h4>
                                             <p>Lorem ipsum dolor sit amet consectetur</p>
                                             <h5><%= laptop.getGia()%></h5>
-                                            <form action="addtocart.jsp?idsanpham=<%= laptop.getIdSanPham()%>" method="post">
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="1" /> 
-                                                <input type="hidden" name="w3ls_item" value="<%= laptop.getTenSanPham()%>"/> 
-                                                <input type="hidden" name="amount" value="<%= laptop.getGia()%>"/> 
-                                                <a class="w3ls-cart" href="addtocart.jsp?idsanpham=<%= laptop.getIdSanPham()%>"
-                                                   <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart
-                                                </a>
-                                            </form>
+
+                                            <a class="w3ls-cart" href="addtocart.jsp?idsanpham=<%= laptop.getIdSanPham()%>"
+                                               <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart
+                                            </a>
+
                                         </div>         
                                     </div>  
                                 </div>
@@ -113,15 +109,11 @@
                                             <h4><a href="sanpham.jsp"><%= dienthoai.getTenSanPham()%></a></h4>
                                             <p>Lorem ipsum dolor sit amet consectetur</p>
                                             <h5><%= dienthoai.getGia()%></h5>
-                                            <form action="addtocart.jsp?idsanpham=<%= dienthoai.getIdSanPham()%>" method="post">
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="1" /> 
-                                                <input type="hidden" name="w3ls_item" value="<%= dienthoai.getTenSanPham()%>"/> 
-                                                <input type="hidden" name="amount" value="<%= dienthoai.getGia()%>"/> 
-                                                <a class="w3ls-cart" href="addtocart.jsp?idsanpham=<%= dienthoai.getIdSanPham()%>"
-                                                   <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart
-                                                </a>
-                                            </form>
+
+                                            <a class="w3ls-cart" href="addtocart.jsp?idsanpham=<%= dienthoai.getIdSanPham()%>"
+                                               <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart
+                                            </a>
+
                                         </div>         
                                     </div>  
                                 </div>
@@ -160,15 +152,12 @@
                                             <h4><a href="sanpham.jsp"><%= LuuNiem.getTenSanPham()%></a></h4>
                                             <p>Lorem ipsum dolor sit amet consectetur</p>
                                             <h5><%= LuuNiem.getGia()%></h5>
-                                            <form action="addtocart.jsp?idsanpham=<%= LuuNiem.getIdSanPham()%>" method="post">
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="1" /> 
-                                                <input type="hidden" name="w3ls_item" value="<%= LuuNiem.getTenSanPham()%>"/> 
-                                                <input type="hidden" name="amount" value="<%= LuuNiem.getGia()%>"/> 
-                                                <a class="w3ls-cart" href="addtocart.jsp?idsanpham=<%= LuuNiem.getIdSanPham()%>"
-                                                   <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart
-                                                </a>
-                                            </form>
+
+
+                                            <a class="w3ls-cart" href="addtocart.jsp?idsanpham=<%= LuuNiem.getIdSanPham()%>"
+                                               <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart
+                                            </a>
+
                                         </div>         
                                     </div>  
                                 </div>
@@ -195,37 +184,33 @@
                                 });
                             </script>
                             <div id="owl-demo3" class="owl-carousel"> 
-                                    <%
-                                        for (int i = 0; i < ListSanphamNhaCua.size(); i++) {
-                                            Sanpham NhaCua = ListSanphamNhaCua.get(i);
+                                <%
+                                    for (int i = 0; i < ListSanphamNhaCua.size(); i++) {
+                                        Sanpham NhaCua = ListSanphamNhaCua.get(i);
 
-                                    %>
-                                    <div class="item">
-                                        <div class="glry-w3agile-grids agileits"> 
-                                            <a href="chitietsanpham.jsp?idsanpham=<%= NhaCua.getIdSanPham()%>"><img src="<%= NhaCua.getImage()%>" height="215px" alt="img"></a>
-                                            <div class="view-caption agileits-w3layouts">           
-                                                <h4><a href="sanpham.jsp"><%= NhaCua.getTenSanPham()%></a></h4>
-                                                <p>Lorem ipsum dolor sit amet consectetur</p>
-                                                <h5><%= NhaCua.getGia()%></h5>
-                                                <form action="addtocart.jsp?idsanpham=<%= NhaCua.getIdSanPham()%>" method="post">
-                                                    <input type="hidden" name="cmd" value="_cart" />
-                                                    <input type="hidden" name="add" value="1" /> 
-                                                    <input type="hidden" name="w3ls_item" value="<%= NhaCua.getTenSanPham()%>"/> 
-                                                    <input type="hidden" name="amount" value="<%= NhaCua.getGia()%>"/> 
-                                                    <a class="w3ls-cart" href="addtocart.jsp?idsanpham=<%= NhaCua.getIdSanPham()%>"
-                                                       <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart
-                                                    </a>
-                                                </form>
-                                            </div>         
-                                        </div>  
-                                    </div>
-                                    <%
-                                        }
-                                    %>
-                                </div>   
-                            </div>    
-                        </div>
-          
+                                %>
+                                <div class="item">
+                                    <div class="glry-w3agile-grids agileits"> 
+                                        <a href="chitietsanpham.jsp?idsanpham=<%= NhaCua.getIdSanPham()%>"><img src="<%= NhaCua.getImage()%>" height="215px" alt="img"></a>
+                                        <div class="view-caption agileits-w3layouts">           
+                                            <h4><a href="sanpham.jsp"><%= NhaCua.getTenSanPham()%></a></h4>
+                                            <p>Lorem ipsum dolor sit amet consectetur</p>
+                                            <h5><%= NhaCua.getGia()%></h5>
+
+                                            <a class="w3ls-cart" href="addtocart.jsp?idsanpham=<%= NhaCua.getIdSanPham()%>"
+                                               <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart
+                                            </a>
+
+                                        </div>         
+                                    </div>  
+                                </div>
+                                <%
+                                    }
+                                %>
+                            </div>   
+                        </div>    
+                    </div>
+
                     <div role="tabpanel" class="tab-pane fade" id="sports" aria-labelledby="sports-tab">
                         <div class="tabcontent-grids">
                             <script>
@@ -243,31 +228,27 @@
                             </script>
                             <div id="owl-demo4" class="owl-carousel"> 
                                 <%
-                                        for (int i = 0; i < ListSanphamTheThao.size(); i++) {
-                                            Sanpham TheThao = ListSanphamTheThao.get(i);
-                                    %>
-                                    <div class="item">
-                                        <div class="glry-w3agile-grids agileits"> 
-                                            <a href="chitietsanpham.jsp?idsanpham=<%= TheThao.getIdSanPham()%>"><img src="<%= TheThao.getImage()%>" height="215px" alt="img"></a>
-                                            <div class="view-caption agileits-w3layouts">           
-                                                <h4><a href="sanpham.jsp"><%= TheThao.getTenSanPham()%></a></h4>
-                                                <p>Lorem ipsum dolor sit amet consectetur</p>
-                                                <h5><%= TheThao.getGia()%></h5>
-                                                <form action="addtocart.jsp?idsanpham=<%= TheThao.getIdSanPham()%>" method="post">
-                                                    <input type="hidden" name="cmd" value="_cart" />
-                                                    <input type="hidden" name="add" value="1" /> 
-                                                    <input type="hidden" name="w3ls_item" value="<%= TheThao.getTenSanPham()%>"/> 
-                                                    <input type="hidden" name="amount" value="<%= TheThao.getGia()%>"/> 
-                                                    <a class="w3ls-cart" href="addtocart.jsp?idsanpham=<%= TheThao.getIdSanPham()%>"
-                                                       <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart
-                                                    </a>
-                                                </form>
-                                            </div>         
-                                        </div>  
-                                    </div>
-                                    <%
-                                        }
-                                    %>
+                                    for (int i = 0; i < ListSanphamTheThao.size(); i++) {
+                                        Sanpham TheThao = ListSanphamTheThao.get(i);
+                                %>
+                                <div class="item">
+                                    <div class="glry-w3agile-grids agileits"> 
+                                        <a href="chitietsanpham.jsp?idsanpham=<%= TheThao.getIdSanPham()%>"><img src="<%= TheThao.getImage()%>" height="215px" alt="img"></a>
+                                        <div class="view-caption agileits-w3layouts">           
+                                            <h4><a href="sanpham.jsp"><%= TheThao.getTenSanPham()%></a></h4>
+                                            <p>Lorem ipsum dolor sit amet consectetur</p>
+                                            <h5><%= TheThao.getGia()%></h5>
+
+                                            <a class="w3ls-cart" href="addtocart.jsp?idsanpham=<%= TheThao.getIdSanPham()%>"
+                                               <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart
+                                            </a>
+
+                                        </div>         
+                                    </div>  
+                                </div>
+                                <%
+                                    }
+                                %>
                             </div>    
                         </div>
                     </div> 
