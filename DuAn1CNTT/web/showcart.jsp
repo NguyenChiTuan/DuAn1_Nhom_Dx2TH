@@ -14,6 +14,7 @@
         <title>Giỏ Hàng Của Bạn</title>
 
         <%@include file="includes/headtag-chitietsanpham.jsp" %>
+        <%@include file="includes/headtag-dangkydangnhap.jsp" %>
     </head>
     <body>
         <!-- header -->
@@ -21,7 +22,7 @@
         <section class="container" style="margin-top: 70px"> 
 
             <div class="row ">
-                <div class="col-md-5" >
+                <div class="col-md-6" >
                     <%                        if (session.getAttribute("IdUser") != null) {
                             UserService us = new UserService();
                             Users user = us.GetUsersByID(session.getAttribute("IdUser").toString());
@@ -83,7 +84,62 @@
                                         </div>
                                         <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                                             <div class="panel-body">
-                                                Mô tả thêm về sản phẩm này...
+                                                <form class="well form-horizontal" action="cardkhachla.jsp" method="get"  id="contact_form"  >                                 
+                                                    <div class="form-group">
+                                                        <label class="col-md-3 control-label">FullName</label>  
+                                                        <div class="col-md-8 inputGroupContainer">
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                                                <input  name="FullName" placeholder="Nhập đầy đủ họ và tên" class="form-control"  type="text">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Text input-->
+                                                    <div class="form-group">
+                                                        <label class="col-md-3 control-label">E-Mail</label>  
+                                                        <div class="col-md-8 inputGroupContainer">
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                                                                <input name="Email" placeholder="examp@examp.com" class="form-control"  type="text">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="form-group">
+                                                        <label class="col-md-3 control-label">Địa Chỉ</label>  
+                                                        <div class="col-md-8 inputGroupContainer">
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                                                                <input name="DiaChi" placeholder="Nhập địa chỉ" class="form-control" type="text">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Text input-->
+                                                    <div class="form-group">
+                                                        <label class="col-md-3 control-label">SĐT</label>  
+                                                        <div class="col-md-8 inputGroupContainer">
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                                                                <input name="phone" class="form-control" type="text">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Select Basic -->
+                                                    
+                                                    <!-- Button -->
+                                                    <label style="min-height: 0px;" class="checkbox"><input type="checkbox" name="checkbox"><i></i>
+                                                        Tôi đã đọc và đồng ý theo <a href="#">điều khoản sử dụng.</a>
+                                                    </label>
+                                                    <br>
+                                       
+                                                    <div class="form-group text-center">
+                                                        <div>
+                                                            <button type="submit" class="btn btn-danger" >Tiếp Tục Mua Hàng <span class="glyphicon glyphicon-send"></span></button>
+                                                        </div>
+                                                    </div>
+                                                    <!-- End -->
+                                                    
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
@@ -96,7 +152,7 @@
                     %>
                 </div>
                 <form  action="ThanhtoanSeverlet" method="post">
-                    <div class="col-md-7">                   
+                    <div class="col-md-6">                   
                         <%    if (session.getAttribute("dshang") != null) {
                                 ArrayList<GioHang> listGioHang = (ArrayList) session.getAttribute("dshang");
                                 SanphamService Spserviec = new SanphamService();
