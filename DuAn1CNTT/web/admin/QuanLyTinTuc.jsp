@@ -13,10 +13,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Lumino - Tables</title>
 
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/datepicker3.css" rel="stylesheet">
-        <link href="css/bootstrap-table.css" rel="stylesheet">
-        <link href="css/styles.css" rel="stylesheet">
+        <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/datepicker3.css" rel="stylesheet" type="text/css"/>  
+        <link href="../css/styles.css" rel="stylesheet" type="text/css"/>
 
         <!--Icons-->
         <script src="js/lumino.glyphs.js"></script>

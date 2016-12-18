@@ -16,9 +16,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Lumino - Charts</title>
 
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/datepicker3.css" rel="stylesheet">
-        <link href="css/styles.css" rel="stylesheet">
+        <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/datepicker3.css" rel="stylesheet" type="text/css"/>  
+        <link href="../css/styles.css" rel="stylesheet" type="text/css"/>
 
         <!--Icons-->
         <script src="js/lumino.glyphs.js"></script>
@@ -31,7 +31,7 @@
     </head>
 
     <body>
-        <%                
+        <%
             UserService user = new UserService();
             ArrayList<Users> ListUser = null;
             ListUser = user.GetAllUsers();
@@ -111,68 +111,66 @@
                 </ol>
             </div><!--/.row-->
 
+            <from>
+                <table class="table">
 
-            <table class="table">
+                    <thead>
+                        <tr>
+                            <th>STT</th>  
+                            <th>Chọn</th>
+                            <th>Tên Đăng Nhập </th>   
 
-                <thead>
-                    <tr>
-                        <th>STT</th>  
-                        <th>Chọn</th>
-                        <th>Tên Đăng Nhập </th>   
+                            <th>Tên Đầy Đủ </th>                       
+                            <th>Email</th>    
+                            <th>Giới Tính</th>
+                            <th>Địa Chỉ </th>
+                            <th>Số Điện Thoại</th>
+                            <th>Loại Tài Khoản</th>
+                        </tr>
 
-                        <th>Tên Đầy Đủ </th>                       
-                        <th>Email</th>    
-                        <th>Giới Tính</th>
-                        <th>Địa Chỉ </th>
-                        <th>Số Điện Thoại</th>
-                        <th>Loại Tài Khoản</th>
-                    </tr>
+                    </thead>
+                    <%
+                        for (int i = 0; i < ListUser.size(); i++) {
+                            Users us = ListUser.get(i);
 
-                </thead>
-                <%
-                    for (int i = 0; i < ListUser.size(); i++) {
-                        Users us = ListUser.get(i);
-
-                        //bắt đầu vòng lặp
-                %>  
-                <tbody>
-
-
-
-
-
-                    <tr>
-
-                        <td><%=i + 1%> </td> 
-
-                        <td>
-                            <div class="checkbox">
-                                <label><input type="checkbox" name="cbsp"value="<%= us.getIdUser()%>"></label>
-                            </div>
-                        </td>
-
-                        <td><%= us.getUserName()%></td>    
-
-                        <td><%=us.getFullName()%></td>  
-                        <td><%=us.getEmail()%></td>
-                        <td><%=us.getGioiTinh()%></td>  
-                        <td><%=us.getDiaChi()%></td>
-                        <td><%=us.getSdt()%></td>
-                        <td>
-                            <a href="EditUser.jsp?iduser=<%= us.getIdUser()%>">  <input type="button" name="edit" value="Sửa " /> </a>
-
-                        </td>
-
-                    </tr>
-                    <tr>
-
-                    </tr>
+                            //bắt đầu vòng lặp
+%>  
+                    <tbody>
 
 
 
 
 
-                    </tr>
+                        <tr>
+
+                            <td><%=i + 1%> </td> 
+
+                            <td>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" name="cbsp"value="<%= us.getIdUser()%>"></label>
+                                </div>
+                            </td>
+
+                            <td><%= us.getUserName()%></td>    
+
+                            <td><%=us.getFullName()%></td>  
+                            <td><%=us.getEmail()%></td>
+                            <td><%=us.getGioiTinh()%></td>  
+                            <td><%=us.getDiaChi()%></td>
+                            <td><%=us.getSdt()%></td>
+                            <td>
+                                <a href="EditUser.jsp?iduser=<%= us.getIdUser()%>">  <input type="button" name="edit" value="Sửa " /> </a>
+
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+
+                        </tr>
+                        </tr>
+                    </tbody>
 
 
 
@@ -180,18 +178,27 @@
 
 
 
-                </tbody>
+
+                    <%
+                        }                        //kết thúc vòng lặp
+                    %>
+
+
+                </table>
+                <input type="submit" value="Xóa Nhiều"/>
+
+
+            </from>
+            <ul class="pagination pager">
+                <li><a href="">Previous</a></li>
+                <li><a href="">1</a><li>
+                <li><a href="">2</a><li>	
+                <li><a href="">3</a><li>	
+                <li><a href="">Next</a></li>
+            </ul>
 
 
 
-
-
-                <%
-                    }                        //kết thúc vòng lặp
-                %>
-
-
-            </table>
 
 
 
@@ -200,6 +207,7 @@
 
 
         </div>	<!--/.main-->\
+
 
 
 

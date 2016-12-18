@@ -14,9 +14,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Lumino - Charts</title>
 
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/datepicker3.css" rel="stylesheet">
-        <link href="css/styles.css" rel="stylesheet">
+        <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/datepicker3.css" rel="stylesheet" type="text/css"/>  
+        <link href="../css/styles.css" rel="stylesheet" type="text/css"/>
 
         <!--Icons-->
         <script src="js/lumino.glyphs.js"></script>
@@ -29,7 +29,7 @@
     </head>
 
     <body>
-        
+
         <%
             UserService us = new UserService();
             Users user = null;
@@ -40,7 +40,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <form action="EditUserServlet" method="post">
+                        <form action="../EditUserServlet" method="post">
                             <input style="display: none;" name="iduser" value="<%=user.getIdUser()%>" />
                             <div class="form-group form-inline">
                                 <label for="FullName">Tên đầy đủ</label>
@@ -60,14 +60,14 @@
                             </div>
                             <div class="form-group form-inline">
                                 <label for="Username">Giới Tính</label>
-                               
+
                                 <select name="gioitinh" class="form-control selectpicker" value="<%=user.getGioiTinh()%>"  >
-                                        <option>Nam</option>
-                                        <option>Nữ</option>
-                                        <option >Không Xác Định</option>
-                                    </select>
+                                    <option>Nam</option>
+                                    <option>Nữ</option>
+                                    <option >Không Xác Định</option>
+                                </select>
                             </div>
-                            
+
 
 
 
@@ -78,7 +78,7 @@
                 </div>
             </div>
         </section>
-      
+
     </body>
 
 </html>
