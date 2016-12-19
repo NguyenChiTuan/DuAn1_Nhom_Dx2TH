@@ -20,9 +20,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Lumino - Charts</title>
 
+
+
+
+
         <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <script src="../js/jquery-2.2.3.min.js" type="text/javascript"></script>
+        <script src="../js/bootstrap.min.js" type="text/javascript"></script>
         <link href="../css/datepicker3.css" rel="stylesheet" type="text/css"/>  
         <link href="../css/styles.css" rel="stylesheet" type="text/css"/>
+
 
         <!--Icons-->
         <script src="js/lumino.glyphs.js"></script>
@@ -39,6 +46,8 @@
             SanphamService sp = new SanphamService();
             ArrayList<Sanpham> listsanpham = null;
             listsanpham = sp.GetAllSanpham(Integer.parseInt(idparent), 50);
+
+            String folderupload = getServletContext().getInitParameter("file-upload");
         %>
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="container-fluid">
@@ -125,22 +134,22 @@
                             <label for="sel1">Danh Mục Sản Phẩm</label>
                             <select name="QLDMM" class="form-control " id="sel1">
                                 <%
-                                    String selst="";
+                                    String selst = "";
                                     for (int i = 0; i < Listdanhmuc.size(); i++) {
                                         Loaisanpham loaidanhmuc = Listdanhmuc.get(i);
-                                        if(idparent.equals(loaidanhmuc.getIdLoaiSanPham().toString())){
-                                        selst="selected";
-                                    }
-                                    else
-                                         selst="";
+                                        if (idparent.equals(loaidanhmuc.getIdLoaiSanPham().toString())) {
+                                            selst = "selected";
+                                        } else {
+                                            selst = "";
+                                        }
                                 %>
-                                <option <%= selst %> value="<%= loaidanhmuc.getIdLoaiSanPham()%>"><%= loaidanhmuc.getTenLoaiSanPham()%></option>
+                                <option <%= selst%> value="<%= loaidanhmuc.getIdLoaiSanPham()%>"><%= loaidanhmuc.getTenLoaiSanPham()%></option>
                                 <%
                                     }
                                 %>
 
                             </select>
-                                <button type="submit" class="btn btn-primary" style="margin: 10px">Chọn</button>
+                            <button type="submit" class="btn btn-primary" style="margin: 10px">Chọn</button>
                         </div>
                     </form>
                     <!-- Table -->
@@ -164,7 +173,7 @@
                                 for (int a = 0; a < listsanpham.size(); a++) {
                                     Sanpham sps = listsanpham.get(a);
                                     //bắt đầu vòng lặp
-                            %>  
+%>  
                             <tbody>
                                 <tr>                                   
                                     <td>
@@ -174,7 +183,11 @@
                                     </td>
                                     <td><%= sps.getTenSanPham()%></td>
                                     <td>
+<<<<<<< HEAD
                                         <img src="<%= sps.getImage()%>" class="img-thumbnail" />
+=======
+                                        <img class="img-thumbnail" src="<%= folderupload%><%= sps.getImage()%>" width="100px" height="80px"/>
+>>>>>>> 71fb12ba8eefbb703bf47c78797f4bf69ba12dc2
                                     </td>
                                     <td><%= sps.getGia()%></td>
                                     <td><%= sps.getGiaKm()%></td>
@@ -188,14 +201,50 @@
                             </tbody>
                             <%
                                 }                        //kết thúc vòng lặp
-                            %>
+%>
 
                         </form>
 
                     </table>
-                    <td>
-                        <a href="ThemSP.jsp">  <input type="button" name="ThemMoi" value="NEW" /> </a>
-                    </td>
+                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" role="dialog">
+                        <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Thêm Sản Phẩm</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-2" for="email">Tên sản phẩm</label>
+                                            <div class="col-sm-10">
+                                                <input type="email" class="form-control" id="email" placeholder="Enter email">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-2" for="pwd">Password:</label>
+                                            <div class="col-sm-10">          
+                                                <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">        
+                                            <div class="col-sm-offset-2 col-sm-10">
+                                                <button type="submit" class="btn btn-default">Thêm</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
                     <input type="submit" value="Xóa Nhiều"/>
                     <ul class="pagination pager">
                         <li><a href="">Previous</a></li>
@@ -209,5 +258,5 @@
 
             </section>         
         </div>
-</body>
+    </body>
 </html>
