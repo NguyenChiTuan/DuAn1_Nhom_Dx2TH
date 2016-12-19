@@ -47,7 +47,7 @@
             ArrayList<Sanpham> listsanpham = null;
             listsanpham = sp.GetAllSanpham(Integer.parseInt(idparent), 50);
 
-            String folderupload = getServletContext().getInitParameter("file-upload");
+            String folderupload =  getServletContext().getInitParameter("file-upload");
         %>
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="container-fluid">
@@ -183,11 +183,7 @@
                                     </td>
                                     <td><%= sps.getTenSanPham()%></td>
                                     <td>
-<<<<<<< HEAD
-                                        <img src="<%= sps.getImage()%>" class="img-thumbnail" />
-=======
-                                        <img class="img-thumbnail" src="<%= folderupload%><%= sps.getImage()%>" width="100px" height="80px"/>
->>>>>>> 71fb12ba8eefbb703bf47c78797f4bf69ba12dc2
+                                        <img class="img-thumbnail" src="${pageContext.request.contextPath}/<%= folderupload%><%= sps.getImage()%>" width="100px" height="80px"/>
                                     </td>
                                     <td><%= sps.getGia()%></td>
                                     <td><%= sps.getGiaKm()%></td>

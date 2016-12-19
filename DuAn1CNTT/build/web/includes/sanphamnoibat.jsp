@@ -55,13 +55,14 @@
                         <div class="tabcontent-grids">  
                             <div id="owl-demo" class="owl-carousel">
                                 <%
+                                    String folderupload =  getServletContext().getInitParameter("file-upload");
                                     for (int i = 0; i < ListSanphamLapTop.size(); i++) {
                                         Sanpham laptop = ListSanphamLapTop.get(i);
 
                                 %>
                                 <div class="item">
                                     <div class="glry-w3agile-grids agileits"> 
-                                        <a href="chitietsanpham.jsp?idsanpham=<%= laptop.getIdSanPham()%>"><img src="<%= laptop.getImage()%>" height="215px" alt="img"></a>
+                                        <a href="chitietsanpham.jsp?idsanpham=<%= laptop.getIdSanPham()%>"><img src="${pageContext.request.contextPath}/<%=folderupload%><%= laptop.getImage()%>" height="215px" alt="img"></a>
                                         <div class="view-caption agileits-w3layouts">           
                                             <h4><a href="sanpham.jsp"><%= laptop.getTenSanPham()%></a></h4>
                                             <p>Lorem ipsum dolor sit amet consectetur</p>
@@ -98,13 +99,14 @@
                             </script>
                             <div id="owl-demo1" class="owl-carousel">
                                 <%
+                                    String folderupload2 =  getServletContext().getInitParameter("file-upload");
                                     for (int i = 0; i < ListSanphamDienThoai.size(); i++) {
                                         Sanpham dienthoai = ListSanphamDienThoai.get(i);
 
                                 %>
                                 <div class="item">
                                     <div class="glry-w3agile-grids agileits"> 
-                                        <<a href="chitietsanpham.jsp?idsanpham=<%= dienthoai.getIdSanPham()%>"><img src="<%= dienthoai.getImage()%>" height="215px" alt="img"></a>
+                                        <<a href="chitietsanpham.jsp?idsanpham=<%= dienthoai.getIdSanPham()%>"><img src="${pageContext.request.contextPath}/<%=folderupload2%><%=dienthoai.getImage()%>" height="215px" alt="img"></a>
                                         <div class="view-caption agileits-w3layouts">           
                                             <h4><a href="sanpham.jsp"><%= dienthoai.getTenSanPham()%></a></h4>
                                             <p>Lorem ipsum dolor sit amet consectetur</p>
@@ -141,13 +143,14 @@
                             </script>
                             <div id="owl-demo2" class="owl-carousel"> 
                                 <%
+                                    String folderupload3 =  getServletContext().getInitParameter("file-upload");
                                     for (int i = 0; i < ListSanphamLuuNiem.size(); i++) {
                                         Sanpham LuuNiem = ListSanphamLuuNiem.get(i);
 
                                 %>
                                 <div class="item">
                                     <div class="glry-w3agile-grids agileits"> 
-                                        <a href="chitietsanpham.jsp?idsanpham=<%= LuuNiem.getIdSanPham()%>"><img src="<%= LuuNiem.getImage()%>" height="215px" alt="img"></a>
+                                        <a href="chitietsanpham.jsp?idsanpham=<%= LuuNiem.getIdSanPham()%>"><img src="${pageContext.request.contextPath}/<%=folderupload3%><%= LuuNiem.getImage()%>" height="215px" alt="img"></a>
                                         <div class="view-caption agileits-w3layouts">           
                                             <h4><a href="sanpham.jsp"><%= LuuNiem.getTenSanPham()%></a></h4>
                                             <p>Lorem ipsum dolor sit amet consectetur</p>
@@ -185,13 +188,14 @@
                             </script>
                             <div id="owl-demo3" class="owl-carousel"> 
                                 <%
+                                    String folderupload4 =  getServletContext().getInitParameter("file-upload");
                                     for (int i = 0; i < ListSanphamNhaCua.size(); i++) {
                                         Sanpham NhaCua = ListSanphamNhaCua.get(i);
 
                                 %>
                                 <div class="item">
                                     <div class="glry-w3agile-grids agileits"> 
-                                        <a href="chitietsanpham.jsp?idsanpham=<%= NhaCua.getIdSanPham()%>"><img src="<%= NhaCua.getImage()%>" height="215px" alt="img"></a>
+                                        <a href="chitietsanpham.jsp?idsanpham=<%= NhaCua.getIdSanPham()%>"><img src="${pageContext.request.contextPath}/<%=folderupload4%><%=NhaCua.getImage()%>" height="215px" alt="img"></a>
                                         <div class="view-caption agileits-w3layouts">           
                                             <h4><a href="sanpham.jsp"><%= NhaCua.getTenSanPham()%></a></h4>
                                             <p>Lorem ipsum dolor sit amet consectetur</p>
@@ -228,12 +232,13 @@
                             </script>
                             <div id="owl-demo4" class="owl-carousel"> 
                                 <%
+                                    String folderupload5 =  getServletContext().getInitParameter("file-upload");
                                     for (int i = 0; i < ListSanphamTheThao.size(); i++) {
                                         Sanpham TheThao = ListSanphamTheThao.get(i);
                                 %>
                                 <div class="item">
                                     <div class="glry-w3agile-grids agileits"> 
-                                        <a href="chitietsanpham.jsp?idsanpham=<%= TheThao.getIdSanPham()%>"><img src="<%= TheThao.getImage()%>" height="215px" alt="img"></a>
+                                        <a href="chitietsanpham.jsp?idsanpham=<%= TheThao.getIdSanPham()%>"><img src="${pageContext.request.contextPath}/<%=folderupload5%><%= TheThao.getImage()%>" height="215px" alt="img"></a>
                                         <div class="view-caption agileits-w3layouts">           
                                             <h4><a href="sanpham.jsp"><%= TheThao.getTenSanPham()%></a></h4>
                                             <p>Lorem ipsum dolor sit amet consectetur</p>
