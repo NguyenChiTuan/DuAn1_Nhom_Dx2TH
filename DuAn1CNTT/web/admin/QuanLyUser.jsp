@@ -72,7 +72,8 @@
                 <li class="active"><a href="QuanLyUser.jsp"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Quản Lý User</a></li>
                 <li><a href="QuanLySP.jsp"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Quản Lý Sản Phẩm</a></li>
                 <li><a href="QuanLyTinTuc.jsp"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Quản Lý Tin Tức</a></li>
-                <li><a href="QuanLyBinhLuan.jsp"><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg> Quản Lý Bình Luận</a></li>
+                <li><a href="QuanLyHoaDon.jsp"><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg> Quản Lý Hóa Đơn</a></li>
+                 <li><a href="QuanLyHoaDonLa.jsp"><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg> Quản Lý Hóa Đơn Lạ</a></li>
                 <li><a href="QuanLyMenu.jsp"><svg class="glyph stroked app-window"><use xlink:href="#stroked-app-window"></use></svg> Quản Lý Menu</a></li>
                 <li><a href="icon.jsp"><svg class="glyph stroked star"><use xlink:href="#stroked-star"></use></svg> Icons</a></li>
                 <li class="parent ">
@@ -111,9 +112,10 @@
                 </ol>
             </div><!--/.row-->
 
-            <from>
-                <table class="table">
 
+            <table class="table">
+
+                <form action="../XoaAllSPServlet" method="get" >
                     <thead>
                         <tr>
                             <th>STT</th>  
@@ -125,7 +127,7 @@
                             <th>Giới Tính</th>
                             <th>Địa Chỉ </th>
                             <th>Số Điện Thoại</th>
-                            <th>Loại Tài Khoản</th>
+                            <th>Sửa</th>
                         </tr>
 
                     </thead>
@@ -158,6 +160,7 @@
                             <td><%=us.getGioiTinh()%></td>  
                             <td><%=us.getDiaChi()%></td>
                             <td><%=us.getSdt()%></td>
+                         
                             <td>
                                 <a href="EditUser.jsp?iduser=<%= us.getIdUser()%>">  <input type="button" name="edit" value="Sửa " /> </a>
 
@@ -182,13 +185,13 @@
                     <%
                         }                        //kết thúc vòng lặp
                     %>
+                    <input type="submit" value="Xóa Nhiều"/>
+                    </from>
+            </table>
 
 
-                </table>
-                <input type="submit" value="Xóa Nhiều"/>
 
 
-            </from>
             <ul class="pagination pager">
                 <li><a href="">Previous</a></li>
                 <li><a href="">1</a><li>

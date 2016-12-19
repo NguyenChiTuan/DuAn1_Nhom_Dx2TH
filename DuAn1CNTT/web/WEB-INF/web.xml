@@ -37,6 +37,14 @@
         <servlet-name>EditUserServlet</servlet-name>
         <servlet-class>com.javaweb.controller.EditUserServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>XoaNhieuUserServlet</servlet-name>
+        <servlet-class>com.javaweb.controller.XoaNhieuUserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>XoaAllSPServlet</servlet-name>
+        <servlet-class>com.javaweb.controller.XoaAllSPServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
@@ -69,11 +77,26 @@
         <servlet-name>EditUserServlet</servlet-name>
         <url-pattern>/EditUserServlet</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>XoaNhieuUserServlet</servlet-name>
+        <url-pattern>/XoaNhieuUserServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>XoaAllSPServlet</servlet-name>
+        <url-pattern>/XoaAllSPServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
+    <context-param>
+        <description>Location to store uploaded file</description>
+        <param-name>file-upload</param-name>
+        <param-value>
+            images\
+        </param-value>
+    </context-param>
     <welcome-file-list>
         <welcome-file>faces/index.jsp</welcome-file>
     </welcome-file-list>
