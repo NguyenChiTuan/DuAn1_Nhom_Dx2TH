@@ -57,12 +57,12 @@ public class ThanhtoanSeverlet extends HttpServlet {
         if (request.getParameter("iduser") != null) {
             String iduser = request.getParameter("iduser").toString();
             HoaDonService HDservice = new HoaDonService();
-            ChiTietHoaDonService CTHDService = new ChiTietHoaDonService();           
-                       
-            Users us = usservice.GetUsersByID(iduser);          
+            ChiTietHoaDonService CTHDService = new ChiTietHoaDonService();
+
+            Users us = usservice.GetUsersByID(iduser);
             Donhang donhang = new Donhang(us, date, tongtien);
             HDservice.InsertHoaDon(donhang);
-            
+
             for (int i = 0; i < listGioHang.size(); i++) {
                 GioHang giohang = listGioHang.get(i);
                 Sanpham sp = SPService.GetSanPhamTheoId(Integer.parseInt(giohang.getMaSP()));
@@ -71,7 +71,7 @@ public class ThanhtoanSeverlet extends HttpServlet {
 
             }
             session.removeAttribute("dshang");
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("thank.jsp");
         } else if (request.getParameter("khachla") != null) {
             HoaDonLaService HDLservice = new HoaDonLaService();
             ChiTietHoaDonLaService CTHDLserviec = new ChiTietHoaDonLaService();
@@ -96,7 +96,7 @@ public class ThanhtoanSeverlet extends HttpServlet {
 
             }
             session.removeAttribute("dshang");
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("thank.jsp");
         } else {
             String url = "/showcart.jsp";
             getServletContext().getRequestDispatcher(url).include(request, response);
