@@ -45,6 +45,7 @@
                     <!--ô load sản phẩm-->
                     <div class="products-row">
                         <%
+                            String folderupload6 =  getServletContext().getInitParameter("file-upload");
                             for (int i = 0; i < ListSanPham.size(); i++) {
                                 Sanpham sp = ListSanPham.get(i);
                                 if (sp.getGiaKm() != null) {
@@ -53,7 +54,7 @@
                             <div class="agile-products"style="height: 260px">
                                 <div class="new-tag"><h6>Sale</h6></div>
                                 <a href="chitietsanpham.jsp?idsanpham=<%= sp.getIdSanPham()%>">
-                                    <img src="<%= sp.getImage()%>" class="img-responsive" style="height: 138px" alt="img">
+                                    <img src="${pageContext.request.contextPath}/<%=folderupload6%><%= sp.getImage()%>" class="img-responsive" style="height: 138px" alt="img">
                                 </a>
 
                                 <div class="agile-product-text">              
@@ -74,7 +75,7 @@
                         <div class="col-md-3 product-grids">
                             <div class="agile-products"style="height: 260px">
 
-                                <a href="chitietsanpham.jsp?idsanpham=<%= sp.getIdSanPham()%>"><img src="<%= sp.getImage()%>" class="img-thumbnail"style="height: 138px" alt="img"></a>
+                                <a href="chitietsanpham.jsp?idsanpham=<%= sp.getIdSanPham()%>"><img src="${pageContext.request.contextPath}/<%=folderupload6%><%= sp.getImage()%>" class="img-thumbnail"style="height: 138px" alt="img"></a>
                                 <div class="agile-product-text">              
                                     <h5 class="text-center" style="font-weight: bold; font-size: 16px">
                                         <a href="chitietsanpham.jsp?idsanpham=<%= sp.getIdSanPham()%>"><%= sp.getTenSanPham()%></a>

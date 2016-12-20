@@ -17,7 +17,10 @@
     <body>
         <!-- header -->
         <%@include file="includes/header.jsp" %>
-        <%            int idsanpham = Integer.parseInt(request.getParameter("idsanpham"));
+        
+        <%            
+            String folderupload7 =  getServletContext().getInitParameter("file-upload");
+            int idsanpham = Integer.parseInt(request.getParameter("idsanpham"));
             SanphamService SPService = new SanphamService();
             Sanpham sp = SPService.GetSanPhamTheoId(idsanpham);
         %>
@@ -37,7 +40,7 @@
                 <div class="single-page">
                     <div class="row" style="padding-top: 15px;">
                         <div class="col-md-6" style="max-width: 300px; max-height: 300px;">
-                            <img src="<%= sp.getImage()%>" data-imagezoom="true" class="img-responsive" alt=""> 
+                            <img src="${pageContext.request.contextPath}/<%=folderupload7%><%= sp.getImage()%>" data-imagezoom="true" class="img-responsive" alt=""> 
                         </div>
 
                         <div class="col-md-6 single-top-right">
