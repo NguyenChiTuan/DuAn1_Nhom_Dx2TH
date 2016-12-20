@@ -34,6 +34,7 @@
                         <div class="panel-heading">Địa Chỉ Giao Hàng Của Quý Khách</div>
                         <div class="panel-body text-center">
                             <%
+                                String folderupload8 =  getServletContext().getInitParameter("file-upload");
                                 request.setCharacterEncoding("UTF-8");
                             %>
                             <span>Tên Khách Hàng : <%= request.getParameter("FullName") %></span></br>
@@ -78,7 +79,7 @@
                                         %>
                                         <tr style="text-align: center">
                                             <td >
-                                                <img class="img-thumbnail" src="<%= sp.getImage()%>" width="80px" height="110px"/>
+                                                <img class="img-thumbnail" src="${pageContext.request.contextPath}/<%=folderupload8%><%= sp.getImage()%>" width="80px" height="110px"/>
                                             </td>
                                             <td><span name="idsp<%=item.getMaSP()%>"><%= sp.getTenSanPham()%></span></td>                        
                                             <td>
@@ -93,7 +94,7 @@
                                         %>
                                         <tr style="text-align: center">
                                             <td >
-                                                <img class="img-thumbnail" src="<%= sp.getImage()%>" width="80px" height="110px"/>
+                                                <img class="img-thumbnail" src="${pageContext.request.contextPath}/<%=folderupload8%><%= sp.getImage()%>" width="80px" height="110px"/>
                                             </td>
                                             <td><span name="idsp<%=item.getMaSP()%>"><%= sp.getTenSanPham()%></span></td>                        
                                             <td>

@@ -23,7 +23,9 @@
 
             <div class="row ">
                 <div class="col-md-6" >
-                    <%                        if (session.getAttribute("IdUser") != null) {
+                    <%                 
+                        String folderupload8 =  getServletContext().getInitParameter("file-upload");
+                        if (session.getAttribute("IdUser") != null) {
                             UserService us = new UserService();
                             Users user = us.GetUsersByID(session.getAttribute("IdUser").toString());
 
@@ -186,7 +188,7 @@
                                         %>
                                         <tr style="text-align: center">
                                             <td >
-                                                <img class="img-thumbnail" src="<%= sp.getImage()%>" width="80px" height="110px"/>
+                                                <img class="img-thumbnail" src="${pageContext.request.contextPath}/<%=folderupload8%><%= sp.getImage()%>" width="80px" height="110px"/>
                                             </td>
                                             <td><span name="idsp<%=item.getMaSP()%>"><%= sp.getTenSanPham()%></span></td>                        
                                             <td>
@@ -201,7 +203,7 @@
                                         %>
                                         <tr style="text-align: center">
                                             <td >
-                                                <img class="img-thumbnail" src="<%= sp.getImage()%>" width="80px" height="110px"/>
+                                                <img class="img-thumbnail" src="${pageContext.request.contextPath}/<%=folderupload8%><%= sp.getImage()%>" width="80px" height="110px"/>
                                             </td>
                                             <td><span name="idsp<%=item.getMaSP()%>"><%= sp.getTenSanPham()%></span></td>                        
                                             <td>
