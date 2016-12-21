@@ -58,7 +58,6 @@ public class ThanhtoanSeverlet extends HttpServlet {
             String iduser = request.getParameter("iduser").toString();
             HoaDonService HDservice = new HoaDonService();
             ChiTietHoaDonService CTHDService = new ChiTietHoaDonService();
-
             Users us = usservice.GetUsersByID(iduser);
             Donhang donhang = new Donhang(us, date, tongtien);
             HDservice.InsertHoaDon(donhang);
@@ -66,7 +65,12 @@ public class ThanhtoanSeverlet extends HttpServlet {
             for (int i = 0; i < listGioHang.size(); i++) {
                 GioHang giohang = listGioHang.get(i);
                 Sanpham sp = SPService.GetSanPhamTheoId(Integer.parseInt(giohang.getMaSP()));
-                Chitietdonhang CTDH = new Chitietdonhang(donhang, sp, Integer.parseInt(giohang.getSoLuong()), Double.parseDouble(giohang.getSoLuong()) * sp.getGia(), "null");
+                Double thanhtien=sp.getGia();
+                if(sp.getGiaKm()!=null){
+                    thanhtien=sp.getGiaKm();
+                }
+                
+                Chitietdonhang CTDH = new Chitietdonhang(donhang, sp, Integer.parseInt(giohang.getSoLuong()), Double.parseDouble(giohang.getSoLuong()) * thanhtien, "null");
                 CTHDService.InsertChiTietHoaDon(CTDH);
 
             }
@@ -91,7 +95,11 @@ public class ThanhtoanSeverlet extends HttpServlet {
             for (int i = 0; i < listGioHang.size(); i++) {
                 GioHang giohang = listGioHang.get(i);
                 Sanpham sp = SPService.GetSanPhamTheoId(Integer.parseInt(giohang.getMaSP()));
-                Chitietdonhangla CTDHL = new Chitietdonhangla(donhangla.getIddonhangla(), Integer.parseInt(giohang.getMaSP()), Integer.parseInt(giohang.getSoLuong()), Double.parseDouble(giohang.getSoLuong()) * sp.getGia());
+                Double thanhtien=sp.getGia();
+                if(sp.getGiaKm()!=null){
+                    thanhtien=sp.getGiaKm();
+                }
+                Chitietdonhangla CTDHL = new Chitietdonhangla(donhangla.getIddonhangla(), Integer.parseInt(giohang.getMaSP()), Integer.parseInt(giohang.getSoLuong()), Double.parseDouble(giohang.getSoLuong()) * thanhtien);
                 CTHDLserviec.InsertChiTietHoaDonLa(CTDHL);
 
             }

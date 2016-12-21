@@ -4,6 +4,8 @@
     Author     : TAO-PC
 --%>
 
+<%@page import="com.javaweb.model.Sanpham"%>
+<%@page import="com.javaweb.service.SanphamService"%>
 <%@page import="com.javaweb.model.Chitietdonhang"%>
 <%@page import="com.javaweb.service.ChiTietHoaDonService"%>
 <%@page import="com.javaweb.model.Users"%>
@@ -47,6 +49,7 @@
             ArrayList<Chitietdonhang> ListCTDH = null;
             listDH = HD.GetAllDonHang();
             UserService us = new UserService();
+            SanphamService SPService = new SanphamService();
             ChiTietHoaDonService CTHDservice = new ChiTietHoaDonService();
 
         %>
@@ -88,7 +91,7 @@
                 <li><a href="QuanLySP.jsp"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Quản Lý Sản Phẩm</a></li>
                 <li><a href="QuanLyTinTuc.jsp"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Quản Lý Tin Tức</a></li>
                 <li class="active"><a href="QuanLyHoaDon.jsp"><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg> Quản Lý Hóa Đơn</a></li>
-                 <li><a href="QuanLyHoaDonLa.jsp"><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg> Quản Lý Hóa Đơn Lạ</a></li>
+                <li><a href="QuanLyHoaDonLa.jsp"><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg> Quản Lý Hóa Đơn Lạ</a></li>
                 <li><a href="QuanLyMenu.jsp"><svg class="glyph stroked app-window"><use xlink:href="#stroked-app-window"></use></svg> Quản Lý Menu</a></li>
                 <li><a href="icon.jsp"><svg class="glyph stroked star"><use xlink:href="#stroked-star"></use></svg> Icons</a></li>
                 <li class="parent ">
@@ -144,9 +147,7 @@
                 <%                    for (int i = 0; i < listDH.size(); i++) {
                         Donhang dh = listDH.get(i);
                         Users usset = us.GetUsersByID(dh.getUsers().getIdUser().toString());
-                        ListCTDH = CTHDservice.GetAllCTDonHangByIDDonHang(dh.getIdDonHang());
-                        
-                      //bắt đầu vòng lặp
+
                 %>  
 
                 <tbody>
@@ -164,19 +165,16 @@
 
                         <td><%=dh.getTongTien()%></td>  
                         <td><%=dh.getGhiChu()%></td> 
-                        <td>
-                            <!-- Trigger the modal with a button -->
-                            <button type="button" class="btn btn-info" data-toggle="modal"  onclick="xemchitiet(<%=dh.getIdDonHang()%>)" data-target="#myModal">Xem</button>
-                            <!-- Modal -->
-                          
+                        <td>                           
+                            <button type="button" class="btn btn-info" onclick="xemchitiet(<%=dh.getIdDonHang()%>)" >Xem</button>
+
                         </td>
-                        <td>
-                        </td>
+
                     </tr>
                 </tbody>
                 <%                }                        //kết thúc vòng lặp
                 %>
-                </from>
+
             </table>
 
 
@@ -189,73 +187,90 @@
                 <li><a href="">3</a><li>	
                 <li><a href="">Next</a></li>
             </ul>
-                  <div class="modal fade" id="myModal" role="dialog">                             
-                                <div class="modal-dialog">
-                                    <!-- Modal content-->
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                            <h4 class="modal-title text-center">Chi Tiết Hóa Đơn</h4>
-                                            <div class="modal-body">
-                                                <table>
-                                                    <div class="form-group">
-                                                        <label for="sohoadon">Số Hóa Đơn</label>
-                                                        <input type="text" class="form-control" value="" name="idhoadon" id="idhoadon" readonly="" >
-                                                    </div>
-                                                    
-                                                    
-                                                                                          
-                                                </table>
-                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            <%
+                if (request.getParameter("idhoadon") != null) {
+                    ListCTDH = CTHDservice.GetAllCTDonHangByIDDonHang(Integer.parseInt(request.getParameter("idhoadon")));
+            %>
+            <div class="modal fade" id="myModal" role="dialog">                             
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title text-center">Chi Tiết Hóa Đơn</h4>
+                            <div class="modal-body">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Số Thứ Tự</th>
+                                            <th>Tên Sản Phẩm</th>
+                                            <th>Số Lượng</th>
+                                            <th>Thành Tiền</th>
+                                            <th>Ghi Chú</th>
+                                        </tr>
+                                    </thead>
+                                    <%
+                                        for (int j = 0; j < ListCTDH.size(); j++) {
+                                            Chitietdonhang CTDH = ListCTDH.get(j);
+                                            Sanpham sp = SPService.GetSanPhamTheoId(CTDH.getSanpham().getIdSanPham());
+                                    %>
+                                        <tbody>
+                                            <tr>
+                                                <td><%= j+1 %></td>
+                                                <td><%= sp.getTenSanPham() %></td>
+                                                <td><%= CTDH.getSoLuong() %></td>
+                                                <td><%= CTDH.getThanhTien()%></td>
+                                                <td><%= CTDH.getGhiChu()%></td>
+                                            </tr>                                           
+                                        </tbody>
+                                    <%
+                                        }
+                                    %>
+                                </table>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
 
-                                            </div>
-                                        </div>
+                    </div>
+                </div>
+            </div>	<!--/.main-->
+            <%
+                }
+            %>
+            <script>
 
-                                    </div>
-                                </div>
+                function xemchitiet(idhoadon) {
+                    $('#idhoadon').val(idhoadon);
+                    window.location.href = "QuanLyHoaDon.jsp?idhoadon=" + idhoadon;
 
+                }
+                $("#myModal").modal('show');
+            </script>
 
+            <script src="js/jquery-1.11.1.min.js"></script>
+            <script src="js/bootstrap.min.js"></script>
+            <script src="js/chart.min.js"></script>
+            <script src="js/chart-data.js"></script>
+            <script src="js/easypiechart.js"></script>
+            <script src="js/easypiechart-data.js"></script>
+            <script src="js/bootstrap-datepicker.js"></script>
+            <script>
+                !function ($) {
+                    $(document).on("click", "ul.nav li.parent > a > span.icon", function () {
+                        $(this).find('em:first').toggleClass("glyphicon-minus");
+                    });
+                    $(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
+                }(window.jQuery);
 
-
-
-
-
-
-
-
-        </div>	<!--/.main-->\
-
-
-        <script>
-            function xemchitiet(idhoadon) {
-                $('#idhoadon').val(idhoadon);
-            }
-        </script>
-
-        <script src="js/jquery-1.11.1.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/chart.min.js"></script>
-        <script src="js/chart-data.js"></script>
-        <script src="js/easypiechart.js"></script>
-        <script src="js/easypiechart-data.js"></script>
-        <script src="js/bootstrap-datepicker.js"></script>
-        <script>
-            !function ($) {
-                $(document).on("click", "ul.nav li.parent > a > span.icon", function () {
-                    $(this).find('em:first').toggleClass("glyphicon-minus");
-                });
-                $(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
-            }(window.jQuery);
-
-            $(window).on('resize', function () {
-                if ($(window).width() > 768)
-                    $('#sidebar-collapse').collapse('show')
-            })
-            $(window).on('resize', function () {
-                if ($(window).width() <= 767)
-                    $('#sidebar-collapse').collapse('hide')
-            })
-        </script>	
+                $(window).on('resize', function () {
+                    if ($(window).width() > 768)
+                        $('#sidebar-collapse').collapse('show')
+                })
+                $(window).on('resize', function () {
+                    if ($(window).width() <= 767)
+                        $('#sidebar-collapse').collapse('hide')
+                })
+            </script>	
     </body>
 
 </html>
