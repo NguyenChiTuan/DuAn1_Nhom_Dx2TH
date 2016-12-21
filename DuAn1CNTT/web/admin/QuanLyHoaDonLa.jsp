@@ -4,6 +4,10 @@
     Author     : TAO-PC
 --%>
 
+<%@page import="com.javaweb.model.Sanpham"%>
+<%@page import="com.javaweb.model.Chitietdonhangla"%>
+<%@page import="com.javaweb.service.ChiTietHoaDonLaService"%>
+<%@page import="com.javaweb.service.SanphamService"%>
 <%@page import="com.javaweb.model.Donhangla"%>
 <%@page import="com.javaweb.model.Chitietdonhang"%>
 <%@page import="com.javaweb.service.ChiTietHoaDonService"%>
@@ -45,8 +49,11 @@
         <%
             HoaDonLaService HDL = new HoaDonLaService();
             ArrayList<Donhangla> listDHL = null;
+            ArrayList<Chitietdonhangla> ListCTDHL = null;
             listDHL = HDL.GetAllDonHangLa();
-        
+            SanphamService SPService = new SanphamService();
+            ChiTietHoaDonLaService CTHDLservice = new ChiTietHoaDonLaService();
+
 
         %>
 
@@ -143,9 +150,9 @@
                 </thead>
                 <%                    for (int i = 0; i < listDHL.size(); i++) {
                         Donhangla dhl = listDHL.get(i);
-                        
-                      //bắt đầu vòng lặp
-                %>  
+
+                        //bắt đầu vòng lặp
+%>  
 
                 <tbody>
                     <tr>
@@ -163,9 +170,9 @@
                         <td><%=dhl.getGhiChu()%></td> 
                         <td>
                             <!-- Trigger the modal with a button -->
-                            <button type="button" class="btn btn-info" data-toggle="modal"  onclick="xemchitiet(<%=dhl.getIddonhangla()%>)" data-target="#myModal">Xem</button>
+                            <button type="button" class="btn btn-info" onclick="xemchitiet(<%=dhl.getIddonhangla()%>)" >Xem</button>
                             <!-- Modal -->
-                          
+
                         </td>
                         <td>
                         </td>
@@ -186,30 +193,52 @@
                 <li><a href="">3</a><li>	
                 <li><a href="">Next</a></li>
             </ul>
-                  <div class="modal fade" id="myModal" role="dialog">                             
-                                <div class="modal-dialog">
-                                    <!-- Modal content-->
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                            <h4 class="modal-title text-center">Chi Tiết Hóa Đơn Lạ</h4>
-                                            <div class="modal-body">
-                                                <table>
-                                                    <div class="form-group">
-                                                        <label for="sohoadon">Số Hóa Đơn</label>
-                                                        <input type="text" class="form-control" value="" name="idhoadon" id="idhoadon" readonly="" >
-                                                    </div>
-                                                    
-                                                    
-                                                                                          
-                                                </table>
-                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            <%
+                if (request.getParameter("idhoadonla") != null) {
+                    ListCTDHL = CTHDLservice.GetAllCTDonHangLaByIDDonHangLa(Integer.parseInt(request.getParameter("idhoadonla")));
+            %>
+            <div class="modal fade" id="myModal" role="dialog">                             
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title text-center">Chi Tiết Hóa Đơn Lạ</h4>
+                            <div class="modal-body">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Số Thứ Tự</th>
+                                            <th>Tên Sản Phẩm</th>
+                                            <th>Số Lượng</th>
+                                            <th>Thành Tiền</th>
+                                            <th>Ghi Chú</th>
+                                        </tr>
+                                    </thead>
+                                    <%
+                                        for (int j = 0; j < ListCTDHL.size(); j++) {
+                                            Chitietdonhangla CTDHL = ListCTDHL.get(j);
+                                            Sanpham sp = SPService.GetSanPhamTheoId(CTDHL.getIdsanpham());
+                                    %>
+                                    <tbody>
+                                        <tr>
+                                            <td><%= j + 1%></td>
+                                            <td><%= sp.getTenSanPham()%></td>
+                                            <td><%= CTDHL.getSoluong()%></td>
+                                            <td><%= CTDHL.getThanhtien()%></td>
+                                            <td><%= CTDHL.getGhichu()%></td>
+                                        </tr>                                           
+                                    </tbody>
+                                    <%
+                                        }
+                                    %>
+                                </table>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
 
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
+                    </div>
+                </div>
 
 
 
@@ -218,37 +247,47 @@
 
 
 
+                <%
+                    }
+                %>
+
+            </div>	<!--/.main-->\
 
 
-        </div>	<!--/.main-->\
 
+            <script>
 
-      
+                function xemchitiet(idhoadonla) {
+                    $('#idhoadonla').val(idhoadonla);
+                    window.location.href = "QuanLyHoaDonLa.jsp?idhoadonla=" + idhoadonla;
 
-        <script src="js/jquery-1.11.1.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/chart.min.js"></script>
-        <script src="js/chart-data.js"></script>
-        <script src="js/easypiechart.js"></script>
-        <script src="js/easypiechart-data.js"></script>
-        <script src="js/bootstrap-datepicker.js"></script>
-        <script>
-            !function ($) {
-                $(document).on("click", "ul.nav li.parent > a > span.icon", function () {
-                    $(this).find('em:first').toggleClass("glyphicon-minus");
-                });
-                $(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
-            }(window.jQuery);
+                }
+                $("#myModal").modal('show');
+            </script>
+            <script src="js/jquery-1.11.1.min.js"></script>
+            <script src="js/bootstrap.min.js"></script>
+            <script src="js/chart.min.js"></script>
+            <script src="js/chart-data.js"></script>
+            <script src="js/easypiechart.js"></script>
+            <script src="js/easypiechart-data.js"></script>
+            <script src="js/bootstrap-datepicker.js"></script>
+            <script>
+                !function ($) {
+                    $(document).on("click", "ul.nav li.parent > a > span.icon", function () {
+                        $(this).find('em:first').toggleClass("glyphicon-minus");
+                    });
+                    $(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
+                }(window.jQuery);
 
-            $(window).on('resize', function () {
-                if ($(window).width() > 768)
-                    $('#sidebar-collapse').collapse('show')
-            })
-            $(window).on('resize', function () {
-                if ($(window).width() <= 767)
-                    $('#sidebar-collapse').collapse('hide')
-            })
-        </script>	
+                $(window).on('resize', function () {
+                    if ($(window).width() > 768)
+                        $('#sidebar-collapse').collapse('show')
+                })
+                $(window).on('resize', function () {
+                    if ($(window).width() <= 767)
+                        $('#sidebar-collapse').collapse('hide')
+                })
+            </script>	
     </body>
 
 </html>
