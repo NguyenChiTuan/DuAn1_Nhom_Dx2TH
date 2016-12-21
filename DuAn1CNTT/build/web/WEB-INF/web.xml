@@ -45,6 +45,14 @@
         <servlet-name>XoaAllSPServlet</servlet-name>
         <servlet-class>com.javaweb.controller.XoaAllSPServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ThemSanPham</servlet-name>
+        <servlet-class>com.javaweb.controller.ThemSanPham</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ThemSanPhamServlet</servlet-name>
+        <servlet-class>com.javaweb.controller.ThemSanPhamServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
@@ -84,6 +92,14 @@
     <servlet-mapping>
         <servlet-name>XoaAllSPServlet</servlet-name>
         <url-pattern>/XoaAllSPServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ThemSanPham</servlet-name>
+        <url-pattern>/ThemSanPham</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ThemSanPhamServlet</servlet-name>
+        <url-pattern>/ThemSanPhamServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

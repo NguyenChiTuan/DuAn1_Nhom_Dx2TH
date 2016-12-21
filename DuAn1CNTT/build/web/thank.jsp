@@ -6,8 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html class="no-js" style="
-      background-image:url(images/hinh-nen-tet.jpg);>
+<html class="no-js" style="background-image:url(images/hinh-nen-tet.jpg);">
       <head>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
