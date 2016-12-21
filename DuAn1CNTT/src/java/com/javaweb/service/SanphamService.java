@@ -18,7 +18,52 @@ import org.hibernate.Transaction;
  * @author PhuocDanh
  */
 public class SanphamService {
-
+    
+    public boolean InsertProduct(Sanpham sp){
+        Session session = NewHibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        
+        try {
+            tx = session.getTransaction();
+            tx.begin();
+            session.saveOrUpdate(sp);
+            tx.commit();
+            return true;
+        } catch (Exception e) {
+            if(tx != null){
+                tx.rollback();
+            }
+            System.out.println(e.toString());
+        } finally{
+            session.close();
+        }
+        return false;
+    }
+    
+    public boolean DeleteProduct(Sanpham sp){
+        Session session = NewHibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        
+        try {
+            tx = session.getTransaction();
+            tx.begin();
+            
+            session.delete(sp);
+            tx.commit();
+            return true;
+        } catch (Exception e) {
+            if(tx != null){
+                tx.rollback();
+            }
+            System.out.println(e.toString());
+        } finally{
+            session.close();
+        }
+        return false;
+    }
+    
+    
+    
     public ArrayList<Sanpham> GetAllSanpham(int IdMunuCha, int soluong) {
         Session session = NewHibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;

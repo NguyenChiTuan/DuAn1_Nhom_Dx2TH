@@ -33,12 +33,33 @@
 
         <!--Icons-->
         <script src="js/lumino.glyphs.js"></script>
+        
+        <script>
+            var loadFile = function (event) {
+                var reader = new FileReader();
+                reader.onload = function () {
+                    var output = document.getElementById('output');
+                    output.src = reader.result;
+                };
+                reader.readAsDataURL(event.target.files[0]);
+            };// code display image upload
+        </script>
+        <style>
+            
+            #output{
+                width: 300px;
+                height: 200px;
+            }
+            
+        </style>
     </head>
     <body>
         <%
             LoaisanphamService LSPservice = new LoaisanphamService();
             ArrayList<Loaisanpham> Listdanhmuc = null;
+            ArrayList<Loaisanpham> ListdanhmucThem = null;
             Listdanhmuc = LSPservice.GetAllLoaisanpham(0);
+            ListdanhmucThem = LSPservice.GetDanhMucLoaisanpham();
             String idparent = "1";
             if (request.getParameter("iddanhmuc") != null) {
                 idparent = request.getParameter("iddanhmuc");
@@ -157,14 +178,12 @@
                         <form action="#" method="get">
                             <thead>
                                 <tr>
-
-                                    <th>Chon</th>
+                                    <th>Chọn</th>
                                     <th>Tên Sản Phẩm  </th>
-                                    <th>Hinh Anh  </th> 
-                                    <th>Giá </th>
-                                    <th>Giá Khuyến Mãi </th>
-                                    <th>So Luong </th>                       
-
+                                    <th>Hình Ảnh</th> 
+                                    <th>Giá</th>
+                                    <th>Giá Khuyến Mãi</th>
+                                    <th>Số Lượng</th>                       
                                     <th>Sửa</th>
                                 </tr>
 
@@ -202,8 +221,8 @@
                         </form>
 
                     </table>
-                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
-                    <!-- Modal -->
+                    
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Thêm mới sản phẩm</button>
                     <div class="modal fade" id="myModal" role="dialog">
                         <div class="modal-dialog">
 
@@ -214,24 +233,53 @@
                                     <h4 class="modal-title">Thêm Sản Phẩm</h4>
                                 </div>
                                 <div class="modal-body">
-                                    <form class="form-horizontal">
-                                        <div class="form-group">
-                                            <label class="control-label col-sm-2" for="email">Tên sản phẩm</label>
-                                            <div class="col-sm-10">
-                                                <input type="email" class="form-control" id="email" placeholder="Enter email">
+                                    <form class="form-themsp-custom" action="../ThemSanPhamServlet" method="post" enctype="multipart/form-data">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">Tên Sản Phẩm</span>
+                                            <input style="width: 440px" id="msg" type="text" class="form-control" name="themten">
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">Danh Mục</span>
+                                            <select name="dmspmodal" style="width: 440px" class="form-control" id="sel1">
+                                                <%
+                                                    for (int i = 0; i < ListdanhmucThem.size(); i++) {
+                                                            Loaisanpham loaidanhmucthem = ListdanhmucThem.get(i);
+                                                            
+                                                %>
+                                                <option value="<%= loaidanhmucthem.getIdLoaiSanPham()%>"><%= loaidanhmucthem.getTenLoaiSanPham()%></option>
+                                                <%
+                                                    }
+                                                %>
+                                            </select>
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">Giá</span>
+                                            <input style="width: 440px" id="msg" type="text" class="form-control" name="gia">
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">Giá KM</span>
+                                            <input style="width: 440px" id="msg" type="text" class="form-control" name="giakhuyenmai">
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">Mô Tả</span>
+                                            <input style="width: 440px" id="msg" type="text" class="form-control" name="mota">
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">Số Lượng</span>
+                                            <input style="width: 440px" id="msg" type="number" class="form-control" name="soluong">
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">Hình Ảnh</span>
+                                            <input type="file" name="photo" accept="image/*" onchange="loadFile(event)">
+                                        </div>
+                                        <div class="container">
+                                            <div class="row">
+                                                <div id="imageOut"><img class="img-thumbnail" id="output"/></div>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="control-label col-sm-2" for="pwd">Password:</label>
-                                            <div class="col-sm-10">          
-                                                <input type="password" class="form-control" id="pwd" placeholder="Enter password">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">        
-                                            <div class="col-sm-offset-2 col-sm-10">
-                                                <button type="submit" class="btn btn-default">Thêm</button>
-                                            </div>
-                                        </div>
+                                        <br>
+                                        <button style="font-weight: bold" type="submit" class="btn btn-info">
+                                            <span class="glyphicon glyphicon-plus"></span> Add Product</button>                                       
                                     </form>
                                 </div>
                                 <div class="modal-footer">
@@ -241,6 +289,7 @@
 
                         </div>
                     </div>
+                    
                     <input type="submit" value="Xóa Nhiều"/>
                     <ul class="pagination pager">
                         <li><a href="">Previous</a></li>

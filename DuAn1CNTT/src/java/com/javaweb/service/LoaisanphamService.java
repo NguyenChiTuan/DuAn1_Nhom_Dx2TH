@@ -62,4 +62,27 @@ public class LoaisanphamService {
         }
         return null;
     }
+    
+    public ArrayList<Loaisanpham> GetDanhMucLoaisanpham() {
+        Session session = NewHibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        ArrayList<Loaisanpham> ListLoaSanPham = new ArrayList<>();
+        try {
+            tx = session.getTransaction();
+            tx.begin();
+            String strquery = "from Loaisanpham where IdParent > 0";
+            Query query = session.createQuery(strquery);
+
+            ListLoaSanPham = (ArrayList<Loaisanpham>) query.list();
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            System.out.println(e.toString());
+        } finally {
+            session.close();
+        }
+        return ListLoaSanPham;
+    }
 }

@@ -929,7 +929,15 @@ h1.page-header {
 	overflow: scroll;
         
 }
-
+.form-themsp-custom .input-group span{
+    width: 120px;
+}
+.form-themsp-custom .input-group input{
+    width: 300px;
+}
+.form-themsp-custom .input-group{
+    padding-bottom: 10px;
+}
 
 
 
