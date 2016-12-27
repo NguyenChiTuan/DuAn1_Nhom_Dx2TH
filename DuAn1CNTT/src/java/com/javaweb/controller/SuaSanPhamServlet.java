@@ -13,7 +13,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
@@ -58,9 +57,7 @@ public class SuaSanPhamServlet extends HttpServlet {
             
             boolean rs = sps.InsertProduct(sp);
             if(rs){
-                response.sendRedirect("../admin/QuanLySP.jsp"); 
-            }else{
-                response.sendRedirect("../admin/pageadmin.jsp");
+                response.sendRedirect("admin/QuanLySP.jsp"); 
             }
         }
         catch (NumberFormatException e) {

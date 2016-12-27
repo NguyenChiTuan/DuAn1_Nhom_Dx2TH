@@ -126,10 +126,10 @@
                 <div class="col-md-12">
                     <%@include file="menu.jsp"%>
                     <div class="move-text">
-                        <div class="marquee"><a href="#"> Leader óc chó...... 
+                        <div class="marquee"><a href="#"> Trần Phước Danh 
                                 <img src="images/Animals-Dog-icon.png" width="20px" height="20px" alt=""/>
-                                <span>Nguyễn Chí Tuấn..... </span> 
-                                <span> Lê Hữu Tạo.....</span>
+                                <span>Nguyễn Chí Tuấn </span> 
+                                <span> Lê Hữu Tạo</span>
                             </a></div>
                         <script type="text/javascript" src="js/jquery.marquee.min.js"></script>
                         <script>
