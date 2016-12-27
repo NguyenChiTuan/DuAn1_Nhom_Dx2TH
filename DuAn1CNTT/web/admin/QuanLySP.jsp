@@ -180,7 +180,7 @@
                     <!-- Table -->
                     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Thêm mới sản phẩm</button>
                     <table class="table">
-                        <form action="#" method="get">
+                        <form action="../XoaNhieuSPServlet" method="get">
                             <thead>
                                 <tr style="color: black; font-weight: bold" >
                                     <th>Chọn</th>
@@ -206,16 +206,15 @@
                                     <td><%= sps.getTenSanPham()%></td>
                                     <td>
                                         <img src="${pageContext.request.contextPath}/<%= folderupload%><%= sps.getImage()%>" 
-                                            width="100px" height="80px"/>
+                                             width="100px" height="80px"/>
                                     </td>
                                     <td><%= sps.getGia()%></td>
                                     <td><%= sps.getGiaKm()%></td>
                                     <td><%= sps.getSoLuong()%></td>
                                     <td>
-                                        <button type="button" class="btn btn-info" 
-                                                onclick="SuaSanPham(<%=sps.getIdSanPham()%>)" 
-                                                >Sửa Sản Phẩm
-                                        </button>
+                                        <a href="EditSP.jsp?idsanpham=<%= sps.getIdSanPham()%>">
+                                    <input type="button" name="edit" value="Sửa">
+                                </a>
                                     </td>
 
                                 </tr>
@@ -224,7 +223,7 @@
                             <%
                                 }//kết thúc vòng lặp
                             %>
-
+                            <input type="submit" value="Xóa Nhiều"/>
                         </form>
 
                     </table>
@@ -299,93 +298,8 @@
                     <!-- kết thúc modal thêm sản phẩm -->
 
                     <!-- bắt đầu modal sửa sản phẩm -->
-                    <!-- Modal -->
-                    <%
-                        if (request.getParameter("idsanpham") != null) {
-                            Sanpham xp = new Sanpham();
-                            xp = sp.GetSanPhamTheoId(Integer.parseInt(request.getParameter("idsanpham")));
-                    %>
-                    <div class="modal fade" id="myModalSuaSP" role="dialog">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                                <form action="../SuaSanPhamServlet" method="post" enctype="multipart/form-data">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title">Sửa Sản Phẩm</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="row">
-                                            <div class="form-group">
-                                                <input type="hidden" class="form-control" value="<%= xp.getIdSanPham()%>" name="idsanpham">
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="tensanpham">Tên Sản Phẩm</label>
-                                                    <input type="text" class="form-control" value="<%= xp.getTenSanPham() %>" name="tensanpham" >
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="gia">Giá</label>
-                                                    <input type="text" class="form-control" value="<%= xp.getGia()%>" name="gia" >
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="giakm">Giá Khuyến Mãi</label>
-                                                    <input type="text" class="form-control" value="<%= xp.getGiaKm()%>" name="giakm" >
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="soluong">Số Lượng</label>
-                                                    <input type="number" class="form-control" value="<%= xp.getSoLuong()%>" name="soluong" >
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <div class="col-md-6">
-                                                        <h3>Image</h3>
-                                                        <br>
-                                                        
-                                                        <img class="img-thumbnail" src="${pageContext.request.contextPath}/<%= folderupload%><%= xp.getImage()%>" width="150px" height="100px" />
-                                                        
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <h3>New Image</h3>
-                                                        <br>
-                                                        <div id="imageOut">
-                                                            <img class="img-thumbnail" id="output2"/>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>        
-                                        </div>
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label class="control-label col-md-4" for="photo">Change Image</label>
-                                                                <div class="col-md-8">
-                                                                    <input type="file" name="photo" accept="image/*" onchange="loadFile2(event)" />
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    
-                                    </div>
-                                                    
-                                    <div class="modal-footer">
-                                        <button type="submit" class="btn btn-default" data-dismiss="modal">Sửa Sản Phẩm</button>
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <%
-                        }
-                    %>
+                    
 
-                    <!-- kết thúc modal sửa sản phẩm -->
-
-                    <input type="submit" value="Xóa Nhiều"/>
                     <ul class="pagination pager">
                         <li><a href="">Previous</a></li>
                         <li><a href="">1</a><li>

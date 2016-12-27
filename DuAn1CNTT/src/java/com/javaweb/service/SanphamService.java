@@ -8,6 +8,7 @@ package com.javaweb.service;
 import com.javaweb.hibernate.util.NewHibernateUtil;
 import com.javaweb.model.Loaisanpham;
 import com.javaweb.model.Sanpham;
+import com.javaweb.model.Users;
 import java.util.ArrayList;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -151,5 +152,28 @@ public class SanphamService {
             session.close();
         }
         return ListSanPham;
+    }
+    public boolean DeleteAllSP(int idsanpham) {
+        Session session = NewHibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+
+        try {
+            tx = session.getTransaction();
+            tx.begin();
+            Sanpham sp = new Sanpham();
+            sp.setIdSanPham(idsanpham);
+            session.delete(sp);
+            tx.commit();
+            return true;
+        } catch (Exception e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            System.out.println(e.toString());
+        } finally {
+            session.close();
+        }
+
+        return false;
     }
 }

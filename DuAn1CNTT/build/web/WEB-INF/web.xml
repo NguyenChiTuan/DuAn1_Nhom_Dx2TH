@@ -57,6 +57,14 @@
         <servlet-name>SuaSanPhamServlet</servlet-name>
         <servlet-class>com.javaweb.controller.SuaSanPhamServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>XoaNhieuSPServlet</servlet-name>
+        <servlet-class>com.javaweb.controller.XoaNhieuSPServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditSPServlet</servlet-name>
+        <servlet-class>com.javaweb.controller.EditSPServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
@@ -108,6 +116,14 @@
     <servlet-mapping>
         <servlet-name>SuaSanPhamServlet</servlet-name>
         <url-pattern>/SuaSanPhamServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>XoaNhieuSPServlet</servlet-name>
+        <url-pattern>/XoaNhieuSPServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditSPServlet</servlet-name>
+        <url-pattern>/EditSPServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
