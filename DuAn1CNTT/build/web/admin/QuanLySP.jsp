@@ -20,20 +20,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Lumino - Charts</title>
 
-
-
-
-
         <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <script src="../js/jquery-2.2.3.min.js" type="text/javascript"></script>
         <script src="../js/bootstrap.min.js" type="text/javascript"></script>
         <link href="../css/datepicker3.css" rel="stylesheet" type="text/css"/>  
         <link href="../css/styles.css" rel="stylesheet" type="text/css"/>
 
-
         <!--Icons-->
         <script src="js/lumino.glyphs.js"></script>
-        
+
         <script>
             var loadFile = function (event) {
                 var reader = new FileReader();
@@ -44,13 +39,25 @@
                 reader.readAsDataURL(event.target.files[0]);
             };// code display image upload
         </script>
+        <script>
+            var loadFile2 = function (event) {
+                var reader = new FileReader();
+                reader.onload = function () {
+                    var output = document.getElementById('output2');
+                    output.src = reader.result;
+                };
+                reader.readAsDataURL(event.target.files[0]);
+            };// code display image upload
+        </script>
         <style>
-            
             #output{
-                width: 300px;
-                height: 200px;
+                width: 200px;
+                height: 120px;
             }
-            
+            #output2{
+                width: 200px;
+                height: 120px;
+            }
         </style>
     </head>
     <body>
@@ -68,7 +75,7 @@
             ArrayList<Sanpham> listsanpham = null;
             listsanpham = sp.GetAllSanpham(Integer.parseInt(idparent), 50);
 
-            String folderupload =  getServletContext().getInitParameter("file-upload");
+            String folderupload = getServletContext().getInitParameter("file-upload");
         %>
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="container-fluid">
@@ -79,7 +86,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="../index.jsp"><span>Lumino</span>Admin</a>
+                    <a class="navbar-brand" href="../index.jsp"><span>Dx2T</span>Admin</a>
                     <ul class="user-menu">
                         <li class="dropdown pull-right">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> User <span class="caret"></span></a>
@@ -98,7 +105,7 @@
         <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
             <form role="search">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search">
+                    <input type="text" class="form-control" placeholder="Tìm kiếm...">
                 </div>
             </form>
             <ul class="nav menu">
@@ -107,7 +114,7 @@
                 <li  class="active"><a href="QuanLySP.jsp"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Quản Lý Sản Phẩm</a></li>
                 <li><a href="QuanLyTinTuc.jsp"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Quản Lý Tin Tức</a></li>
                 <li><a href="QuanLyHoaDon.jsp"><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg> Quản Lý Hóa Đơn</a></li>
-                 <li><a href="QuanLyHoaDonLa.jsp"><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg> Quản Lý Hóa Đơn Lạ</a></li>
+                <li><a href="QuanLyHoaDonLa.jsp"><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg> Quản Lý Hóa Đơn Lạ</a></li>
                 <li><a href="QuanLyMenu.jsp"><svg class="glyph stroked app-window"><use xlink:href="#stroked-app-window"></use></svg> Quản Lý Menu</a></li>
                 <li><a href="icon.jsp"><svg class="glyph stroked star"><use xlink:href="#stroked-star"></use></svg> Icons</a></li>
                 <li class="parent ">
@@ -139,18 +146,16 @@
         </div><!--/.sidebar-->
 
         <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
-            <div class="row">
-                <ol class="breadcrumb">
-                    <li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
-                    <li class="active">Icons</li>
-                </ol>
-            </div>
+
             <section class="container-fluid">
                 <div class="panel panel-default">
                     <!-- Default panel contents -->
 
-                    <div class="panel-heading">Thông Tin Sản Phẩm</div>
+                    <div class="panel-heading text-center text-primary">Danh Sách Sản Phẩm</div>
+
+
                     <form action="../loaddmqlsp" method="get">
+
                         <div class="form-group col-md-4">
                             <label for="sel1">Danh Mục Sản Phẩm</label>
                             <select name="QLDMM" class="form-control " id="sel1">
@@ -168,33 +173,31 @@
                                 <%
                                     }
                                 %>
-
                             </select>
                             <button type="submit" class="btn btn-primary" style="margin: 10px">Chọn</button>
                         </div>
                     </form>
                     <!-- Table -->
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Thêm mới sản phẩm</button>
                     <table class="table">
                         <form action="#" method="get">
                             <thead>
-                                <tr>
+                                <tr style="color: black; font-weight: bold" >
                                     <th>Chọn</th>
-                                    <th>Tên Sản Phẩm  </th>
+                                    <th>Tên Sản Phẩm</th>
                                     <th>Hình Ảnh</th> 
                                     <th>Giá</th>
                                     <th>Giá Khuyến Mãi</th>
                                     <th>Số Lượng</th>                       
                                     <th>Sửa</th>
                                 </tr>
-
                             </thead>
                             <%
                                 for (int a = 0; a < listsanpham.size(); a++) {
                                     Sanpham sps = listsanpham.get(a);
-                                    //bắt đầu vòng lặp
-%>  
+                            %>  
                             <tbody>
-                                <tr>                                   
+                                <tr style="color: #B74242">                                   
                                     <td>
                                         <div class="checkbox">
                                             <label><input type="checkbox" name="cbsp"value="<%= sps.getIdSanPham()%>"></label>
@@ -202,27 +205,31 @@
                                     </td>
                                     <td><%= sps.getTenSanPham()%></td>
                                     <td>
-                                        <img class="img-thumbnail" src="${pageContext.request.contextPath}/<%= folderupload%><%= sps.getImage()%>" width="100px" height="80px"/>
+                                        <img src="${pageContext.request.contextPath}/<%= folderupload%><%= sps.getImage()%>" 
+                                            width="100px" height="80px"/>
                                     </td>
                                     <td><%= sps.getGia()%></td>
                                     <td><%= sps.getGiaKm()%></td>
                                     <td><%= sps.getSoLuong()%></td>
                                     <td>
-                                        <button type="button" class="btn btn-info btn-sm" >Sữa</button>
+                                        <button type="button" class="btn btn-info" 
+                                                onclick="SuaSanPham(<%=sps.getIdSanPham()%>)" 
+                                                >Sửa Sản Phẩm
+                                        </button>
                                     </td>
 
                                 </tr>
 
                             </tbody>
                             <%
-                                }                        //kết thúc vòng lặp
-%>
+                                }//kết thúc vòng lặp
+                            %>
 
                         </form>
 
                     </table>
-                    
-                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Thêm mới sản phẩm</button>
+
+                    <!-- bắt đầu modal thêm sản phẩm -->
                     <div class="modal fade" id="myModal" role="dialog">
                         <div class="modal-dialog">
 
@@ -243,8 +250,8 @@
                                             <select name="dmspmodal" style="width: 440px" class="form-control" id="sel1">
                                                 <%
                                                     for (int i = 0; i < ListdanhmucThem.size(); i++) {
-                                                            Loaisanpham loaidanhmucthem = ListdanhmucThem.get(i);
-                                                            
+                                                        Loaisanpham loaidanhmucthem = ListdanhmucThem.get(i);
+
                                                 %>
                                                 <option value="<%= loaidanhmucthem.getIdLoaiSanPham()%>"><%= loaidanhmucthem.getTenLoaiSanPham()%></option>
                                                 <%
@@ -289,7 +296,95 @@
 
                         </div>
                     </div>
-                    
+                    <!-- kết thúc modal thêm sản phẩm -->
+
+                    <!-- bắt đầu modal sửa sản phẩm -->
+                    <!-- Modal -->
+                    <%
+                        if (request.getParameter("idsanpham") != null) {
+                            Sanpham xp = new Sanpham();
+                            xp = sp.GetSanPhamTheoId(Integer.parseInt(request.getParameter("idsanpham")));
+                    %>
+                    <div class="modal fade" id="myModalSuaSP" role="dialog">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <form action="../SuaSanPhamServlet" method="post" enctype="multipart/form-data">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Sửa Sản Phẩm</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <input type="hidden" class="form-control" value="<%= xp.getIdSanPham()%>" name="idsanpham">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="tensanpham">Tên Sản Phẩm</label>
+                                                    <input type="text" class="form-control" value="<%= xp.getTenSanPham() %>" name="tensanpham" >
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="gia">Giá</label>
+                                                    <input type="text" class="form-control" value="<%= xp.getGia()%>" name="gia" >
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="giakm">Giá Khuyến Mãi</label>
+                                                    <input type="text" class="form-control" value="<%= xp.getGiaKm()%>" name="giakm" >
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="soluong">Số Lượng</label>
+                                                    <input type="number" class="form-control" value="<%= xp.getSoLuong()%>" name="soluong" >
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <div class="col-md-6">
+                                                        <h3>Image</h3>
+                                                        <br>
+                                                        
+                                                        <img class="img-thumbnail" src="${pageContext.request.contextPath}/<%= folderupload%><%= xp.getImage()%>" width="150px" height="100px" />
+                                                        
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <h3>New Image</h3>
+                                                        <br>
+                                                        <div id="imageOut">
+                                                            <img class="img-thumbnail" id="output2"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>        
+                                        </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-4" for="photo">Change Image</label>
+                                                                <div class="col-md-8">
+                                                                    <input type="file" name="photo" accept="image/*" onchange="loadFile2(event)" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                    </div>
+                                                    
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-default" data-dismiss="modal">Sửa Sản Phẩm</button>
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <%
+                        }
+                    %>
+
+                    <!-- kết thúc modal sửa sản phẩm -->
+
                     <input type="submit" value="Xóa Nhiều"/>
                     <ul class="pagination pager">
                         <li><a href="">Previous</a></li>
@@ -300,8 +395,13 @@
                     </ul>
 
                 </div>
-
             </section>         
         </div>
+        <script>
+            function SuaSanPham(idsp) {
+                window.location.href = "QuanLySP.jsp?idsanpham=" + idsp;
+            }
+            $("#myModalSuaSP").modal('show');
+        </script>
     </body>
 </html>

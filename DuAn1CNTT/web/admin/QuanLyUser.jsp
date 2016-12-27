@@ -105,13 +105,6 @@
         </div><!--/.sidebar-->
 
         <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
-            <div class="row">
-                <ol class="breadcrumb">
-                    <li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
-                    <li class="active">Icons</li>
-                </ol>
-            </div><!--/.row-->
-
 
             <table class="table">
 
@@ -120,8 +113,7 @@
                         <tr>
                             <th>STT</th>  
                             <th>Chọn</th>
-                            <th>Tên Đăng Nhập </th>   
-
+                            <th>Tên Đăng Nhập </th>
                             <th>Tên Đầy Đủ </th>                       
                             <th>Email</th>    
                             <th>Giới Tính</th>
@@ -129,68 +121,37 @@
                             <th>Số Điện Thoại</th>
                             <th>Sửa</th>
                         </tr>
-
                     </thead>
                     <%
                         for (int i = 0; i < ListUser.size(); i++) {
                             Users us = ListUser.get(i);
-
                             //bắt đầu vòng lặp
-%>  
+                    %>  
                     <tbody>
-
-
-
-
-
                         <tr>
-
-                            <td><%=i + 1%> </td> 
-
+                            <td><%=i + 1%> </td>
                             <td>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" name="cbsp"value="<%= us.getIdUser()%>"></label>
-                                </div>
+                                <input type="checkbox" name="cbsp"value="<%= us.getIdUser()%>">
                             </td>
-
-                            <td><%= us.getUserName()%></td>    
-
+                            <td><%= us.getUserName()%></td>
                             <td><%=us.getFullName()%></td>  
                             <td><%=us.getEmail()%></td>
                             <td><%=us.getGioiTinh()%></td>  
                             <td><%=us.getDiaChi()%></td>
                             <td><%=us.getSdt()%></td>
-                         
                             <td>
-                                <a href="EditUser.jsp?iduser=<%= us.getIdUser()%>">  <input type="button" name="edit" value="Sửa " /> </a>
-
+                                <a href="EditUser.jsp?iduser=<%= us.getIdUser()%>">
+                                    <input type="button" name="edit" value="Sửa">
+                                </a>
                             </td>
-
-                        </tr>
-
-                        <tr>
-
-
-                        </tr>
                         </tr>
                     </tbody>
-
-
-
-
-
-
-
-
                     <%
                         }                        //kết thúc vòng lặp
                     %>
-                    <input type="submit" value="Xóa Nhiều"/>
+                        <input type="submit" value="Xóa Nhiều">
                     </from>
             </table>
-
-
-
 
             <ul class="pagination pager">
                 <li><a href="">Previous</a></li>
@@ -199,21 +160,7 @@
                 <li><a href="">3</a><li>	
                 <li><a href="">Next</a></li>
             </ul>
-
-
-
-
-
-
-
-
-
-
         </div>	<!--/.main-->\
-
-
-
-
         <script src="js/jquery-1.11.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/chart.min.js"></script>

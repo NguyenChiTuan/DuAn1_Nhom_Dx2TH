@@ -53,6 +53,10 @@
         <servlet-name>ThemSanPhamServlet</servlet-name>
         <servlet-class>com.javaweb.controller.ThemSanPhamServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SuaSanPhamServlet</servlet-name>
+        <servlet-class>com.javaweb.controller.SuaSanPhamServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
@@ -100,6 +104,10 @@
     <servlet-mapping>
         <servlet-name>ThemSanPhamServlet</servlet-name>
         <url-pattern>/ThemSanPhamServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SuaSanPhamServlet</servlet-name>
+        <url-pattern>/SuaSanPhamServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

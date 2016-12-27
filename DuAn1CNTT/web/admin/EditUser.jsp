@@ -67,10 +67,6 @@
                                     <option >Không Xác Định</option>
                                 </select>
                             </div>
-
-
-
-
                             <button type="submit" class="btn btn-default">Update !!</button>
                         </form>
                     </div>
