@@ -101,7 +101,7 @@ public class UserService {
         try {
             tx = session.getTransaction();
             tx.begin();
-            Query query = session.createQuery("from Users");
+            Query query = session.createQuery("from Users order by IdUser desc");
             listUsers = (ArrayList) query.list();
             tx.commit();
         } catch (Exception e) {

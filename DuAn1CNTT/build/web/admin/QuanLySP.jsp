@@ -47,8 +47,8 @@
         </script>
         <style>
             #output{
-                width: 200px;
-                height: 120px;
+                width: 220px;
+                height: 160px;
             }
             #output2{
                 width: 200px;
@@ -58,6 +58,10 @@
     </head>
     <body>
         <%
+            
+            int pageSize = 10;
+            int pageNumber = 1;
+            
             LoaisanphamService LSPservice = new LoaisanphamService();
             ArrayList<Loaisanpham> Listdanhmuc = null;
             ArrayList<Loaisanpham> ListdanhmucThem = null;
@@ -210,7 +214,7 @@
                                     <td><%= sps.getTenSanPham()%></td>
                                     <td>
                                         <img src="${pageContext.request.contextPath}/<%= folderupload%><%= sps.getImage()%>" 
-                                            width="80px" height="60px"/>
+                                            width="80px" height="80px"/>
                                     </td>
                                     <td><%= sps.getGia()%></td>
                                     <td><%= sps.getGiaKm()%></td>
@@ -221,7 +225,7 @@
                                         </a>
                                     </td>
                                     <td>
-                                        <div class="checkbox">
+                                        <div class="checkbox" style="margin-top: -15px;">
                                             <label><input type="checkbox" name="cbsp"value="<%= sps.getIdSanPham()%>"></label>
                                         </div>
                                     </td>
@@ -244,61 +248,85 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title">Thêm Sản Phẩm</h4>
+                                    <h4 class="modal-title text-center" style="font-weight: bold">Thêm Sản Phẩm</h4>
                                 </div>
                                 <div class="modal-body">
-                                    <form class="form-themsp-custom" action="../ThemSanPhamServlet" method="post" enctype="multipart/form-data">
-                                        <div class="input-group">
-                                            <span class="input-group-addon">Tên Sản Phẩm</span>
-                                            <input style="width: 440px" id="msg" type="text" class="form-control" name="themten">
+                                    <form action="../ThemSanPhamServlet" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-3" for="themten">Tên S.Phẩm</label>
+                                            <div class="col-sm-7">
+                                                <input type="text" class="form-control" name="themten">
+                                            </div>
                                         </div>
-                                        <div class="input-group">
-                                            <span class="input-group-addon">Danh Mục</span>
-                                            <select name="dmspmodal" style="width: 440px" class="form-control" id="sel1">
-                                                <%
-                                                    for (int i = 0; i < ListdanhmucThem.size(); i++) {
-                                                        Loaisanpham loaidanhmucthem = ListdanhmucThem.get(i);
+                                        
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-3" for="email">Danh Mục</label>
+                                            <div class="col-sm-7">
+                                                <select name="dmspmodal" class="form-control" id="sel1">
+                                                    <%
+                                                        for (int i = 0; i < ListdanhmucThem.size(); i++) {
+                                                            Loaisanpham loaidanhmucthem = ListdanhmucThem.get(i);
 
-                                                %>
-                                                <option value="<%= loaidanhmucthem.getIdLoaiSanPham()%>"><%= loaidanhmucthem.getTenLoaiSanPham()%></option>
-                                                <%
-                                                    }
-                                                %>
-                                            </select>
+                                                    %>
+                                                    <option value="<%= loaidanhmucthem.getIdLoaiSanPham()%>"><%= loaidanhmucthem.getTenLoaiSanPham()%></option>
+                                                    <%
+                                                        }
+                                                    %>
+                                                </select>
+                                            </div>
                                         </div>
-                                        <div class="input-group">
-                                            <span class="input-group-addon">Giá</span>
-                                            <input style="width: 440px" id="msg" type="text" class="form-control" name="gia">
+                                        
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-3" for="gia">Giá</label>
+                                            <div class="col-sm-7">
+                                                <input type="text" class="form-control" name="gia">
+                                            </div>
                                         </div>
-                                        <div class="input-group">
-                                            <span class="input-group-addon">Giá KM</span>
-                                            <input style="width: 440px" id="msg" type="text" class="form-control" name="giakhuyenmai">
+                                                
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-3" for="giakhuyenmai">Giá KM</label>
+                                            <div class="col-sm-7">
+                                                <input type="text" class="form-control" name="giakhuyenmai">
+                                            </div>
                                         </div>
-                                        <div class="input-group">
-                                            <span class="input-group-addon">Mô Tả</span>
-                                            <input style="width: 440px" id="msg" type="text" class="form-control" name="mota">
+                                                
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-3" for="mota">Mô Tả</label>
+                                            <div class="col-sm-7">
+                                                <input type="text" class="form-control" name="mota">
+                                            </div>
                                         </div>
-                                        <div class="input-group">
-                                            <span class="input-group-addon">Số Lượng</span>
-                                            <input style="width: 440px" id="msg" type="number" class="form-control" name="soluong">
+                                                
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-3" for="soluong">Số Lượng</label>
+                                            <div class="col-sm-7">
+                                                <input type="text" class="form-control" name="soluong">
+                                            </div>
                                         </div>
-                                        <div class="input-group">
-                                            <span class="input-group-addon">Hình Ảnh</span>
-                                            <input type="file" name="photo" accept="image/*" onchange="loadFile(event)">
+                                                
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-3" for="soluong">Hình Ảnh</label>
+                                            <div class="col-sm-7">
+                                                <input type="file" name="photo" accept="image/*" onchange="loadFile(event)">
+                                            </div>
                                         </div>
+                                                
                                         <div class="container">
-                                            <div class="row">
+                                            <div class="row" style="margin-left: 160px;">
                                                 <div id="imageOut"><img class="img-thumbnail" id="output"/></div>
                                             </div>
                                         </div>
                                         <br>
-                                        <button style="font-weight: bold" type="submit" class="btn btn-info">
-                                            <span class="glyphicon glyphicon-plus"></span> Add Product</button>                                       
-                                    </form>
+                                             
+                                        <div class="form-group"> 
+                                            <div class="col-sm-offset-4 col-sm-10">
+                                                <button style="font-weight: bold" type="submit" class="btn btn-info">
+                                                    <span class="glyphicon glyphicon-plus"></span> Thêm Sản Phẩm</button> 
+                                            </div>
+                                        </div>
+                                    </form>   
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                </div>
+                                
                             </div>
 
                         </div>

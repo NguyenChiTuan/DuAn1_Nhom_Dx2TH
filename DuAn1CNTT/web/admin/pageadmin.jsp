@@ -11,7 +11,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lumino - Dashboard</title>
+<title>Trang Chủ ADMIN</title>
 <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 <link href="../css/datepicker3.css" rel="stylesheet" type="text/css"/>  
 <link href="../css/styles.css" rel="stylesheet" type="text/css"/>
@@ -35,7 +35,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="../index.jsp"><span>Lumino</span>Admin</a>
+				<a class="navbar-brand" href="../index.jsp"><span>Dx2T</span>Admin</a>
 				<ul class="user-menu">
 					<li class="dropdown pull-right">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> User <span class="caret"></span></a>

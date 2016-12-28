@@ -1086,9 +1086,11 @@ p {
 } 
 .product-grids {
     margin-top: 3em;
+
 }
 .agile-products {
     padding: 1.5em;
+    
     border: 1px solid #e4e4e4;
     position: relative;
     overflow: hidden;
