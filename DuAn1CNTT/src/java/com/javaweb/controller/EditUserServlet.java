@@ -32,13 +32,15 @@ public class EditUserServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-         request.setCharacterEncoding("UTF-8");
-        String FullName, UserName, SDT, Email, gioitinh,iduser;
+        request.setCharacterEncoding("UTF-8");
+        
+        String FullName, UserName, SDT, Email, gioitinh,iduser,diachi;
         FullName = request.getParameter("fullName");
         UserName = request.getParameter("UserName");
          SDT= request.getParameter("SDT");
         Email = request.getParameter("Email");
         gioitinh = request.getParameter("gioitinh");
+        diachi = request.getParameter("DiaChi");
         
         iduser = request.getParameter("iduser");
         UserService user = new UserService();
@@ -48,10 +50,11 @@ public class EditUserServlet extends HttpServlet {
         us.setUserName(UserName);
         us.setSdt(SDT);
         us.setGioiTinh(gioitinh);
+        us.setDiaChi(diachi);
 
         boolean rs = user.Insertservice(us);
         if(rs){
-            response.sendRedirect("./admin/QuanLyUser.jsp");
+            response.sendRedirect("admin/QuanLyUser.jsp");
         }
         
 //        try (PrintWriter out = response.getWriter()) {

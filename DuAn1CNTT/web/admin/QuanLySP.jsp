@@ -15,20 +15,16 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Các Sản Phẩm</title>
+        <title>Quản Lý Sản Phẩm</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Lumino - Charts</title>
-
         <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <script src="../js/jquery-2.2.3.min.js" type="text/javascript"></script>
         <script src="../js/bootstrap.min.js" type="text/javascript"></script>
         <link href="../css/datepicker3.css" rel="stylesheet" type="text/css"/>  
         <link href="../css/styles.css" rel="stylesheet" type="text/css"/>
-
         <!--Icons-->
         <script src="js/lumino.glyphs.js"></script>
-
         <script>
             var loadFile = function (event) {
                 var reader = new FileReader();
@@ -86,7 +82,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="../index.jsp"><span>Dx2T</span>Admin</a>
+                    <a class="navbar-brand" href="pageadmin.jsp"><span>Dx2T</span>Admin</a>
                     <ul class="user-menu">
                         <li class="dropdown pull-right">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> User <span class="caret"></span></a>
@@ -146,50 +142,62 @@
         </div><!--/.sidebar-->
 
         <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
+            <div class="row text-center" style="font-weight: bold; font-size: 24px" >
+                <ol style="font-weight: bold; font-size: 24px" class="breadcrumb text-center " >
+                    <li>DANH SÁCH SẢN PHẨM</li>
+                </ol>
+            </div>
 
-            <section class="container-fluid">
                 <div class="panel panel-default">
                     <!-- Default panel contents -->
-
-                    <div class="panel-heading text-center text-primary">Danh Sách Sản Phẩm</div>
-
-
-                    <form action="../loaddmqlsp" method="get">
-
-                        <div class="form-group col-md-4">
-                            <label for="sel1">Danh Mục Sản Phẩm</label>
-                            <select name="QLDMM" class="form-control " id="sel1">
-                                <%
-                                    String selst = "";
-                                    for (int i = 0; i < Listdanhmuc.size(); i++) {
-                                        Loaisanpham loaidanhmuc = Listdanhmuc.get(i);
-                                        if (idparent.equals(loaidanhmuc.getIdLoaiSanPham().toString())) {
-                                            selst = "selected";
-                                        } else {
-                                            selst = "";
-                                        }
-                                %>
-                                <option <%= selst%> value="<%= loaidanhmuc.getIdLoaiSanPham()%>"><%= loaidanhmuc.getTenLoaiSanPham()%></option>
-                                <%
-                                    }
-                                %>
-                            </select>
-                            <button type="submit" class="btn btn-primary" style="margin: 10px">Chọn</button>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <form action="../loaddmqlsp" method="get">
+                                <div class="form-group form-inline" style="padding: 20px 0px 10px 10px">
+                                    <label for="sel1">Danh Mục Sản Phẩm</label>
+                                    <select name="QLDMM" class="form-control " id="sel1">
+                                        <%
+                                            String selst = "";
+                                            for (int i = 0; i < Listdanhmuc.size(); i++) {
+                                                Loaisanpham loaidanhmuc = Listdanhmuc.get(i);
+                                                if (idparent.equals(loaidanhmuc.getIdLoaiSanPham().toString())) {
+                                                    selst = "selected";
+                                                } else {
+                                                    selst = "";
+                                                }
+                                        %>
+                                        <option <%= selst%> value="<%= loaidanhmuc.getIdLoaiSanPham()%>"><%= loaidanhmuc.getTenLoaiSanPham()%></option>
+                                        <%
+                                            }
+                                        %>
+                                    </select>
+                                    <button type="submit" class="btn btn-primary">Chọn</button>
+                                </div>
+                            </form>
                         </div>
-                    </form>
+                                    <div class="col-md-6" style="padding: 20px 0px 10px 10px">
+                                        <button type="button" class="btn btn-info"
+                                                data-toggle="modal" data-target="#myModal">
+                                            <span class="glyphicon glyphicon-plus"></span> Thêm Sản Phẩm</button>
+                                    </div>
+                    </div>
+                </div>
                     <!-- Table -->
-                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Thêm mới sản phẩm</button>
-                    <table class="table">
+                    
+                    
+                    
+                    <table class="table text-left">
                         <form action="../XoaNhieuSPServlet" method="get">
-                            <thead>
-                                <tr style="color: black; font-weight: bold" >
-                                    <th>Chọn</th>
+                            <thead style="background-color: #F8FCEB">
+                                <tr>
+                                    <th>STT</th>
                                     <th>Tên Sản Phẩm</th>
-                                    <th>Hình Ảnh</th> 
+                                    <th>Image</th> 
                                     <th>Giá</th>
-                                    <th>Giá Khuyến Mãi</th>
-                                    <th>Số Lượng</th>                       
+                                    <th>Giá KM</th>
+                                    <th>SL</th>                       
                                     <th>Sửa</th>
+                                    <th>Chọn</th>
                                 </tr>
                             </thead>
                             <%
@@ -197,33 +205,33 @@
                                     Sanpham sps = listsanpham.get(a);
                             %>  
                             <tbody>
-                                <tr style="color: #B74242">                                   
-                                    <td>
-                                        <div class="checkbox">
-                                            <label><input type="checkbox" name="cbsp"value="<%= sps.getIdSanPham()%>"></label>
-                                        </div>
-                                    </td>
+                                <tr style="color: #45171D "> 
+                                    <td><%= a + 1 %></td>
                                     <td><%= sps.getTenSanPham()%></td>
                                     <td>
                                         <img src="${pageContext.request.contextPath}/<%= folderupload%><%= sps.getImage()%>" 
-                                             width="100px" height="80px"/>
+                                            width="80px" height="60px"/>
                                     </td>
                                     <td><%= sps.getGia()%></td>
                                     <td><%= sps.getGiaKm()%></td>
                                     <td><%= sps.getSoLuong()%></td>
                                     <td>
                                         <a href="EditSP.jsp?idsanpham=<%= sps.getIdSanPham()%>">
-                                    <input type="button" name="edit" value="Sửa">
-                                </a>
+                                            <span class="glyphicon glyphicon-pencil"></span>
+                                        </a>
                                     </td>
-
+                                    <td>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" name="cbsp"value="<%= sps.getIdSanPham()%>"></label>
+                                        </div>
+                                    </td>
                                 </tr>
 
                             </tbody>
                             <%
                                 }//kết thúc vòng lặp
                             %>
-                            <input type="submit" value="Xóa Nhiều"/>
+<!--                            <input type="submit" value="Xóa Nhiều"/>-->
                         </form>
 
                     </table>
@@ -298,18 +306,19 @@
                     <!-- kết thúc modal thêm sản phẩm -->
 
                     <!-- bắt đầu modal sửa sản phẩm -->
-                    
 
-                    <ul class="pagination pager">
-                        <li><a href="">Previous</a></li>
-                        <li><a href="">1</a><li>
-                        <li><a href="">2</a><li>	
-                        <li><a href="">3</a><li>	
-                        <li><a href="">Next</a></li>
-                    </ul>
 
-                </div>
-            </section>         
+                    <nav aria-label="Page navigation" class="text-center">
+                        <ul class="pagination ">
+                            <li><a  aria-label="Previous" href="#" > <span aria-hidden="true">&laquo;</span></a></li>
+                            <li class="active"><a href="#">1</a></li>                                 
+                            <li><a href="#">2</a></li>
+                            <li ><a aria-label="Next" href="#"><span aria-hidden="true">&raquo;</span></a></li>
+                        </ul>
+                    </nav>
+
+                
+        
         </div>
         <script>
             function SuaSanPham(idsp) {

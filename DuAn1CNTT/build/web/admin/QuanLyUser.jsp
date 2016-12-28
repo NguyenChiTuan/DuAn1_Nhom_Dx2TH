@@ -14,20 +14,12 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Lumino - Charts</title>
-
+        <title>Quản Lý Thành Viên</title>
         <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="../css/datepicker3.css" rel="stylesheet" type="text/css"/>  
         <link href="../css/styles.css" rel="stylesheet" type="text/css"/>
-
         <!--Icons-->
         <script src="js/lumino.glyphs.js"></script>
-
-        <!--[if lt IE 9]>
-        <script src="js/html5shiv.js"></script>
-        <script src="js/respond.min.js"></script>
-        <![endif]-->
-
     </head>
 
     <body>
@@ -45,7 +37,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="../index.jsp"><span>Lumino</span>Admin</a>
+                    <a class="navbar-brand" href="pageadmin.jsp"><span>Dx2T</span>Admin</a>
                     <ul class="user-menu">
                         <li class="dropdown pull-right">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> User <span class="caret"></span></a>
@@ -73,7 +65,7 @@
                 <li><a href="QuanLySP.jsp"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Quản Lý Sản Phẩm</a></li>
                 <li><a href="QuanLyTinTuc.jsp"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Quản Lý Tin Tức</a></li>
                 <li><a href="QuanLyHoaDon.jsp"><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg> Quản Lý Hóa Đơn</a></li>
-                 <li><a href="QuanLyHoaDonLa.jsp"><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg> Quản Lý Hóa Đơn Lạ</a></li>
+                <li><a href="QuanLyHoaDonLa.jsp"><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg> Quản Lý Hóa Đơn Lạ</a></li>
                 <li><a href="QuanLyMenu.jsp"><svg class="glyph stroked app-window"><use xlink:href="#stroked-app-window"></use></svg> Quản Lý Menu</a></li>
                 <li><a href="icon.jsp"><svg class="glyph stroked star"><use xlink:href="#stroked-star"></use></svg> Icons</a></li>
                 <li class="parent ">
@@ -105,21 +97,29 @@
         </div><!--/.sidebar-->
 
         <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
-
+            <div class="row text-center" style="font-weight: bold; font-size: 24px" >
+                <ol class="breadcrumb text-center " >
+                    <li>DANH SÁCH NGƯỜI DÙNG</li>
+                </ol>
+            </div>
+            
             <table class="table">
-
                 <form action="../XoaAllSPServlet" method="get" >
-                    <thead>
+                    <thead style="background-color: #F8FCEB">
                         <tr>
                             <th>STT</th>  
-                            <th>Chọn</th>
-                            <th>Tên Đăng Nhập </th>
-                            <th>Tên Đầy Đủ </th>                       
+                            <th>Username</th>
+                            <th>Fullname</th>                       
                             <th>Email</th>    
                             <th>Giới Tính</th>
-                            <th>Địa Chỉ </th>
-                            <th>Số Điện Thoại</th>
+                            <th>Địa Chỉ</th>
+                            <th>SĐT</th>
                             <th>Sửa</th>
+                            <th>
+                                <button type="submit" class="btn btn-sm btn-danger">
+                                    <span class="glyphicon glyphicon-remove"></span> Delete
+                                </button>
+                            </th>
                         </tr>
                     </thead>
                     <%
@@ -127,12 +127,9 @@
                             Users us = ListUser.get(i);
                             //bắt đầu vòng lặp
                     %>  
-                    <tbody>
+                    <tbody style="color: #6C7A89 ">
                         <tr>
                             <td><%=i + 1%> </td>
-                            <td>
-                                <input type="checkbox" name="cbsp"value="<%= us.getIdUser()%>">
-                            </td>
                             <td><%= us.getUserName()%></td>
                             <td><%=us.getFullName()%></td>  
                             <td><%=us.getEmail()%></td>
@@ -141,51 +138,75 @@
                             <td><%=us.getSdt()%></td>
                             <td>
                                 <a href="EditUser.jsp?iduser=<%= us.getIdUser()%>">
-                                    <input type="button" name="edit" value="Sửa">
+                                    <span class="glyphicon glyphicon-pencil"></span>
                                 </a>
+                            </td>
+                            <td class="text-center">
+                                <input type="checkbox" name="cbsp"value="<%= us.getIdUser()%>">
                             </td>
                         </tr>
                     </tbody>
                     <%
                         }                        //kết thúc vòng lặp
                     %>
-                        <input type="submit" value="Xóa Nhiều">
                     </from>
-            </table>
+                    </table>
+                    <!--
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-2 text-left">
+                                <input type="submit" value="Xóa Nhiều"/>
+                            </div>
+                            <div class="col-md-10">
+                                <nav aria-label="Page navigation" class="text-center">
+                                    <ul class="pagination ">
+                                        <li><a  aria-label="Previous" href="#" > <span aria-hidden="true">&laquo;</span></a></li>
+                                        <li class="active"><a href="#">1</a></li>                                 
+                                        <li><a href="#">2</a></li>
+                                        <li ><a aria-label="Next" href="#"><span aria-hidden="true">&raquo;</span></a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>   -->
+                    <nav aria-label="Page navigation" class="text-center">
+                        <ul class="pagination ">
+                            <li><a  aria-label="Previous" href="#" > <span aria-hidden="true">&laquo;</span></a></li>
+                            <li class="active"><a href="#">1</a></li>                                 
+                            <li><a href="#">2</a></li>
+                            <li ><a aria-label="Next" href="#"><span aria-hidden="true">&raquo;</span></a></li>
+                        </ul>
+                    </nav>
+                    
+                    
+                    </div>
+                    
+                    <!--/.main-->\
+                    <script src="js/jquery-1.11.1.min.js"></script>
+                    <script src="js/bootstrap.min.js"></script>
+                    <script src="js/chart.min.js"></script>
+                    <script src="js/chart-data.js"></script>
+                    <script src="js/easypiechart.js"></script>
+                    <script src="js/easypiechart-data.js"></script>
+                    <script src="js/bootstrap-datepicker.js"></script>
+                    <script>
+                        !function ($) {
+                            $(document).on("click", "ul.nav li.parent > a > span.icon", function () {
+                                $(this).find('em:first').toggleClass("glyphicon-minus");
+                            });
+                            $(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
+                        }(window.jQuery);
 
-            <ul class="pagination pager">
-                <li><a href="">Previous</a></li>
-                <li><a href="">1</a><li>
-                <li><a href="">2</a><li>	
-                <li><a href="">3</a><li>	
-                <li><a href="">Next</a></li>
-            </ul>
-        </div>	<!--/.main-->\
-        <script src="js/jquery-1.11.1.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/chart.min.js"></script>
-        <script src="js/chart-data.js"></script>
-        <script src="js/easypiechart.js"></script>
-        <script src="js/easypiechart-data.js"></script>
-        <script src="js/bootstrap-datepicker.js"></script>
-        <script>
-            !function ($) {
-                $(document).on("click", "ul.nav li.parent > a > span.icon", function () {
-                    $(this).find('em:first').toggleClass("glyphicon-minus");
-                });
-                $(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
-            }(window.jQuery);
+                        $(window).on('resize', function () {
+                            if ($(window).width() > 768)
+                                $('#sidebar-collapse').collapse('show')
+                        })
+                        $(window).on('resize', function () {
+                            if ($(window).width() <= 767)
+                                $('#sidebar-collapse').collapse('hide')
+                        })
+                    </script>	
+                    </body>
 
-            $(window).on('resize', function () {
-                if ($(window).width() > 768)
-                    $('#sidebar-collapse').collapse('show')
-            })
-            $(window).on('resize', function () {
-                if ($(window).width() <= 767)
-                    $('#sidebar-collapse').collapse('hide')
-            })
-        </script>	
-    </body>
-
-</html>
+                    </html>
 
