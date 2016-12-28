@@ -4,6 +4,7 @@
     Author     : Administrator
 --%>
 
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="com.javaweb.model.Sanpham"%>
 <%@page import="com.javaweb.service.SanphamService"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -77,14 +78,20 @@
                                     if (sp.getGiaKm() == null) {
                                 %>
                                 <ul>
-                                    <li style="color:#0280e1"><%= sp.getGia()%> VNĐ</li>
+                                    <li style="color:#0280e1">
+                                        <%DecimalFormat formatter = new DecimalFormat("###,###,###");%>
+                                        <%= formatter.format(sp.getGia()) + " đ" %>
+                                    </li>
                                 </ul>
                                 <%
                                 } else {
                                 %>
                                 <ul>
-                                    <li style="color:#0280e1"><%= sp.getGiaKm()%> VNĐ</li>
-                                    <li style="font-size: 25px"><del><%= sp.getGia()%> VNĐ</del></li>
+                                    <li style="color:#0280e1">
+                                        <%DecimalFormat formatter = new DecimalFormat("###,###,###");%>
+                                        <%= formatter.format(sp.getGiaKm()) + " đ" %>
+                                    </li>
+                                    <li style="font-size: 25px"><del>Giá cũ: <%= formatter.format(sp.getGia()) + " đ" %></del></li>
                                 </ul>
                                 <%
                                     }

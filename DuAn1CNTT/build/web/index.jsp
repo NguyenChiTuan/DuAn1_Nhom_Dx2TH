@@ -28,19 +28,19 @@
             <div class="container">  
                 <div class="add-products-row">
                     <div class="w3ls-add-grids">
-                        <a href="sanpham.jsp"> 
+                        <a href="#"> 
                             <h4>Top 10 sản phẩm dành cho bạn. Giảm giá <span>20%</span></h4>
                             <h6>Mua ngay <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></h6>
                         </a>
                     </div>
                     <div class="w3ls-add-grids w3ls-add-grids-mdl">
-                        <a href="sanpham.jsp"> 
+                        <a href="#"> 
                             <h4>Chủ nhật đặc biệt giảm giá <span>40%</span></h4>
                             <h6>Mua ngay <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></h6>
                         </a>
                     </div>
                     <div class="w3ls-add-grids w3ls-add-grids-mdl1">
-                        <a href="sanpham.jsp"> 
+                        <a href="#"> 
                             <h4>Thiết kế mới dành cho bạn!</h4>
                             <h6>Mua ngay <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></h6>
                         </a>

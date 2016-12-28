@@ -4,6 +4,7 @@
     Author     : Nguyễn Chí Tuấn
 --%>
 
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="com.javaweb.model.Sanpham"%>
 <%@page import="com.javaweb.service.SanphamService"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -11,13 +12,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Sản Phẩm Máy Tính</title>
+        <title>Sản Phẩm</title>
         <%@include file="includes/headtag-sanpham.jsp" %>
     </head>
     <body>
         <!-- header -->
         <%@include file="includes/header.jsp" %>
-        <%            String id = request.getParameter("id");
+        <%  
+            String id = request.getParameter("id");
             SanphamService SPService = new SanphamService();
             ArrayList<Sanpham> ListSanPham = null;
             ListSanPham = SPService.GetAllSanphamTheoLoai(Integer.parseInt(id));
@@ -25,6 +27,7 @@
             Loaisanpham LSP = LSPService.GetLoaiSanPhamTheoId(Integer.parseInt(id));
             ArrayList<Sanpham> ListSanphamLapTop = null;
             ListSanphamLapTop = SPService.GetAllSanpham(LSP.getIdParent(), 5);
+            String folderupload =  getServletContext().getInitParameter("file-upload");
         %>
         <!-- //header --> 	
         <!-- products -->
@@ -61,7 +64,12 @@
                                     <h5 class="text-center" style="font-weight: bold; font-size: 16px">
                                         <a href="chitietsanpham.jsp?idsanpham=<%= sp.getIdSanPham()%>"><%= sp.getTenSanPham()%></a>
                                     </h5>  
-                                    <h6 style="font-weight: bold"><del><%= sp.getGia()%> VNĐ<br></del> <%= sp.getGiaKm()%> VNĐ</h6>
+                                    <h6 style="font-weight: bold">
+                                        <del>
+                                            <%DecimalFormat formatter = new DecimalFormat("###,###,###");%>
+                                            <%= formatter.format(sp.getGia()) + " đ"%><br>
+                                        </del> <%= formatter.format(sp.getGiaKm()) + " đ" %>
+                                    </h6>
 
                                     <a class="w3ls-cart pw3ls-cart" href="addtocart.jsp?idsanpham=<%= sp.getIdSanPham()%>"
                                        <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart
@@ -80,7 +88,10 @@
                                     <h5 class="text-center" style="font-weight: bold; font-size: 16px">
                                         <a href="chitietsanpham.jsp?idsanpham=<%= sp.getIdSanPham()%>"><%= sp.getTenSanPham()%></a>
                                     </h5> 
-                                    <h6 style="font-weight: bold"><del></del> <%= sp.getGia()%> VNĐ</h6> 
+                                    <h6 style="font-weight: bold"><del></del>
+                                        <%DecimalFormat formatter = new DecimalFormat("###,###,###");%>
+                                        <%= formatter.format(sp.getGia()) + " đ"%><br>
+                                    </h6> 
                                     
                                         <a class="w3ls-cart pw3ls-cart" href="addtocart.jsp?idsanpham=<%= sp.getIdSanPham()%>"
                                            <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart
@@ -99,14 +110,6 @@
                         %>
                         <div class="clearfix"> </div>
                     </div>
-                    <!--                     add-products  
-                                        <div class="w3ls-add-grids w3agile-add-products">
-                                            <a href="#"> 
-                                                <h4>Top 10 sản phẩm xu hướng dành cho bạn. Giảm giá <span>20%</span></h4>
-                                                <h6>Mua ngay <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></h6>
-                                            </a>
-                                        </div> 
-                                         //add-products -->
                 </div>
                 <div class="col-md-3 rsidebar">
                     <div class="rsidebar-top">
@@ -200,23 +203,23 @@
                     <div class="related-row">
                         <h4>Tìm kiếm liên quan</h4>
                         <ul>
-                            <li><a href="products.html">Dell </a></li>
-                            <li><a href="products.html">Apple</a></li>
-                            <li><a href="products.html">Asus</a></li>
-                            <li><a href="products.html">Samsung</a></li>
-                            <li><a href="products.html">Lenovo</a></li>
-                            <li><a href="products.html">Toshiba</a></li>
-                            <li><a href="products.html">Purifiers</a></li>
-                            <li><a href="products.html">Oven</a></li>
-                            <li><a href="products.html">Cleaners</a></li>
-                            <li><a href="products.html">Small devices</a></li>
+                            <li><a href="#">Dell </a></li>
+                            <li><a href="#">Apple</a></li>
+                            <li><a href="#">Asus</a></li>
+                            <li><a href="#">Samsung</a></li>
+                            <li><a href="#">Lenovo</a></li>
+                            <li><a href="#">Toshiba</a></li>
+                            <li><a href="#">Purifiers</a></li>
+                            <li><a href="#">Oven</a></li>
+                            <li><a href="#">Cleaners</a></li>
+                            <li><a href="#">Small devices</a></li>
                         </ul>
                     </div>
                     <div class="related-row">
                         <h4>Có thể bạn thích?</h4>
                         <div class="galry-like">  
                             <a href="single.html"><img src="images/e1.png" class="img-responsive" alt="img"></a>             
-                            <h4><a href="products.html">Audio speaker</a></h4> 
+                            <h4><a href="#">Audio speaker</a></h4> 
                             <h5>$100</h5>       
                         </div>
                     </div>
@@ -247,11 +250,16 @@
                         %>
                         <div class="item">
                             <div class="glry-w3agile-grids agileits"> 
-                                <a href="chitietsanpham.jsp?idsanpham=<%= laptop.getIdSanPham()%>"><img src="<%= laptop.getImage()%>" height="215px" alt="img"></a>
+                                <a href="chitietsanpham.jsp?idsanpham=<%= laptop.getIdSanPham()%>"><img src="${pageContext.request.contextPath}/<%=folderupload%><%= laptop.getImage()%>" height="215px" alt="img"></a>
                                 <div class="view-caption agileits-w3layouts">           
                                     <h4><a href="chitietsanpham.jsp?idsanpham=<%= laptop.getIdSanPham()%>"><%= laptop.getTenSanPham()%></a></h4>
-                                    <p>Lorem ipsum dolor sit amet consectetur</p>
-                                    <h5><%= laptop.getGia()%></h5>
+                                    <p><%= laptop.getMoTa()%></p>
+                                    <h3 class="text-center" style="color: #F44336; font-weight: bold">
+                                        <%DecimalFormat formatter = new DecimalFormat("###,###,###");%>
+                                        <%= formatter.format(laptop.getGia()) + " đ"%>
+                                        <br>
+                                    </h3>
+                                    <br>
                                     <form action="addtocart.jsp?idsanpham=<%= laptop.getIdSanPham()%>" method="post">
                                         <input type="hidden" name="cmd" value="_cart" />
                                         <input type="hidden" name="add" value="1" /> 

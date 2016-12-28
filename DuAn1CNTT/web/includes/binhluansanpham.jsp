@@ -91,7 +91,7 @@
     <div class="row">
         <div class="col-md-8">
             <div class="panel panel-success">
-                <div class="panel-heading">Nhận xét về sản phẩm<p>(3 nhận xét)</p></div>
+                <div class="panel-heading">Nhận xét về sản phẩm</div>
                 <div class="panel-body" style="height:  500px; overflow: scroll;">
                     <!--Bắt đầu ô show bình luận ở đây-->
                     <%
@@ -110,7 +110,7 @@
                                     <img src="images/user_T.jpg" class="media-object" style="width:60px;height: 60px;">
                                 </div>
                                 <div class="media-body">
-                                    <h4 class="media-heading"><b><%= userbinhluan.getFullName() %></b><small><i>Đã bình luận vào: <%= binhluan.getNgayBinhLuan() %></i></small></h4>
+                                    <h4 class="media-heading"><b><%= userbinhluan.getFullName() %><small class="text-right"><i> Đã bình luận vào: <%= binhluan.getNgayBinhLuan() %></i></small></h4>
                                     <p><%= binhluan.getNoiDung()%></p>
                                 </div>
                             </div>

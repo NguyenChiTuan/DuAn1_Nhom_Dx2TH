@@ -4,6 +4,7 @@
     Author     : PhuocDanh
 --%>
 
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="com.javaweb.model.Sanpham"%>
 <%@page import="com.javaweb.service.SanphamService"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -57,7 +58,11 @@
                                     <h5 class="text-center" style="font-weight: bold; font-size: 16px">
                                         <a href="chitietsanpham.jsp?idsanpham=<%= sp.getIdSanPham()%>"><%= sp.getTenSanPham()%></a>
                                     </h5>  
-                                    <h6 style="font-weight: bold"><del><%= sp.getGia()%> VNĐ<br></del> <%= sp.getGiaKm()%> VNĐ</h6>
+                                        <h6 style="font-weight: bold">
+                                            <del>
+                                                <%DecimalFormat formatter = new DecimalFormat("###,###,###");%>
+                                                <%= formatter.format(sp.getGia()) + " đ"%><br>
+                                            </del> <%= formatter.format(sp.getGiaKm()) + " đ"%> </h6>
 
 
                                     <a class="w3ls-cart pw3ls-cart" href="addtocart.jsp?idsanpham=<%= sp.getIdSanPham()%>"
@@ -77,7 +82,10 @@
                                     <h5 class="text-center" style="font-weight: bold; font-size: 16px">
                                         <a href="chitietsanpham.jsp?idsanpham=<%= sp.getIdSanPham()%>"><%= sp.getTenSanPham()%></a>
                                     </h5> 
-                                    <h6 style="font-weight: bold"><del></del> <%= sp.getGia()%> VNĐ</h6> 
+                                    <h6 style="font-weight: bold"><del></del>
+                                        <%DecimalFormat formatter = new DecimalFormat("###,###,###");%>
+                                        <%= formatter.format(sp.getGia()) + " đ"%><br>
+                                    </h6> 
                                     <a class="w3ls-cart pw3ls-cart" href="addtocart.jsp?idsanpham=<%= sp.getIdSanPham()%>"
                                        <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart
                                     </a>

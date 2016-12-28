@@ -4,6 +4,7 @@
     Author     : Nguyễn Chí Tuấn
 --%>
 
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="com.javaweb.model.Sanpham"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.javaweb.service.SanphamService"%>
@@ -65,9 +66,12 @@
                                         <a href="chitietsanpham.jsp?idsanpham=<%= laptop.getIdSanPham()%>"><img src="${pageContext.request.contextPath}/<%=folderupload%><%= laptop.getImage()%>" height="215px" alt="img"></a>
                                         <div class="view-caption agileits-w3layouts">           
                                             <h4><a href="sanpham.jsp"><%= laptop.getTenSanPham()%></a></h4>
-                                            <p>Lorem ipsum dolor sit amet consectetur</p>
-                                            <h5><%= laptop.getGia()%></h5>
-
+                                            <p><%= laptop.getMoTa() %>
+                                            <h3 class="text-center" style="color: #F44336; font-weight: bold">
+                                                <%DecimalFormat formatter = new DecimalFormat("###,###,###");%>
+                                                <%= formatter.format(laptop.getGia()) + " đ"%><br>
+                                            </h3>
+                                            <br>
                                             <a class="w3ls-cart" href="addtocart.jsp?idsanpham=<%= laptop.getIdSanPham()%>"
                                                <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart
                                             </a>
@@ -109,8 +113,12 @@
                                         <<a href="chitietsanpham.jsp?idsanpham=<%= dienthoai.getIdSanPham()%>"><img src="${pageContext.request.contextPath}/<%=folderupload2%><%=dienthoai.getImage()%>" height="215px" alt="img"></a>
                                         <div class="view-caption agileits-w3layouts">           
                                             <h4><a href="sanpham.jsp"><%= dienthoai.getTenSanPham()%></a></h4>
-                                            <p>Lorem ipsum dolor sit amet consectetur</p>
-                                            <h5><%= dienthoai.getGia()%></h5>
+                                            <p><%= dienthoai.getMoTa()%>
+                                            <h3 class="text-center" style="color: #F44336; font-weight: bold">
+                                                <%DecimalFormat formatter = new DecimalFormat("###,###,###");%>
+                                                <%= formatter.format(dienthoai.getGia()) + " đ"%><br>
+                                            </h3>
+                                            <br>
 
                                             <a class="w3ls-cart" href="addtocart.jsp?idsanpham=<%= dienthoai.getIdSanPham()%>"
                                                <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart
@@ -153,8 +161,12 @@
                                         <a href="chitietsanpham.jsp?idsanpham=<%= LuuNiem.getIdSanPham()%>"><img src="${pageContext.request.contextPath}/<%=folderupload3%><%= LuuNiem.getImage()%>" height="215px" alt="img"></a>
                                         <div class="view-caption agileits-w3layouts">           
                                             <h4><a href="sanpham.jsp"><%= LuuNiem.getTenSanPham()%></a></h4>
-                                            <p>Lorem ipsum dolor sit amet consectetur</p>
-                                            <h5><%= LuuNiem.getGia()%></h5>
+                                            <p><%= LuuNiem.getMoTa()%></p>
+                                            <h3 class="text-center" style="color: #F44336; font-weight: bold">
+                                                <%DecimalFormat formatter = new DecimalFormat("###,###,###");%>
+                                                <%= formatter.format(LuuNiem.getGia()) + " đ"%><br>
+                                            </h3>
+                                            <br>
 
 
                                             <a class="w3ls-cart" href="addtocart.jsp?idsanpham=<%= LuuNiem.getIdSanPham()%>"
@@ -198,8 +210,12 @@
                                         <a href="chitietsanpham.jsp?idsanpham=<%= NhaCua.getIdSanPham()%>"><img src="${pageContext.request.contextPath}/<%=folderupload4%><%=NhaCua.getImage()%>" height="215px" alt="img"></a>
                                         <div class="view-caption agileits-w3layouts">           
                                             <h4><a href="sanpham.jsp"><%= NhaCua.getTenSanPham()%></a></h4>
-                                            <p>Lorem ipsum dolor sit amet consectetur</p>
-                                            <h5><%= NhaCua.getGia()%></h5>
+                                            <p><%= NhaCua.getMoTa()%></p>
+                                            <h3 class="text-center" style="color: #F44336; font-weight: bold">
+                                                <%DecimalFormat formatter = new DecimalFormat("###,###,###");%>
+                                                <%= formatter.format(NhaCua.getGia()) + " đ"%><br>
+                                            </h3>
+                                            <br>
 
                                             <a class="w3ls-cart" href="addtocart.jsp?idsanpham=<%= NhaCua.getIdSanPham()%>"
                                                <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart
@@ -241,8 +257,12 @@
                                         <a href="chitietsanpham.jsp?idsanpham=<%= TheThao.getIdSanPham()%>"><img src="${pageContext.request.contextPath}/<%=folderupload5%><%= TheThao.getImage()%>" height="215px" alt="img"></a>
                                         <div class="view-caption agileits-w3layouts">           
                                             <h4><a href="sanpham.jsp"><%= TheThao.getTenSanPham()%></a></h4>
-                                            <p>Lorem ipsum dolor sit amet consectetur</p>
-                                            <h5><%= TheThao.getGia()%></h5>
+                                            <p><%= TheThao.getMoTa()%></p>
+                                            <h3 class="text-center" style="color: #F44336; font-weight: bold">
+                                                <%DecimalFormat formatter = new DecimalFormat("###,###,###");%>
+                                                <%= formatter.format(TheThao.getGia()) + " đ"%><br>
+                                            </h3>
+                                            <br>
 
                                             <a class="w3ls-cart" href="addtocart.jsp?idsanpham=<%= TheThao.getIdSanPham()%>"
                                                <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart

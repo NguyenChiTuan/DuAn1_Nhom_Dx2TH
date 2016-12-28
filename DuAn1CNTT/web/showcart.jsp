@@ -4,6 +4,7 @@
     Author     : Nguyễn Chí Tuấn
 --%>
 
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="com.javaweb.model.Sanpham"%>
 <%@page import="com.javaweb.service.SanphamService"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -11,8 +12,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Giỏ Hàng Của Bạn</title>
-
+        <title>Giỏ Hàng</title>
         <%@include file="includes/headtag-chitietsanpham.jsp" %>
         <%@include file="includes/headtag-dangkydangnhap.jsp" %>
     </head>
@@ -44,7 +44,8 @@
                     } else {
                     %>
                     <div class="panel panel-default">
-                        <div class="panel-heading text-center">Đăng Nhập Hoặc Đặt Hàng Không Cần Đăng Kí</div>
+                        <div class="panel-heading text-center" style="font-weight: bold">
+                            Đăng nhập hoặc Đặt hàng không cần đăng ký</div>
                         <div class="panel-body">                           
                             <div class="collpse tabs">                  
                                 <div class="panel-group collpse" id="accordion" role="tablist" aria-multiselectable="true">                                                
@@ -165,19 +166,18 @@
                                 }
                         %>
                         <div class="panel panel-default">
-                            <div class="panel-heading">Thông Tin Đơn Hàng : (<%=listGioHang.size()%>) Sản Phẩm </div>
+                            <div class="panel-heading" style="font-weight: bold">
+                                Thông Tin Đơn Hàng : (<%=listGioHang.size()%>) Sản Phẩm </div>
                             <div class="panel-body">
-                                <table class="table-bordered" style="width: 100%;" >
-                                    <thead>
+                                <table class="table">
+                                    <thead style="background-color: #F8FCEB">
                                         <tr style="text-align: center">
-                                            <th style="text-align: center">Hình Ảnh</th>                        
-                                            <th style="text-align: center">Tên Sản Phẩm</th>                        
+                                            <th>Sản Phẩm</th>                 
                                             <th style="text-align: center">Số Lượng</th>                       
-                                            <th style="text-align: center">Thành Tiền</th>                       
+                                            <th style="text-align: center">Giá</th>                       
                                         </tr>
-
                                     </thead>
-                                    <tbody >
+                                    <tbody>
                                         <%
                                             for (int i = 0; i < listGioHang.size(); i++) {
                                                 GioHang item = listGioHang.get(i);
@@ -186,46 +186,60 @@
                                                 if (sp.getGiaKm() == null) {
                                                     tongtien += sp.getGia() * Double.parseDouble(item.getSoLuong());
                                         %>
-                                        <tr style="text-align: center">
-                                            <td >
-                                                <img class="img-thumbnail" src="${pageContext.request.contextPath}/<%=folderupload8%><%= sp.getImage()%>" width="80px" height="110px"/>
+                                        <tr>
+                                            <td style="padding:10px;" >
+                                                <img class="img-thumbnail"
+                                                     src="${pageContext.request.contextPath}/<%=folderupload8%><%= sp.getImage()%>"
+                                                     width="60px" height="60px"/>
+                                                <span style="font-weight: bold" name="idsp<%=item.getMaSP()%>"><%= sp.getTenSanPham()%></span>
                                             </td>
-                                            <td><span name="idsp<%=item.getMaSP()%>"><%= sp.getTenSanPham()%></span></td>                        
-                                            <td>
-                                                <input name="sl<%=item.getMaSP()%>" type="number" value="<%=item.getSoLuong()%>"/>
-                                                <a href="showcart.jsp?removeidsp=<%=item.getMaSP()%>">X</a>
+                                                                   
+                                            <td  style="text-align: center">
+                                                <input style="width: 40px; margin-top: 25px " name="sl<%=item.getMaSP()%>" type="number" value="<%=item.getSoLuong()%>"/>
+                                                <a href="showcart.jsp?removeidsp=<%=item.getMaSP()%>">
+                                                    <span class="glyphicon glyphicon-remove" style="color: red;"></span>
+                                                </a>
                                             </td>                                              
-                                            <td><%= sp.getGia() * Double.parseDouble(item.getSoLuong())%></td>
+                                            <td  style="text-align: center; line-height: 75px">
+                                                <%DecimalFormat formatter = new DecimalFormat("###,###,###");%>
+                                                <%= formatter.format(sp.getGia() * Double.parseDouble(item.getSoLuong())) + " đ" %>
+                                            </td>
                                         </tr>
                                         <%
                                         } else {
                                             tongtien += sp.getGiaKm() * Double.parseDouble(item.getSoLuong());
                                         %>
-                                        <tr style="text-align: center">
-                                            <td >
-                                                <img class="img-thumbnail" src="${pageContext.request.contextPath}/<%=folderupload8%><%= sp.getImage()%>" width="80px" height="110px"/>
-                                            </td>
-                                            <td><span name="idsp<%=item.getMaSP()%>"><%= sp.getTenSanPham()%></span></td>                        
-                                            <td>
-                                                <input name="sl<%=item.getMaSP()%>" type="number" value="<%=item.getSoLuong()%>"/>
-                                                <a href="showcart.jsp?removeidsp=<%=item.getMaSP()%>">X</a>
+                                        <tr>
+                                            <td style="padding:10px;">
+                                                <img class="img-thumbnail" src="${pageContext.request.contextPath}/<%=folderupload8%><%= sp.getImage()%>"
+                                                     width="60px" height="60px"/>
+                                                <span style="font-weight: bold" name="idsp<%=item.getMaSP()%>"><%= sp.getTenSanPham()%></span>
+                                            </td>                      
+                                            <td  style="text-align: center;">
+                                                <input style="width: 40px; margin-top: 25px;" name="sl<%=item.getMaSP()%>" type="number" value="<%=item.getSoLuong()%>"/>
+                                                <a href="showcart.jsp?removeidsp=<%=item.getMaSP()%>">
+                                                    <span class="glyphicon glyphicon-remove" style="color: red;"></span>
+                                                </a>
                                             </td>                                              
-                                            <td><%= sp.getGiaKm() * Double.parseDouble(item.getSoLuong())%></td>
+                                            <td  style="text-align: center; line-height: 75px">
+                                                <%DecimalFormat formatter = new DecimalFormat("###,###,###");%>
+                                                <%= formatter.format(sp.getGiaKm() * Double.parseDouble(item.getSoLuong())) + " đ" %>
+                                            </td>
                                         </tr>
                                         <%
                                             }
                                         %>
-
                                         <%
                                             }
                                         %>
-
                                     </tbody>
 
                                 </table>
                                 <div>
-
-                                    <span style="color: red;font-size: 20px;margin-top: 16px;text-transform: bold"class="pull-right"  > Tổng Tiền  :  <%= tongtien%> </span>
+                                    <span style="color: red;font-size: 20px;font-weight: bold"class="pull-right"  >
+                                        <%DecimalFormat formatter = new DecimalFormat("###,###,###");%>
+                                        Tổng Tiền  :  <%=formatter.format(tongtien) + " đ"%> 
+                                    </span>
                                     <input type="hidden" value=" <%= tongtien%>" name="tongtien"/>
                                 </div>
                                 <%
@@ -237,16 +251,16 @@
 
                                 %>
 
-                                <button style="margin: 70px 0px 0px 150px;padding: 10px 80px" type="submit" class="btn btn-primary thanhtoan text-center">Thanh Toán</button>
+                                <button style="padding: 10px 20px" type="submit" class="btn btn-primary thanhtoan text-center">THANH TOÁN</button>
                             </div>
                         </div>
 
                         <%} else {
                         %>
                         <div class="panel panel-default">
-                            <div class="panel-heading">Thông Tin Đơn Hàng : 0 Sản Phẩm </div>
+                            <div class="panel-heading" style="font-weight: bold">Thông Tin Đơn Hàng : 0 Sản Phẩm </div>
                             <div class="panel-body">
-                                <span>bạn Chưa Lựa Chọn Sản Phẩm Nào....</span>
+                                <span>Chưa có sản phẩm nào được chọn....</span>
                             </div>
                             <%
                                 }

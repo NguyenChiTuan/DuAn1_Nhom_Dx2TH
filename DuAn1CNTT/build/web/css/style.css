@@ -341,7 +341,8 @@ h3.w3ls-title {
     display: block;
 }
 .glry-w3agile-grids img {
-    width: 70%;
+    width: 100%;
+    height: 200px;
     margin: 2em auto;
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;
@@ -372,7 +373,7 @@ h3.w3ls-title {
     bottom: 0;
     left: 0;
     position: absolute;
-    right: 0;
+    right: -20px;
     padding: 7% 5% 5% 35%;
     text-align: left;
     top: 0;
@@ -396,6 +397,11 @@ h3.w3ls-title {
     padding-bottom: 10px;
 /*    font-family: 'Offside', cursive;*/
     font-weight: 600;
+    text-transform: capitalize;
+}
+.glry-w3agile-grids .view-caption p {
+/*    border-bottom: 1px solid #ccc;*/
+    margin-bottom: 10px;
     text-transform: capitalize;
 }
 .glry-w3agile-grids .view-caption h4 a {
