@@ -1,7 +1,7 @@
 <%-- 
-    Document   : tintuc
-    Created on : Dec 8, 2016, 2:06:03 PM
-    Author     : Nguyễn Chí Tuấn
+    Document   : chitiettin
+    Created on : Dec 30, 2016, 9:44:14 PM
+    Author     : PhuocDanh
 --%>
 
 <%@page import="com.javaweb.model.Tintuc"%>
@@ -15,20 +15,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Tin Tức</title>
         <%@include file="includes/headtag.jsp" %> 
-        <link href="css/styles_1.css" rel="stylesheet" type="text/css"/>
-        <script src="js/jquery.bxslider.min.js" type="text/javascript"></script>
-        <link href="css/jquery.bxslider_1.css" rel="stylesheet" type="text/css"/>
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $('.bxslider').bxSlider({
-                    mode: 'fade',
-                    captions: true,
-                    spped: 2000,
-                    auto: true,
-                    pause: 5000,
-                });
-            });
-        </script>
+        <link href="css/styles_1.css" rel="stylesheet" type="text/css"/>      
     </head>
     <body>
         <%@include file="includes/header-tintuc.jsp" %>
@@ -36,13 +23,16 @@
         <!------------------------------------------------------------------------------------------->
 
         <!-- bắt đầu menu tin tức-->
-        <%            LoaiTinTucService LTTService = new LoaiTinTucService();
+        <%            
+            LoaiTinTucService LTTService = new LoaiTinTucService();
             ArrayList<Loaitintuc> ListLoaiTinTuc = null;
             ListLoaiTinTuc = LTTService.GetAllLoaiTinTuc();
             TinTucService TTService = new TinTucService();
             ArrayList<Tintuc> ListTinTuc = null;
             ListTinTuc = TTService.GetAllListTinTuc();
             String folderupload = getServletContext().getInitParameter("file-upload");
+            Tintuc tin = new Tintuc();
+            tin=TTService.GetTinTucById(request.getParameter("idtin"));
         %>
         <div class="navbar navbar-default navbar-static-top" style="background-color: #F9F5F0;margin-bottom: 30px;border: 1px solid #ddd;box-shadow: 5px 2px 5px #888888;">
             <div class="container">
@@ -69,21 +59,10 @@
         <section class="container">
             <div class="row">
                 <div class="col-md-8">
-                    <ul class="bxslider">
-                        <%
-                            for (int a = 0; a < 3; a++) {
-                                Tintuc tt = ListTinTuc.get(a);
-                        %>
-                        <li>
-                            <a href="chitiettin.jsp?idtin=<%= tt.getIdTinTuc()%>">
-                                <img src="${pageContext.request.contextPath}/<%=folderupload%><%= tt.getImage()%>" title="<%= tt.getTieuDe()%>" width="750px" height="400px" />
-                            </a>
-                        </li>
-                        <%
-                            }
-                        %>
-
-                    </ul>
+                    <h2 class="text-center" style="font-weight: bold;margin: 30px 0px;" ><%= tin.getTieuDe() %></h2>
+                    <section class="noidungtin" style="margin-top: 50px;">
+                        <span><%= tin.getNoiDung() %></spam>
+                    </section>
                 </div>
                 <div class="col-md-4">
                     <div class="panel-group">
@@ -131,5 +110,5 @@
 
 
 
-    </body>
+</body>
 </html>

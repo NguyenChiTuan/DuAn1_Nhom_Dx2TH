@@ -41,4 +41,26 @@ public class LoaiTinTucService {
         }
         return ListLoaiTinTuc;
     }
+
+    public Loaitintuc GetLoaiTinTheoId(int IdLoaiTin) {
+        Session session = NewHibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        try {
+            tx = session.getTransaction();
+            tx.begin();
+            tx.commit();
+            String strquery = "from Loaitintuc where IdLoaiTinTuc=" + IdLoaiTin;
+            Query query = session.createQuery(strquery);
+            Loaitintuc LT = (Loaitintuc) query.uniqueResult();
+            return LT;
+        } catch (Exception e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            System.out.println(e.toString());
+        } finally {
+            session.close();
+        }
+        return null;
+    }
 }

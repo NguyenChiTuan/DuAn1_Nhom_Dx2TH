@@ -3885,3 +3885,12 @@ p.sbmincart-empty-text {
     
     background-image: url(../images/background.jpg);
 }
+.noidungtin {
+    
+}
+.noidungtin p{
+    color: #000;
+    line-height: 30px;
+    font-family: inherit;
+    
+}

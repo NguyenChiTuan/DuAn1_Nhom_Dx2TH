@@ -69,6 +69,10 @@
         <servlet-name>loaddmqltt</servlet-name>
         <servlet-class>com.javaweb.controller.loaddmqltt</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ThemTinServlet</servlet-name>
+        <servlet-class>com.javaweb.controller.ThemTinServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
@@ -132,6 +136,10 @@
     <servlet-mapping>
         <servlet-name>loaddmqltt</servlet-name>
         <url-pattern>/loaddmqltt</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ThemTinServlet</servlet-name>
+        <url-pattern>/ThemTinServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

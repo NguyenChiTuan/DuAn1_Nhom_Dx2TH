@@ -40,4 +40,69 @@ public class TinTucService {
         }
         return Listtintuc;
     }
+
+    public ArrayList<Tintuc> GetAllListTinTuc() {
+        Session session = NewHibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        ArrayList<Tintuc> Listtintuc = new ArrayList<>();
+        try {
+            tx = session.getTransaction();
+            tx.begin();
+            String strquery = "from Tintuc order by IdTintuc Desc";
+            Query query = session.createQuery(strquery);
+            Listtintuc = (ArrayList<Tintuc>) query.list();
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            System.out.println(e.toString());
+        } finally {
+            session.close();
+        }
+        return Listtintuc;
+    }
+
+    public boolean InsertTinTuc(Tintuc tt) {
+        Session session = NewHibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+
+        try {
+            tx = session.getTransaction();
+            tx.begin();
+            session.saveOrUpdate(tt);
+            tx.commit();
+            return true;
+        } catch (Exception e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            System.out.println(e.toString());
+        } finally {
+            session.close();
+        }
+        return false;
+    }
+
+    public Tintuc GetTinTucById(String idtin) {
+        Session session = NewHibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        try {
+            tx = session.getTransaction();
+            tx.begin();
+            tx.commit();
+            String strquery = "from Tintuc where IdTinTuc=" + idtin;
+            Query query = session.createQuery(strquery);
+            Tintuc Tin = (Tintuc) query.uniqueResult();
+            return Tin;
+        } catch (Exception e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            System.out.println(e.toString());
+        } finally {
+            session.close();
+        }
+        return null;
+    }
 }

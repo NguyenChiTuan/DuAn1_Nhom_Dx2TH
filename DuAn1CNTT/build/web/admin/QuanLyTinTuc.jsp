@@ -62,7 +62,6 @@
     </head>
     <body>
         <%
-
             TinTucService TTService = new TinTucService();
             LoaiTinTucService LTTService = new LoaiTinTucService();
             ArrayList<Loaitintuc> ListLoaiTin = null;
@@ -180,9 +179,12 @@
                         </form>
                     </div>
                     <div class="col-md-6" style="padding: 20px 0px 10px 10px">
-                            <button type="button" class="btn btn-info"
-                                    >                                
-                            <span class="glyphicon glyphicon-plus"></span> Thêm Tin</button>
+                        <a href="AddTin.jsp">
+                            <button type="button" class="btn btn-info">
+                                <span class="glyphicon glyphicon-plus"></span> Thêm Tin                              
+                            </button>
+                        </a>
+
                     </div>
                 </div>
             </div>
@@ -207,7 +209,7 @@
                         for (int a = 0; a < Listtintuc.size(); a++) {
                             Tintuc tt = Listtintuc.get(a);
                             //bắt đầu vòng lặp
-%>  
+                    %>  
                     <tbody>
                         <tr style="color: #45171D "> 
                             <td><%= a + 1%></td>
@@ -234,8 +236,8 @@
                     </tbody>
                     <%
                         }//kết thúc vòng lặp
-%>
-                   
+                    %>
+
 
                 </form>
             </table>
