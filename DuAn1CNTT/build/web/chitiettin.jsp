@@ -38,7 +38,7 @@
             <div class="container">
                 <div id='cssmenu'>
                     <ul>
-                        <li class='active'><a href='#'>Home</a></li>
+                        <li class='active'><a href='tintuc.jsp'>Home</a></li>
                             <%
                                 for (int i = 0; i < ListLoaiTinTuc.size(); i++) {
                                     Loaitintuc LTT = ListLoaiTinTuc.get(i);
@@ -81,7 +81,7 @@
                             <div class="panel-body">
                                 <ul>
                                     <%
-                                        for (int j = 1; j < 6; j++) {
+                                        for (int j = 1; j < 10; j++) {
                                             Tintuc tt = ListTinTuc.get(j);
                                     %>
                                     <li style="list-style: none; border-bottom: 1px solid #ddd;margin-bottom: 5px;float: left">

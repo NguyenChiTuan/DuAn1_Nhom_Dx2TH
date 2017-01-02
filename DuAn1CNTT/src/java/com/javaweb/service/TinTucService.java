@@ -105,4 +105,27 @@ public class TinTucService {
         }
         return null;
     }
+    public ArrayList<Tintuc> GetSoLuongTinTucTheoLoai(int idloaitin, int soluong) {
+        Session session = NewHibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        ArrayList<Tintuc> ListTinTUc = new ArrayList<>();
+        try {
+            tx = session.getTransaction();
+            tx.begin();
+            String strquery = "from Tintuc where IdLoaitintuc="+idloaitin+" order by IdTinTuc Desc";
+
+            Query query = session.createQuery(strquery);
+            query.setMaxResults(soluong);
+            ListTinTUc = (ArrayList<Tintuc>) query.list();
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            System.out.println(e.toString());
+        } finally {
+            session.close();
+        }
+        return ListTinTUc;
+    }
 }
