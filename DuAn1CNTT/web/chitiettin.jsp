@@ -31,8 +31,9 @@
             ArrayList<Tintuc> ListTinTuc = null;
             ListTinTuc = TTService.GetAllListTinTuc();
             String folderupload = getServletContext().getInitParameter("file-upload");
+            UserService USService = new UserService();
             Tintuc tin = new Tintuc();
-            tin=TTService.GetTinTucById(request.getParameter("idtin"));
+            tin = TTService.GetTinTucById(request.getParameter("idtin"));
         %>
         <div class="navbar navbar-default navbar-static-top" style="background-color: #F9F5F0;margin-bottom: 30px;border: 1px solid #ddd;box-shadow: 5px 2px 5px #888888;">
             <div class="container">
@@ -43,12 +44,10 @@
                                 for (int i = 0; i < ListLoaiTinTuc.size(); i++) {
                                     Loaitintuc LTT = ListLoaiTinTuc.get(i);
                             %>
-                        <li><a href='#'><%= LTT.getTenLoaiTinTuc()%></a></li>
+                        <li><a href='chuyenmuctin.jsp?idloaitin=<%= LTT.getIdLoaiTinTuc() %>'><%= LTT.getTenLoaiTinTuc()%></a></li>
                             <%
                                 }
                             %>
-
-
                     </ul>
                 </div>
             </div>
@@ -56,12 +55,18 @@
         <!--kết thúc menu tin tức-->
 
         <!------------------------------------------------------------------------------------------->
-        <section class="container">
+        <section class="container" style="margin-bottom: 50px">
             <div class="row">
                 <div class="col-md-8">
-                    <h2 class="text-center" style="font-weight: bold;margin: 30px 0px;" ><%= tin.getTieuDe() %></h2>
+                    <h2 class="text-center" style="font-weight: bold;margin: 30px 0px;" ><%= tin.getTieuDe()%></h2>
                     <section class="noidungtin" style="margin-top: 50px;">
-                        <span><%= tin.getNoiDung() %></spam>
+                        <span class="pull-left" style="color: #003399"><%= tin.getNgayDang() %></span></br>
+                        <span><%= tin.getNoiDung()%></spam>
+                        
+                        <%
+                            Users us = USService.GetUsersByID(tin.getUsers().getIdUser().toString());
+                        %>
+                        <span class="pull-right"><h4 style="font-weight: bold"><%= us.getFullName() %></h4></span>
                     </section>
                 </div>
                 <div class="col-md-4">
@@ -97,18 +102,11 @@
                                 </ul>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-
-    <!------------------------------------------------------------------------------------------->
-
-
-
-
+    <%@include file="includes/footer.jsp" %>
 </body>
 </html>

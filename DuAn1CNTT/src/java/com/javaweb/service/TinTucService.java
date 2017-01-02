@@ -105,6 +105,7 @@ public class TinTucService {
         }
         return null;
     }
+
     public ArrayList<Tintuc> GetSoLuongTinTucTheoLoai(int idloaitin, int soluong) {
         Session session = NewHibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
@@ -112,7 +113,7 @@ public class TinTucService {
         try {
             tx = session.getTransaction();
             tx.begin();
-            String strquery = "from Tintuc where IdLoaitintuc="+idloaitin+" order by IdTinTuc Desc";
+            String strquery = "from Tintuc where IdLoaitintuc=" + idloaitin + " order by IdTinTuc Desc";
 
             Query query = session.createQuery(strquery);
             query.setMaxResults(soluong);
@@ -128,7 +129,8 @@ public class TinTucService {
         }
         return ListTinTUc;
     }
-     public boolean DeleteAlLTin(int idtin) {
+
+    public boolean DeleteAlLTin(int idtin) {
         Session session = NewHibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
 
@@ -150,5 +152,35 @@ public class TinTucService {
         }
 
         return false;
+    }
+    public int usercount = 0;
+
+    public ArrayList<Tintuc> GetAllTinTucTheoLoaiTin(int pageSize, int pageNumber, int idloaitin) {
+        Session session = NewHibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        ArrayList Listtintuc = new ArrayList<Tintuc>();
+
+        try {
+            tx = session.getTransaction();
+            tx.begin();
+
+            Query query = session.createQuery("from Tintuc where IdLoaitintuc=" + idloaitin);
+            usercount = query.list().size();
+            query = query.setFirstResult(pageSize * (pageNumber - 1));
+            query.setMaxResults(pageSize);
+            Listtintuc = (ArrayList) query.list();
+
+            tx.commit();
+
+        } catch (Exception e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+
+        } finally {
+            session.close();
+        }
+
+        return Listtintuc;
     }
 }

@@ -1,49 +1,53 @@
 <%-- 
-    Document   : tintuc
-    Created on : Dec 8, 2016, 2:06:03 PM
-    Author     : Nguyễn Chí Tuấn
+    Document   : chuyenmuctin
+    Created on : Jan 2, 2017, 11:08:17 PM
+    Author     : PhuocDanh
 --%>
 
 <%@page import="com.javaweb.model.Tintuc"%>
 <%@page import="com.javaweb.service.TinTucService"%>
-<%@page import="com.javaweb.model.Loaitintuc"%>
 <%@page import="com.javaweb.service.LoaiTinTucService"%>
+<%@page import="com.javaweb.model.Loaitintuc"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Tin Tức</title>
+        <title>Chuyên Mục Tin Tức</title>
         <%@include file="includes/headtag.jsp" %> 
         <link href="css/styles_1.css" rel="stylesheet" type="text/css"/>
-        <script src="js/jquery.bxslider.min.js" type="text/javascript"></script>
-        <link href="css/jquery.bxslider_1.css" rel="stylesheet" type="text/css"/>
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $('.bxslider').bxSlider({
-                    mode: 'fade',
-                    captions: true,
-                    spped: 2000,
-                    auto: true,
-                    pause: 5000,
-                });
-            });
-        </script>
     </head>
     <body>
         <%@include file="includes/header-tintuc.jsp" %>
 
-        <!------------------------------------------------------------------------------------------->
-
-        <!-- bắt đầu menu tin tức-->
-        <%            
+        <%            request.setCharacterEncoding("UTF-8");
             LoaiTinTucService LTTService = new LoaiTinTucService();
             ArrayList<Loaitintuc> ListLoaiTinTuc = null;
             ListLoaiTinTuc = LTTService.GetAllLoaiTinTuc();
             TinTucService TTService = new TinTucService();
             ArrayList<Tintuc> ListTinTuc = null;
-
+            ArrayList<Tintuc> ListTinTucTheoLoai = null;
             ListTinTuc = TTService.GetAllListTinTuc();
+            int pageSize = 3;
+            int pageNumber = 1;
+            String Id = request.getParameter("idloaitin");
+            if (request.getParameter("idloaitin") == null) {
+                Id = "1";
+            }
+            if (request.getParameter("pagenumber") != null) {
+                session.setAttribute("pagenumber", request.getParameter("pagenumber"));
+                pageNumber = Integer.parseInt(request.getParameter("pagenumber"));
+            } else {
+                session.setAttribute("pagenumber", "1");
+            }
+            ListTinTucTheoLoai = TTService.GetAllTinTucTheoLoaiTin(pageSize, pageNumber, Integer.parseInt(Id));
+            int pageCount = (TTService.usercount / pageSize)
+                    + (TTService.usercount % pageSize > 0 ? 1 : 0);
+
+            String nextPage = (pageCount > pageNumber
+                    ? (pageNumber + 1) : pageNumber) + "";
+            String prePage = (pageNumber <= 1 ? 1 : pageNumber - 1) + "";
+            Loaitintuc LTTT = LTTService.GetLoaiTinTheoId(Integer.parseInt(Id));
             String folderupload = getServletContext().getInitParameter("file-upload");
         %>
         <div class="navbar navbar-default navbar-static-top" style="background-color: #F9F5F0;margin-bottom: 30px;border: 1px solid #ddd;box-shadow: 5px 2px 5px #888888;">
@@ -55,12 +59,10 @@
                                 for (int i = 0; i < ListLoaiTinTuc.size(); i++) {
                                     Loaitintuc LTT = ListLoaiTinTuc.get(i);
                             %>
-                            <li><a href='chuyenmuctin.jsp?idloaitin=<%= LTT.getIdLoaiTinTuc() %>'><%= LTT.getTenLoaiTinTuc()%></a></li>
+                        <li><a href='chuyenmuctin.jsp?idloaitin=<%= LTT.getIdLoaiTinTuc()%>'><%= LTT.getTenLoaiTinTuc()%></a></li>
                             <%
                                 }
                             %>
-
-
                     </ul>
                 </div>
             </div>
@@ -71,74 +73,56 @@
         <section class="container">
             <div class="row">
                 <div class="col-md-8">
+                    <span style="font-weight: bold">Trang Chủ &rarr; <%= LTTT.getTenLoaiTinTuc()%> </span>
                     <section>
-                        <ul class="bxslider">
+                        <div>
                             <%
-                                for (int a = 0; a < 3; a++) {
-                                    Tintuc tt = ListTinTuc.get(a);
+                                for (int i = 0; i < ListTinTucTheoLoai.size(); i++) {
+                                    Tintuc tt = ListTinTucTheoLoai.get(i);
                             %>
-                            <li>
-                                <a href="chitiettin.jsp?idtin=<%= tt.getIdTinTuc()%>">
-                                    <img src="${pageContext.request.contextPath}/<%=folderupload%><%= tt.getImage()%>" title="<%= tt.getTieuDe()%>" width="750px" height="400px" />
-                                </a>
-                            </li>
+                            <div class="row">
+                                <div style="margin-bottom: 30px"></div>
+                                <div class="col-md-5">
+                                    <img class="img-thumbnail" src="${pageContext.request.contextPath}/<%=folderupload%><%= tt.getImage()%>" alt="" />
+                                </div>
+                                <div class="col-md-6">
+                                    <span ><h4 style="font-family: serif;font-weight: bold"><%= tt.getTieuDe()%></h4></span>
+                                    <span><h5 style="margin-top: 20px;line-height: 20px"><%= tt.getTomTatTin()%></h5></span>
+                                    <div style="margin-top: 20px">
+                                        <a  href="chitiettin.jsp?idtin=<%=tt.getIdTinTuc()%>">
+                                            <span >Xem Thêm...</span>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
                             <%
                                 }
                             %>
-                        </ul>
-                    </section>
-                    <%
-                        for (int i = 0; i < ListLoaiTinTuc.size(); i++) {
-                            Loaitintuc LTT = ListLoaiTinTuc.get(i);
-                            ArrayList<Tintuc> ListTinTuctheoloai = null;
-                            ListTinTuctheoloai = TTService.GetSoLuongTinTucTheoLoai(LTT.getIdLoaiTinTuc(), 4);
-                    %>
-                    <section style="margin-bottom: 50px">
-
-                        <div style="margin-bottom:30px;margin-top: 15px; font-family: cursive;font-size: 20px;color: #0044cc"><%= LTT.getTenLoaiTinTuc()%> </div>
-
-
-                        <div class="row">
-                            <div class="col-md-7">
-                                <div class="text-center" style="margin-bottom: 15px">
-                                    <span ><h4><%= ListTinTuctheoloai.get(0).getTieuDe()%></h4></span>
-                                </div>
-                                <div row>
-                                    <div class="col-md-7">
-                                        <a href="chitiettin.jsp?idtin=<%=ListTinTuctheoloai.get(0).getIdTinTuc()%>">
-                                            <img style="margin-top: 15px" class="img-thumbnail pull-left" src="${pageContext.request.contextPath}/<%=folderupload%><%= ListTinTuctheoloai.get(0).getImage()%>" width="200px" >
-                                        </a>
-
-                                    </div>
-                                    <div class="col-md-5"style="margin-top: 15px">
-                                        <span style="margin-top: 15px"><%= ListTinTuctheoloai.get(0).getTomTatTin()%></span>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="col-md-5">
-
-                                <ul style="margin-top: 50px">
-                                    <%
-                                        for (int b = 1; b < ListTinTuctheoloai.size(); b++) {
-                                            Tintuc tintuctheoloai = ListTinTuctheoloai.get(b);
-                                    %>
-                                    <a href="chitiettin.jsp?idtin=<%=tintuctheoloai.getIdTinTuc()%>" style="hover :color: red">
-                                        <li style="list-style: cross-fade;margin-top:20px " ><%= tintuctheoloai.getTieuDe()%></li>
-                                    </a>
-
-                                    <%
-                                        }
-                                    %>                                     
-                                </ul>
-                            </div>
                         </div>
-                        <div style="border-bottom: 1px solid #ddd; margin-top: 50px"></div>  
-                    </section>
+                        <div class="text-center" style="margin-top: 30px">
+                            <ul class="pagination pager ">
+                                <li><a  aria-label="Previous" href="?pagenumber=<%=prePage%> " > <span aria-hidden="true">&laquo;</span></a></li>
+                                    <%
 
-                    <%
-                        }
-                    %>
+                                        for (int j = 1; j <= pageCount; j++) {
+                                            if (pageNumber == j) {
+                                    %>
+                                <li class="active"><a href="?pagenumber=<%=j%>"><%=j%></a></li>
+                                    <%
+                                    } else {
+                                    %>                                   
+                                <li ><a href="?pagenumber=<%=j%>"><%=j%></a></li>
+
+                                <%
+                                        }
+                                    }
+                                %>
+                                <li ><a aria-label="Next" href="?pagenumber=<%=nextPage%>"><span aria-hidden="true">&raquo;</span></a></li>
+                            </ul>
+                        </div>
+
+                    </section>
                 </div>
                 <div class="col-md-4">
                     <div class="panel-group">
@@ -181,4 +165,5 @@
     </section>
     <%@include file="includes/footer.jsp" %>
 </body>
+
 </html>

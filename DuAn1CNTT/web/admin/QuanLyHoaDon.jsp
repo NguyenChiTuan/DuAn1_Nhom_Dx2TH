@@ -93,30 +93,7 @@
                 <li class="active"><a href="QuanLyHoaDon.jsp"><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg> Quản Lý Hóa Đơn</a></li>
                 <li><a href="QuanLyHoaDonLa.jsp"><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg> Quản Lý Hóa Đơn Lạ</a></li>
                 <li
-                <li class="parent ">
-                    <a href="#">
-                        <span data-toggle="collapse" href="#sub-item-1"><svg class="glyph stroked chevron-down"><use xlink:href="#stroked-chevron-down"></use></svg></span> Dropdown 
-                    </a>
-                    <ul class="children collapse" id="sub-item-1">
-                        <li>
-                            <a class="" href="#">
-                                <svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Sub Item 1
-                            </a>
-                        </li>
-                        <li>
-                            <a class="" href="#">
-                                <svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Sub Item 2
-                            </a>
-                        </li>
-                        <li>
-                            <a class="" href="#">
-                                <svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Sub Item 3
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li role="presentation" class="divider"></li>
-                <li><a href="login.html"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Login Page</a></li>
+                
             </ul>
 
         </div><!--/.sidebar-->

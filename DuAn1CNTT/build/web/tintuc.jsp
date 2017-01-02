@@ -36,7 +36,8 @@
         <!------------------------------------------------------------------------------------------->
 
         <!-- bắt đầu menu tin tức-->
-        <%            LoaiTinTucService LTTService = new LoaiTinTucService();
+        <%            
+            LoaiTinTucService LTTService = new LoaiTinTucService();
             ArrayList<Loaitintuc> ListLoaiTinTuc = null;
             ListLoaiTinTuc = LTTService.GetAllLoaiTinTuc();
             TinTucService TTService = new TinTucService();
@@ -54,7 +55,7 @@
                                 for (int i = 0; i < ListLoaiTinTuc.size(); i++) {
                                     Loaitintuc LTT = ListLoaiTinTuc.get(i);
                             %>
-                        <li><a href='#'><%= LTT.getTenLoaiTinTuc()%></a></li>
+                            <li><a href='chuyenmuctin.jsp?idloaitin=<%= LTT.getIdLoaiTinTuc() %>'><%= LTT.getTenLoaiTinTuc()%></a></li>
                             <%
                                 }
                             %>
@@ -93,26 +94,26 @@
                             ListTinTuctheoloai = TTService.GetSoLuongTinTucTheoLoai(LTT.getIdLoaiTinTuc(), 4);
                     %>
                     <section style="margin-bottom: 50px">
-                        <div style="border-bottom: 1px solid #ddd; margin-top: 50px"></div>  
+
                         <div style="margin-bottom:30px;margin-top: 15px; font-family: cursive;font-size: 20px;color: #0044cc"><%= LTT.getTenLoaiTinTuc()%> </div>
-                                          
+
 
                         <div class="row">
                             <div class="col-md-7">
                                 <div class="text-center" style="margin-bottom: 15px">
-                                    <span ><h4><%= ListTinTuctheoloai.get(0).getTieuDe() %></h4></span>
+                                    <span ><h4><%= ListTinTuctheoloai.get(0).getTieuDe()%></h4></span>
                                 </div>
                                 <div row>
                                     <div class="col-md-7">
                                         <a href="chitiettin.jsp?idtin=<%=ListTinTuctheoloai.get(0).getIdTinTuc()%>">
                                             <img style="margin-top: 15px" class="img-thumbnail pull-left" src="${pageContext.request.contextPath}/<%=folderupload%><%= ListTinTuctheoloai.get(0).getImage()%>" width="200px" >
                                         </a>
-                                        
+
                                     </div>
                                     <div class="col-md-5"style="margin-top: 15px">
                                         <span style="margin-top: 15px"><%= ListTinTuctheoloai.get(0).getTomTatTin()%></span>
                                     </div>
-                                    
+
                                 </div>
                             </div>
                             <div class="col-md-5">
@@ -125,10 +126,10 @@
                                     <a href="chitiettin.jsp?idtin=<%=tintuctheoloai.getIdTinTuc()%>" style="hover :color: red">
                                         <li style="list-style: cross-fade;margin-top:20px " ><%= tintuctheoloai.getTieuDe()%></li>
                                     </a>
-                                    
-                                        <%
-                                            }
-                                        %>                                     
+
+                                    <%
+                                        }
+                                    %>                                     
                                 </ul>
                             </div>
                         </div>
@@ -178,12 +179,6 @@
             </div>
         </div>
     </section>
-
-
-    <!------------------------------------------------------------------------------------------->
-
-
-
-
+    <%@include file="includes/footer.jsp" %>
 </body>
 </html>

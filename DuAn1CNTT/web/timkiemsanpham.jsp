@@ -218,8 +218,8 @@
                     <div class="related-row">
                         <h4>Có thể bạn thích?</h4>
                         <div class="galry-like">  
-                            <a href="single.html"><img src="images/e1.png" class="img-responsive" alt="img"></a>             
-                            <h4><a href="products.html">Audio speaker</a></h4> 
+                            <a href="#"><img src="images/e1.png" class="img-responsive" alt="img"></a>             
+                            <h4><a href="#">Audio speaker</a></h4> 
                             <h5>$100</h5>       
                         </div>
                     </div>
