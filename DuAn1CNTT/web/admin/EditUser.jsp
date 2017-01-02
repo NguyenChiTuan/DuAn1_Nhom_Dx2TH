@@ -81,6 +81,12 @@
                                         <input type="text" name="SDT" value="<%=user.getSdt()%>" class="form-control">
                                     </div>
                                 </div>
+                                     <div class="form-group ">
+                                    <label class="control-label col-md-2" for="SDT">Quyền :</label>
+                                    <div class="col-sm-10">
+                                        <input type="number" name="quyen" value="<%=user.getIdQuyen()%>" class="form-control">
+                                    </div>
+                                </div>
                             
                             <br>
                             <button style="font-weight: bold" type="submit" class="btn btn-info">

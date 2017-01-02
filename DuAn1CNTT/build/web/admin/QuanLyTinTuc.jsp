@@ -84,7 +84,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="pageadmin.jsp"><span>Dx2T</span>Admin</a>
+                    <a class="navbar-brand" href="../index.jsp"><span>Dx2T</span>Admin</a>
                     <ul class="user-menu">
                         <li class="dropdown pull-right">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> User <span class="caret"></span></a>
@@ -113,8 +113,7 @@
                 <li class="active"><a href="QuanLyTinTuc.jsp"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Quản Lý Tin Tức</a></li>
                 <li><a href="QuanLyHoaDon.jsp"><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg> Quản Lý Hóa Đơn</a></li>
                 <li><a href="QuanLyHoaDonLa.jsp"><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg> Quản Lý Hóa Đơn Lạ</a></li>
-                <li><a href="QuanLyMenu.jsp"><svg class="glyph stroked app-window"><use xlink:href="#stroked-app-window"></use></svg> Quản Lý Menu</a></li>
-                <li><a href="icon.jsp"><svg class="glyph stroked star"><use xlink:href="#stroked-star"></use></svg> Icons</a></li>
+                
                 <li class="parent ">
                     <a href="#">
                         <span data-toggle="collapse" href="#sub-item-1"><svg class="glyph stroked chevron-down"><use xlink:href="#stroked-chevron-down"></use></svg></span> Dropdown 
@@ -193,7 +192,7 @@
 
 
             <table class="table text-left">
-                <form action="../XoaNhieuSPServlet" method="get">
+                <form action="../XoaNhieuTinServlet" method="get">
                     <thead style="background-color: #F8FCEB">
                         <tr>
                             <th>STT</th>
@@ -202,7 +201,11 @@
                             <th>Nội Dung Tóm Tắt</th>
                             <th>Ngày Đăng</th>                     
                             <th>Sửa</th>
-                            <th>Chọn</th>
+                             <th>
+                                <button type="submit" class="btn btn-sm btn-danger">
+                                    <span class="glyphicon glyphicon-remove"></span> Delete
+                                </button>
+                            </th>
                         </tr>
                     </thead>
                     <%

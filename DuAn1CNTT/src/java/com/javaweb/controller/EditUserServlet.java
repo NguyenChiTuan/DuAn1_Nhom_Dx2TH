@@ -34,13 +34,15 @@ public class EditUserServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         
-        String FullName, UserName, SDT, Email, gioitinh,iduser,diachi;
+        String FullName, UserName, SDT, Email, gioitinh,iduser,diachi,quyen;
+        
         FullName = request.getParameter("fullName");
         UserName = request.getParameter("UserName");
          SDT= request.getParameter("SDT");
         Email = request.getParameter("Email");
         gioitinh = request.getParameter("gioitinh");
         diachi = request.getParameter("DiaChi");
+        quyen=request.getParameter("quyen");
         
         iduser = request.getParameter("iduser");
         UserService user = new UserService();
@@ -51,24 +53,26 @@ public class EditUserServlet extends HttpServlet {
         us.setSdt(SDT);
         us.setGioiTinh(gioitinh);
         us.setDiaChi(diachi);
+        us.setIdQuyen(Integer.parseInt(quyen));
+
 
         boolean rs = user.Insertservice(us);
         if(rs){
             response.sendRedirect("admin/QuanLyUser.jsp");
         }
-        
-//        try (PrintWriter out = response.getWriter()) {
-//            /* TODO output your page here. You may use following sample code. */
-//            out.println("<!DOCTYPE html>");
-//            out.println("<html>");
-//            out.println("<head>");
-//            out.println("<title>Servlet EditUserServlet</title>");            
-//            out.println("</head>");
-//            out.println("<body>");
-//            out.println("<h1>Servlet EditUserServlet at " + request.getContextPath() + "</h1>");
-//            out.println("</body>");
-//            out.println("</html>");
-//        }
+//        
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet EditUserServlet</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet EditUserServlet at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

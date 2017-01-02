@@ -128,4 +128,27 @@ public class TinTucService {
         }
         return ListTinTUc;
     }
+     public boolean DeleteAlLTin(int idtin) {
+        Session session = NewHibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+
+        try {
+            tx = session.getTransaction();
+            tx.begin();
+            Tintuc tin = new Tintuc();
+            tin.setIdTinTuc(idtin);
+            session.delete(tin);
+            tx.commit();
+            return true;
+        } catch (Exception e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            System.out.println(e.toString());
+        } finally {
+            session.close();
+        }
+
+        return false;
+    }
 }
